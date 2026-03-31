@@ -17,6 +17,7 @@ import {
 
 const currentPage = document.body.dataset.page || "home";
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const NAV_BREAKPOINT = 1040;
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
@@ -51,27 +52,30 @@ function renderShell() {
       <header class="site-header">
         <div class="container">
           <div class="nav-shell">
-            <a class="brand" href="index.html" aria-label="${siteConfig.companyName} home">
+            <a class="brand brand--header" href="index.html" aria-label="${siteConfig.companyName} home">
               <img src="assets/images/logo-mark.svg" alt="">
-              <span class="brand__text">
+              <span class="brand__text brand__text--header">
+                <span class="brand__meta">Colombo Design + Build</span>
                 <strong>${siteConfig.shortName}</strong>
-                <small>Private Limited</small>
               </span>
             </a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
               <span class="nav-toggle__line"></span>
             </button>
-            <nav class="site-nav" id="site-nav" aria-label="Primary">
-              ${navigation
-                .map(
-                  (item) => `
-                    <a href="${item.href}" class="${item.page === currentPage ? "is-active" : ""}">
-                      ${item.label}
-                    </a>`
-                )
-                .join("")}
+            <div class="nav-panel">
+              <nav class="site-nav" id="site-nav" aria-label="Primary">
+                ${navigation
+                  .map(
+                    (item) => `
+                      <a href="${item.href}" class="${item.page === currentPage ? "is-active" : ""}">
+                        ${item.label}
+                      </a>`
+                  )
+                  .join("")}
+              </nav>
+              <a class="nav-contact" href="tel:${siteConfig.phone.replace(/\s+/g, "")}">${siteConfig.phone}</a>
               <a class="btn btn--primary nav-cta" href="quote.html">Get a Quote</a>
-            </nav>
+            </div>
           </div>
         </div>
       </header>
@@ -391,28 +395,47 @@ function renderGallery() {
 
 function bindNavigation() {
   const toggle = $(".nav-toggle");
-  const nav = $(".site-nav");
+  const navPanel = $(".nav-panel");
 
-  if (!toggle || !nav) {
+  if (!toggle || !navPanel) {
     return;
   }
+
+  const closeNav = () => {
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+  };
 
   toggle.addEventListener("click", () => {
     const isOpen = document.body.classList.toggle("nav-open");
     toggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  $$("a", nav).forEach((link) => {
+  $$("a", navPanel).forEach((link) => {
     link.addEventListener("click", () => {
-      document.body.classList.remove("nav-open");
-      toggle.setAttribute("aria-expanded", "false");
+      closeNav();
     });
   });
 
+  document.addEventListener("click", (event) => {
+    if (!document.body.classList.contains("nav-open")) {
+      return;
+    }
+
+    if (event.target instanceof Element && !event.target.closest(".nav-shell")) {
+      closeNav();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeNav();
+    }
+  });
+
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 960) {
-      document.body.classList.remove("nav-open");
-      toggle.setAttribute("aria-expanded", "false");
+    if (window.innerWidth > NAV_BREAKPOINT) {
+      closeNav();
     }
   });
 }
