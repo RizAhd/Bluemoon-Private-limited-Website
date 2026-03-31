@@ -52,29 +52,58 @@ function renderShell() {
       <header class="site-header">
         <div class="container">
           <div class="nav-shell">
-            <a class="brand brand--header" href="index.html" aria-label="${siteConfig.companyName} home">
-              <img src="assets/images/logo-mark.svg" alt="">
-              <span class="brand__text brand__text--header">
-                <span class="brand__meta">Colombo Design + Build</span>
-                <strong>${siteConfig.shortName}</strong>
-              </span>
-            </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
-              <span class="nav-toggle__line"></span>
-            </button>
-            <div class="nav-panel">
-              <nav class="site-nav" id="site-nav" aria-label="Primary">
-                ${navigation
+            <div class="nav-ribbon">
+              <div class="nav-utility">
+                <div class="nav-utility__item">
+                  <span class="nav-utility__label">Office</span>
+                  <span>${siteConfig.address}</span>
+                </div>
+                <div class="nav-utility__item">
+                  <span class="nav-utility__label">Hours</span>
+                  <span>${siteConfig.hours}</span>
+                </div>
+                <div class="nav-utility__item">
+                  <span class="nav-utility__label">Call</span>
+                  <a href="tel:${siteConfig.phone.replace(/\s+/g, "")}">${siteConfig.phone}</a>
+                </div>
+              </div>
+              <div class="nav-social" aria-label="Social links">
+                ${siteConfig.socialLinks
                   .map(
-                    (item) => `
-                      <a href="${item.href}" class="${item.page === currentPage ? "is-active" : ""}">
-                        ${item.label}
-                      </a>`
+                    (link) => `
+                      <a href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`
                   )
                   .join("")}
-              </nav>
-              <a class="nav-contact" href="tel:${siteConfig.phone.replace(/\s+/g, "")}">${siteConfig.phone}</a>
-              <a class="btn btn--primary nav-cta" href="quote.html">Get a Quote</a>
+              </div>
+            </div>
+            <div class="nav-main">
+              <a class="brand brand--header" href="index.html" aria-label="${siteConfig.companyName} home">
+                <img src="assets/images/logo-mark.svg" alt="">
+                <span class="brand__text brand__text--header">
+                  <span class="brand__meta">Private Limited</span>
+                  <strong>${siteConfig.shortName}</strong>
+                  <span class="brand__caption">Residential, commercial, and finish-focused construction.</span>
+                </span>
+              </a>
+              <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+                <span class="nav-toggle__line"></span>
+              </button>
+              <div class="nav-panel">
+                <nav class="site-nav" id="site-nav" aria-label="Primary">
+                  ${navigation
+                    .map(
+                      (item) => `
+                        <a href="${item.href}" class="${item.page === currentPage ? "is-active" : ""}">
+                          ${item.label}
+                        </a>`
+                    )
+                    .join("")}
+                </nav>
+                <div class="nav-actions">
+                  <a class="nav-contact" href="mailto:${siteConfig.email}">${siteConfig.email}</a>
+                  <a class="btn btn--primary nav-cta" href="quote.html">Start a Project</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
