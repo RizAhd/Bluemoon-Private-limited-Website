@@ -1,13 +1,17 @@
 export const siteConfig = {
   companyName: "Bluemoon Private Limited",
   shortName: "Bluemoon",
-  tagline: "Constructing enduring spaces with discipline, detail, and distinction.",
+  tagline: "Nuwara Eliya-based construction and finishing shaped for the Sri Lankan hill country.",
   phone: "+94 77 245 1108",
   email: "hello@bluemoon.lk",
-  address: "No. 18 Lake Crescent, Colombo 07, Sri Lanka",
+  address: "Upper Lake Road, Nuwara Eliya, Sri Lanka",
   hours: "Mon - Sat | 8:30 AM - 6:00 PM",
+  region: "Nuwara Eliya, Sri Lanka",
+  serviceArea: "Serving Nuwara Eliya, Kandy, Colombo, and selected projects across Sri Lanka.",
+  brandCaption:
+    "Nuwara Eliya-based construction for private residences, hospitality spaces, renovations, and refined commercial work.",
   description:
-    "Bluemoon Private Limited delivers premium residential, commercial, and specialist construction projects with trustworthy planning, refined execution, and elegant finishes.",
+    "Bluemoon Private Limited delivers premium residential, hospitality, commercial, and specialist construction projects from Nuwara Eliya with disciplined planning, refined execution, and elegant finishes.",
   socialLinks: [
     { label: "LinkedIn", href: "https://www.linkedin.com/" },
     { label: "Instagram", href: "https://www.instagram.com/" },
@@ -106,13 +110,13 @@ export const projects = [
   },
   {
     id: "blueport-tower",
-    title: "Blueport Business Tower",
+    title: "Blueport Commercial Suites",
     category: "commercial",
     status: "completed",
     location: "Kandy",
     year: "2024",
     description:
-      "A commercial building delivery shaped around contemporary facade presence, efficient floor planning, and premium corporate finishes.",
+      "A commercial delivery shaped around contemporary facade presence, efficient floor planning, and premium corporate finishes for a busy urban client.",
     image:
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
     alt: "Modern commercial office building",
@@ -121,13 +125,13 @@ export const projects = [
   },
   {
     id: "lakeside-renewal",
-    title: "Lakeside Villa Renewal",
+    title: "Lake Gregory Villa Renewal",
     category: "renovation",
     status: "completed",
-    location: "Negombo",
+    location: "Nuwara Eliya",
     year: "2025",
     description:
-      "A full renovation and refinement project that transformed an aging property into a brighter and more elegant private residence.",
+      "A full renovation and refinement project that transformed an aging hill-country property into a warmer, brighter, and more elegant private residence.",
     image:
       "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
     alt: "Renovated villa interior",
@@ -139,10 +143,10 @@ export const projects = [
     title: "Verdant Square Office Fit-Out",
     category: "commercial",
     status: "ongoing",
-    location: "Colombo",
+    location: "Nuwara Eliya",
     year: "2026",
     description:
-      "An ongoing office transformation blending workflow efficiency, executive presentation, and strong detail management.",
+      "An ongoing office transformation blending workflow efficiency, executive presentation, and strong detail management within a compact urban footprint.",
     image:
       "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
     alt: "Premium office fit-out project",
@@ -150,13 +154,13 @@ export const projects = [
   },
   {
     id: "crescent-villas",
-    title: "Crescent Garden Villas",
+    title: "Crescent Ridge Villas",
     category: "residential",
     status: "ongoing",
-    location: "Galle",
+    location: "Hatton",
     year: "2026",
     description:
-      "A multi-unit villa development with emphasis on finish continuity, refined landscaping, and dependable sequencing.",
+      "A multi-unit villa development with emphasis on finish continuity, weather-aware detailing, refined landscaping, and dependable sequencing.",
     image:
       "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1400&q=80",
     alt: "Premium villa development exterior",
@@ -170,7 +174,7 @@ export const projects = [
     location: "Nuwara Eliya",
     year: "2026",
     description:
-      "A careful heritage-sensitive upgrade that balances restoration, structural confidence, and contemporary usability.",
+      "A careful heritage-sensitive upgrade that balances restoration, structural confidence, and contemporary usability within the Nuwara Eliya highlands.",
     image:
       "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80",
     alt: "Renovation site with premium exterior detailing",
@@ -249,13 +253,13 @@ export const reasons = [
     title: "Transparent Project Stewardship",
     icon: "shield",
     description:
-      "Clients stay informed through clear communication, milestone visibility, and practical decision-making support.",
+      "Clients stay informed through clear communication, milestone visibility, and practical decision-making support from first visit to handover.",
   },
   {
     title: "Premium Finish Discipline",
     icon: "spark",
     description:
-      "We treat the visible final quality of a project as seriously as the hidden technical layers underneath it.",
+      "We treat the visible final quality of a project as seriously as the hidden technical layers underneath it, especially in weather-exposed hill-country environments.",
   },
   {
     title: "Measured Planning Before Action",
@@ -267,7 +271,7 @@ export const reasons = [
     title: "Reliable Delivery Culture",
     icon: "check",
     description:
-      "Our teams value accountability, schedule awareness, and the calm professionalism that serious clients expect.",
+      "Our teams value accountability, schedule awareness, and the calm professionalism that serious clients expect on high-value residential and commercial work.",
   },
 ];
 
@@ -284,7 +288,7 @@ export const processSteps = [
     eyebrow: "Site Visit",
     title: "Review the physical context and technical considerations.",
     description:
-      "A site visit helps us assess access, conditions, constraints, opportunities, and the real-world context that will shape delivery.",
+      "A site visit helps us assess access, slopes, climate exposure, constraints, opportunities, and the real-world context that will shape delivery.",
   },
   {
     step: "03",
@@ -298,7 +302,7 @@ export const processSteps = [
     eyebrow: "Planning",
     title: "Align sequence, materials, timeline, and execution readiness.",
     description:
-      "Before construction advances, we organize technical details, work phasing, procurement, and key approvals where required.",
+      "Before construction advances, we organize technical details, work phasing, procurement, and key approvals where required for the site and region.",
   },
   {
     step: "05",
@@ -321,19 +325,19 @@ export const testimonials = [
     quote:
       "Bluemoon managed our project with a level of calm professionalism that made every decision easier. The finish quality exceeded our expectations.",
     name: "Nimal Perera",
-    role: "Residential Client",
+    role: "Homeowner, Nuwara Eliya",
   },
   {
     quote:
       "What stood out most was the discipline in planning and the clarity of communication. We always felt the project was in capable hands.",
     name: "Shanika Fernando",
-    role: "Commercial Client",
+    role: "Boutique Hotel Client, Kandy",
   },
   {
     quote:
       "They balanced premium aesthetics with practical delivery. Even during complex phases, the team stayed composed, responsive, and solutions-focused.",
     name: "Akhil Ramanayake",
-    role: "Renovation Client",
+    role: "Renovation Client, Colombo",
   },
 ];
 
@@ -376,25 +380,27 @@ export const storyMoments = [
     year: "Foundation",
     title: "A quality-first construction model",
     description:
-      "Bluemoon was established with a clear objective: create a construction experience defined by structure, composure, and premium outcomes.",
+      "Bluemoon was established with a clear objective: create a construction experience in Nuwara Eliya defined by structure, composure, and premium outcomes.",
   },
   {
     year: "Growth",
     title: "Broader capability across project types",
     description:
-      "As client trust grew, our delivery expanded into residential, commercial, renovation, planning, and specialist support services.",
+      "As client trust grew, our delivery expanded from hill-country residential work into commercial, renovation, planning, and specialist support services.",
   },
   {
     year: "Today",
     title: "A trusted partner for serious clients",
     description:
-      "We continue to refine our systems, workmanship standards, and client communication to deliver a stronger project experience every year.",
+      "We continue to refine our systems, workmanship standards, and client communication to deliver a stronger project experience across Sri Lanka every year.",
   },
 ];
 
 export const sectors = [
   "Private Residences",
-  "Luxury Villas",
+  "Hill Country Villas",
+  "Boutique Hotels",
+  "Holiday Bungalows",
   "Commercial Offices",
   "Retail Spaces",
   "Interior Fit-Outs",
@@ -422,7 +428,7 @@ export const contactHighlights = [
     title: "Visit Us",
     icon: "map",
     description: siteConfig.address,
-    link: "https://maps.google.com/?q=Colombo%2007%20Sri%20Lanka",
+    link: "https://maps.google.com/?q=Nuwara%20Eliya%20Sri%20Lanka",
     linkLabel: "Open map",
   },
   {

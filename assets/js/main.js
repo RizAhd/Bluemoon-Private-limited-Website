@@ -82,7 +82,7 @@ function renderShell() {
                 <span class="brand__text brand__text--header">
                   <span class="brand__meta">Private Limited</span>
                   <strong>${siteConfig.shortName}</strong>
-                  <span class="brand__caption">Residential, commercial, and finish-focused construction.</span>
+                  <span class="brand__caption">${siteConfig.brandCaption}</span>
                 </span>
               </a>
               <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
