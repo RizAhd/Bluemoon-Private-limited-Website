@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Quote | Bluemoon Private Limited</title>
+  <meta name="description" content="Request a construction quote from Bluemoon Private Limited for residential, commercial, renovation, and specialist project requirements.">
+  <meta name="theme-color" content="#0C1B2A">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="quote">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="site-shell">
+    <div data-site-header></div>
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container page-hero__grid">
+          <div class="page-hero__content">
+            <p class="eyebrow" data-hero-item>Request a Quote</p>
+            <h1 data-hero-item>Share your project brief and receive a focused next-step response.</h1>
+            <p data-hero-item>Tell us about your project type, location, budget expectations, and timeline so we can guide you toward a practical quotation process.</p>
+          </div>
+          <div class="page-hero__panel surface-card" data-hero-visual>
+            <p>Version 1 stores quote requests in your browser only using localStorage to keep the demo lightweight and backend-free.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container contact-layout">
+          <div class="surface-card" data-reveal>
+            <p class="eyebrow">Project Details</p>
+            <h2>Help us understand your scope.</h2>
+            <form class="form" id="quote-form" data-storage-form data-form-type="quote" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="quote-name">Full Name</label>
+                  <input id="quote-name" name="fullName" type="text" autocomplete="name" minlength="3" required>
+                </div>
+                <div class="field">
+                  <label for="quote-phone">Phone</label>
+                  <input id="quote-phone" name="phone" type="tel" autocomplete="tel" minlength="7" required>
+                </div>
+                <div class="field">
+                  <label for="quote-email">Email</label>
+                  <input id="quote-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label for="quote-project-type">Project Type</label>
+                  <select id="quote-project-type" name="projectType" required>
+                    <option value="">Select project type</option>
+                    <option>Residential Construction</option>
+                    <option>Commercial Construction</option>
+                    <option>Renovation</option>
+                    <option>Interior / Exterior Works</option>
+                    <option>Project Planning</option>
+                    <option>Consultancy</option>
+                    <option>Structural Work</option>
+                    <option>Finishing Works</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="quote-location">Location</label>
+                  <input id="quote-location" name="location" type="text" minlength="3" required>
+                </div>
+                <div class="field">
+                  <label for="quote-budget">Estimated Budget</label>
+                  <select id="quote-budget" name="estimatedBudget" required>
+                    <option value="">Select budget range</option>
+                    <option>Below LKR 5 Million</option>
+                    <option>LKR 5 Million - 15 Million</option>
+                    <option>LKR 15 Million - 30 Million</option>
+                    <option>LKR 30 Million - 60 Million</option>
+                    <option>Above LKR 60 Million</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="quote-start-date">Preferred Start Date</label>
+                  <input id="quote-start-date" name="preferredStartDate" type="date" required>
+                </div>
+                <div class="field field--full">
+                  <label for="quote-details">Project Details</label>
+                  <textarea id="quote-details" name="projectDetails" rows="6" minlength="20" required></textarea>
+                </div>
+              </div>
+              <button class="btn btn--primary" type="submit">Submit Quote Request</button>
+              <p class="form-feedback" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="contact-side">
+            <div class="surface-card" data-reveal>
+              <p class="eyebrow">What Happens Next</p>
+              <h2>Our team reviews your brief and responds with practical guidance.</h2>
+              <ul class="feature-list">
+                <li>Initial scope review and feasibility understanding</li>
+                <li>Recommended consultation or site visit if needed</li>
+                <li>Clarification of timeline, budget, and project goals</li>
+                <li>Structured quotation pathway for the next phase</li>
+              </ul>
+            </div>
+            <div class="surface-card" data-reveal>
+              <p class="eyebrow">Suitable For</p>
+              <h2>New builds, upgrades, fit-outs, and specialized works.</h2>
+              <p>Use this form for serious residential, commercial, renovation, structural, and finishing requests that need a premium-construction approach.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/forms.js"></script>
+</body>
+</html>

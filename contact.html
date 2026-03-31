@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Bluemoon Private Limited</title>
+  <meta name="description" content="Contact Bluemoon Private Limited for premium construction consultations, project discussions, and tailored support.">
+  <meta name="theme-color" content="#0C1B2A">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="site-shell">
+    <div data-site-header></div>
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container page-hero__grid">
+          <div class="page-hero__content">
+            <p class="eyebrow" data-hero-item>Contact Us</p>
+            <h1 data-hero-item>Start the conversation with a team that values clarity and trust.</h1>
+            <p data-hero-item>Reach out for consultations, site visits, scope discussions, or general project guidance. We respond with focus, professionalism, and practical next steps.</p>
+          </div>
+          <div class="page-hero__panel surface-card" data-hero-visual>
+            <p>Version 1 stores form submissions in your browser only using localStorage for demo and review purposes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div id="contact-page-highlights" class="card-grid card-grid--three-up"></div>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container contact-layout">
+          <div class="surface-card" data-reveal>
+            <p class="eyebrow">Send an Inquiry</p>
+            <h2>Tell us how we can help.</h2>
+            <form class="form" id="contact-form" data-storage-form data-form-type="contact" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="contact-name">Full Name</label>
+                  <input id="contact-name" name="fullName" type="text" autocomplete="name" minlength="3" required>
+                </div>
+                <div class="field">
+                  <label for="contact-phone">Phone</label>
+                  <input id="contact-phone" name="phone" type="tel" autocomplete="tel" minlength="7" required>
+                </div>
+                <div class="field">
+                  <label for="contact-email">Email</label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label for="contact-subject">Subject</label>
+                  <input id="contact-subject" name="subject" type="text" minlength="4" required>
+                </div>
+                <div class="field field--full">
+                  <label for="contact-message">Message</label>
+                  <textarea id="contact-message" name="message" rows="6" minlength="20" required></textarea>
+                </div>
+              </div>
+              <button class="btn btn--primary" type="submit">Send Inquiry</button>
+              <p class="form-feedback" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="contact-side">
+            <div class="surface-card" data-reveal>
+              <p class="eyebrow">Visit or Call</p>
+              <h2>Project consultations available by appointment.</h2>
+              <p>We support residential, commercial, renovation, and fit-out requirements with responsive guidance and structured next steps.</p>
+            </div>
+            <div class="map-card surface-card" data-reveal>
+              <iframe title="Bluemoon Private Limited location map" src="https://www.google.com/maps?q=Colombo%2007%20Sri%20Lanka&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Admin | Bluemoon Private Limited</title>
+  <meta name="description" content="Local browser-only admin dashboard for Bluemoon Private Limited contact inquiries and quote requests stored in localStorage.">
+  <meta name="theme-color" content="#0C1B2A">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="admin">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="site-shell">
+    <div data-site-header></div>
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container page-hero__grid">
+          <div class="page-hero__content">
+            <p class="eyebrow" data-hero-item>Local Admin</p>
+            <h1 data-hero-item>Browser-only demo dashboard for inquiries and quotation requests.</h1>
+            <p data-hero-item>This page reads data from localStorage on this browser only. There is no real authentication or server sync in Version 1.</p>
+          </div>
+          <div class="page-hero__panel surface-card" data-hero-visual>
+            <p>Use this page to review, mark, delete, and export local submissions for demo purposes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div id="admin-overview" class="card-grid card-grid--three-up"></div>
+          <div class="admin-toolbar surface-card" data-reveal>
+            <div>
+              <p class="eyebrow">Admin Tools</p>
+              <h2>Manage locally stored records.</h2>
+            </div>
+            <div class="admin-toolbar__actions">
+              <button class="btn btn--primary" id="export-admin-data" type="button">Export JSON</button>
+              <a class="btn btn--secondary" href="contact.html">Open Contact Form</a>
+              <a class="btn btn--secondary" href="quote.html">Open Quote Form</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container admin-stack">
+          <section class="admin-panel">
+            <div class="section-heading" data-reveal>
+              <p class="eyebrow">Contact Submissions</p>
+              <h2>Saved inquiries from the contact page.</h2>
+            </div>
+            <div id="contact-admin-list" class="admin-list"></div>
+          </section>
+
+          <section class="admin-panel">
+            <div class="section-heading" data-reveal>
+              <p class="eyebrow">Quote Requests</p>
+              <h2>Saved requests from the quotation form.</h2>
+            </div>
+            <div id="quote-admin-list" class="admin-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/admin.js"></script>
+</body>
+</html>

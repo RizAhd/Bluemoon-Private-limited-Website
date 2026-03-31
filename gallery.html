@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Bluemoon Private Limited</title>
+  <meta name="description" content="Browse the Bluemoon Private Limited gallery featuring premium construction, architectural, interior, and project progress imagery.">
+  <meta name="theme-color" content="#0C1B2A">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="gallery">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="site-shell">
+    <div data-site-header></div>
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container page-hero__grid">
+          <div class="page-hero__content">
+            <p class="eyebrow" data-hero-item>Visual Gallery</p>
+            <h1 data-hero-item>A visual record of premium construction quality, detail, and atmosphere.</h1>
+            <p data-hero-item>Explore curated imagery from project exteriors, interiors, finishing phases, and site progress moments that reflect the Bluemoon standard.</p>
+          </div>
+          <div class="page-hero__panel surface-card" data-hero-visual>
+            <p>Use the gallery to get a closer sense of our material palette, design sensitivity, and finish discipline across project types.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Gallery Highlights</p>
+            <h2>Elegant imagery with a closer look at craft and composition.</h2>
+          </div>
+          <div id="gallery-grid" class="gallery-grid"></div>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+  </div>
+
+  <div class="lightbox" id="gallery-lightbox" aria-hidden="true">
+    <div class="lightbox__overlay" data-lightbox-close></div>
+    <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <button class="lightbox__close" type="button" aria-label="Close gallery preview" data-lightbox-close>&times;</button>
+      <img id="lightbox-image" src="" alt="">
+      <div class="lightbox__meta">
+        <h2 id="lightbox-title"></h2>
+        <p id="lightbox-category"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
