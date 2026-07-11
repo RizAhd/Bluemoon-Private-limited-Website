@@ -119,6 +119,9 @@ img {
 a {
   color: inherit;
 }
+:where([id]) {
+  scroll-margin-top: 6rem;
+}
 
 h1,
 h2,
