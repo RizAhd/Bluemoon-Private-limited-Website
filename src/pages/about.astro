@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import CtaBand from "../components/CtaBand.astro";
@@ -7,7 +6,14 @@ import Icon from "../components/Icon.astro";
 import { siteConfig } from "../data/site";
 import { values } from "../data/values";
 import { credentials, cidaGrades } from "../data/credentials";
-import aboutImage from "../assets/projects/ganapathi-learning-centre-1.jpg";
+
+const facts = [
+  { k: "CIDA Registration", v: credentials.cidaReg },
+  { k: "Business Registration", v: credentials.businessReg },
+  { k: "Director", v: credentials.director },
+  { k: "Established", v: siteConfig.established },
+  { k: "Base", v: "Welimada, Badulla" },
+];
 ---
 <BaseLayout
   title="About | Bluemoon Engineering (Pvt) Ltd, Welimada"
@@ -36,13 +42,15 @@ import aboutImage from "../assets/projects/ganapathi-learning-centre-1.jpg";
 
   <section class="section">
     <div class="container split-layout">
-      <div class="media-frame" data-reveal>
-        <Image
-          src={aboutImage}
-          alt="School building constructed by Bluemoon Engineering for the Uva Provincial Council"
-          widths={[500, 800]}
-          sizes="(max-width: 1080px) 100vw, 50vw"
-        />
+      <div class="about-showcase" data-reveal>
+        <img src="/logo-icon-white.png" alt="" width="58" height="58" />
+        <p class="eyebrow">Registered Contractor</p>
+        <h2>{siteConfig.companyName}</h2>
+        <ul class="about-facts">
+          {facts.map((f) => (
+            <li><span>{f.k}</span><strong>{f.v}</strong></li>
+          ))}
+        </ul>
       </div>
       <div class="split-layout__content" data-reveal>
         <p class="eyebrow">Company Introduction</p>
@@ -138,3 +146,68 @@ import aboutImage from "../assets/projects/ganapathi-learning-centre-1.jpg";
 
   <CtaBand />
 </BaseLayout>
+
+<style>
+  .about-showcase {
+    align-self: stretch;
+    background: var(--navy-gradient);
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-showcase::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--blueprint);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .about-showcase > * {
+    position: relative;
+  }
+  .about-showcase h2 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  .about-showcase img {
+    margin-bottom: 1.1rem;
+  }
+  .about-facts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+  }
+  .about-facts li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .about-facts li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .about-facts span {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .about-facts strong {
+    color: var(--color-gold-300);
+    font-weight: 600;
+    text-align: right;
+  }
+</style>

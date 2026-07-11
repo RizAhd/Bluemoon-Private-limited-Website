@@ -12,11 +12,7 @@ const footerServices = services.slice(0, 5);
   <div class="container footer-grid">
     <div class="footer-brand">
       <a class="brand" href="/" aria-label={`${siteConfig.companyName} home`}>
-        <img src="/logo-mark.svg" alt="" width="40" height="40" />
-        <span class="brand__text">
-          <strong>{siteConfig.brandName}</strong>
-          <small>{siteConfig.brandMeta}</small>
-        </span>
+        <img src="/logo-white.png" alt={siteConfig.companyName} width="158" height="159" />
       </a>
       <p>{siteConfig.description}</p>
       <p class="footer-cred">
@@ -68,27 +64,13 @@ const footerServices = services.slice(0, 5);
     padding-bottom: 2.5rem;
   }
   .footer-brand .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
+    display: inline-block;
     text-decoration: none;
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
   }
-  .footer-brand .brand__text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-  }
-  .footer-brand .brand__text strong {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    color: var(--color-white);
-  }
-  .footer-brand .brand__text small {
-    font-size: 0.66rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-gold-400);
+  .footer-brand .brand img {
+    width: 158px;
+    height: auto;
   }
   .footer-brand p {
     font-size: 0.9rem;

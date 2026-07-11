@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import ServiceCard from "../components/ServiceCard.astro";
@@ -12,9 +11,14 @@ import { services } from "../data/services";
 import { featuredProjects } from "../data/projects";
 import { stats } from "../data/values";
 import { reasons } from "../data/reasons";
-import heroImage from "../assets/projects/helabogan-commercial-1.jpg";
 
 const featuredServices = services.filter((s) => s.featured);
+const heroStats = [
+  { n: "12+", l: "Contracts delivered" },
+  { n: "Rs 80M+", l: "Completed works" },
+  { n: "C-6 / C-7", l: "CIDA grades" },
+  { n: "6", l: "Construction fields" },
+];
 ---
 <BaseLayout
   title="Bluemoon Engineering (Pvt) Ltd | CIDA-Registered Construction Contractor, Uva Province"
@@ -22,11 +26,13 @@ const featuredServices = services.filter((s) => s.featured);
   page="home"
 >
   <section class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <img class="hero__watermark" src="/logo-icon-white.png" alt="" aria-hidden="true" />
     <div class="container hero-grid">
       <div class="hero__content">
         <p class="eyebrow" data-hero-item>{siteConfig.region}</p>
         <h1 data-hero-item>
-          CIDA-registered building &amp; civil-engineering contractor for Sri Lanka's hill country.
+          Registered building &amp; civil-engineering contractor for Sri Lanka's <span class="gold-text">hill country</span>.
         </h1>
         <p class="lead" data-hero-item>
           Bluemoon Engineering (Pvt) Ltd delivers schools, public buildings, roads, drainage, and
@@ -39,16 +45,22 @@ const featuredServices = services.filter((s) => s.featured);
         </div>
         <div data-hero-item><CredentialBand /></div>
       </div>
-      <div class="hero__visual" data-hero-item>
-        <Image
-          src={heroImage}
-          alt="Modern commercial building completed by Bluemoon Engineering in Bandarawela"
-          widths={[600, 900, 1200]}
-          sizes="(max-width: 1080px) 100vw, 45vw"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
+      <aside class="hero__panel glass" data-hero-item aria-label="Company highlights">
+        <div class="hero__panel-head">
+          <img src="/logo-icon-white.png" alt="" width="40" height="40" />
+          <span>CIDA Registered · Est. {siteConfig.established}</span>
+        </div>
+        <div class="hero__stats">
+          {
+            heroStats.map((s) => (
+              <div class="hero__stat">
+                <span class="n">{s.n}</span>
+                <span class="l">{s.l}</span>
+              </div>
+            ))
+          }
+        </div>
+      </aside>
     </div>
   </section>
 
