@@ -2,7 +2,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 import { Icon } from "@/components/Icon";
 import { reasons } from "@/lib/reasons";
-import { processSteps } from "@/lib/process";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { credentials, cidaGrades } from "@/lib/credentials";
 import { pageMetadata } from "@/lib/seo";
 
