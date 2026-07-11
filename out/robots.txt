@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://rizahd.github.io/Bluemoon-Private-limited-Website/sitemap.xml
