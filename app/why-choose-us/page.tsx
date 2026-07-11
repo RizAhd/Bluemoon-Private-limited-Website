@@ -65,16 +65,7 @@ export default function WhyChooseUsPage() {
             title="A clear route from consultation to handover."
             text="Each step is structured to improve visibility, reduce risk, and keep the project progressing with confidence."
           />
-          <div className="process-grid">
-            {processSteps.map((step) => (
-              <article className="process-step" key={step.step}>
-                <span className="process-step__number">{step.step}</span>
-                <span className="process-step__eyebrow">{step.eyebrow}</span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </article>
-            ))}
-          </div>
+          <ProcessTimeline />
         </div>
       </section>
 
