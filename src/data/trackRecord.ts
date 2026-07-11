@@ -103,11 +103,3 @@ export const trackRecord: TrackRecordItem[] = [
     year: "2021",
   },
 ];
-
-/** Formats an LKR amount as a compact "Rs 13.09M" / "Rs 1.22M" string. */
-export function formatLKR(value: number): string {
-  if (value >= 1_000_000) {
-    return `Rs ${(value / 1_000_000).toFixed(2).replace(/\.00$/, "")}M`;
-  }
-  return `Rs ${value.toLocaleString("en-LK")}`;
-}
