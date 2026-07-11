@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site";
 import { navigation } from "@/lib/navigation";
 import { services } from "@/lib/services";
 import { credentials } from "@/lib/credentials";
+import { asset } from "@/lib/asset";
 
 export function Footer() {
   const year = 2026;
