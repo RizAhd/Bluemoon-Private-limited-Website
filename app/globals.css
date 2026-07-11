@@ -1731,18 +1731,48 @@ p {
   }
 }
 
-/* ---------- header ---------- */
+/* ---------- header (glass) ---------- */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-line);
-  transition: box-shadow var(--transition);
+  border-bottom: 1px solid transparent;
+  transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .site-header.is-solid {
-  box-shadow: 0 10px 30px -18px rgba(16, 32, 52, 0.2);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px) saturate(1.5);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  border-bottom-color: var(--color-line);
+  box-shadow: 0 10px 30px -20px rgba(16, 32, 52, 0.22);
+}
+.site-header.is-over {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+.site-header.is-over .brand__text strong {
+  color: #fff;
+}
+.site-header.is-over .brand__meta {
+  color: var(--color-gold-bright);
+}
+.site-header.is-over .site-nav a {
+  color: rgba(255, 255, 255, 0.82);
+}
+.site-header.is-over .site-nav a:hover,
+.site-header.is-over .site-nav a.is-active {
+  color: #fff;
+  border-color: var(--color-gold);
+}
+.site-header.is-over .nav-toggle {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.site-header.is-over .nav-toggle__line {
+  background: #fff;
 }
 .nav-utility-bar {
   background: var(--color-navy);
