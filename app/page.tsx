@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
+import { CredentialStrip } from "@/components/CredentialStrip";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ServiceCard } from "@/components/ServiceCard";
+import { ServicesFeature } from "@/components/ServicesFeature";
 import { ProjectCard } from "@/components/ProjectCard";
 import { StatBand } from "@/components/StatBand";
 import { CtaBand } from "@/components/CtaBand";
