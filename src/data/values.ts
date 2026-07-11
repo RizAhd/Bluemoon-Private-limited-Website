@@ -1,4 +1,9 @@
 import type { ValueItem, Stat } from "./types";
+import { trackRecord } from "./trackRecord";
+
+const totalMillions = Math.round(
+  trackRecord.reduce((sum, r) => sum + r.valueLKR, 0) / 1_000_000,
+);
 
 export const values: ValueItem[] = [
   {
@@ -32,8 +37,8 @@ export const values: ValueItem[] = [
  * (No fabricated figures.)
  */
 export const stats: Stat[] = [
-  { value: 12, suffix: "+", label: "Government & private contracts delivered" },
-  { value: 80, suffix: "M+", label: "Rupees (LKR) in completed construction works" },
+  { value: trackRecord.length, suffix: "+", label: "Government & private contracts delivered" },
+  { value: totalMillions, suffix: "M+", label: "Rupees (LKR) in completed works — Rs 84M+" },
   { value: 6, suffix: "", label: "CIDA-registered construction fields" },
   { value: 5, suffix: "+", label: "Years serving Uva Province" },
 ];
