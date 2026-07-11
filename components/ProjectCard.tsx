@@ -9,11 +9,11 @@ export function ProjectCard({ project }: { project: Project }) {
     <article className="project-card" data-tags={project.tags.join(" ")}>
       <div className="project-card__image">
         <ProjectImageCarousel images={images} alt={project.alt} />
-        <span className="project-card__count">{images.length} photos</span>
+        <span className="project-card__cat">{project.category}</span>
+        {images.length > 1 && <span className="project-card__count">{images.length} photos</span>}
       </div>
       <div className="project-card__content">
         <div className="project-card__meta">
-          <span className="badge">{project.category}</span>
           <span className={`status-badge status-badge--${project.status}`}>{statusLabel}</span>
           {project.valueLKR ? (
             <span className="project-card__value">{formatLKRCompact(project.valueLKR)}</span>
