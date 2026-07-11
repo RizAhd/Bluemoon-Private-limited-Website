@@ -149,7 +149,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section section--dark">
+      <section className="section section--alt">
         <div className="container">
           <SectionHeading
             eyebrow="Core Values"
@@ -157,19 +157,12 @@ export default function AboutPage() {
           />
           <div className="card-grid card-grid--compact">
             {values.map((value) => (
-              <article
-                className="reason-card"
-                key={value.title}
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  borderColor: "rgba(255,255,255,0.12)",
-                }}
-              >
+              <article className="reason-card" key={value.title}>
                 <span className="icon-badge">
                   <Icon name={value.icon} />
                 </span>
-                <h3 style={{ color: "#fff" }}>{value.title}</h3>
-                <p style={{ color: "rgba(255,255,255,0.8)" }}>{value.description}</p>
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
               </article>
             ))}
           </div>
