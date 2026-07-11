@@ -1525,7 +1525,7 @@ p {
 .carousel__nav--next {
   right: 0.7rem;
 }
-.project-card:hover .carousel__nav,
+.pcard:hover .carousel__nav,
 .feature-project:hover .carousel__nav {
   opacity: 1;
 }
