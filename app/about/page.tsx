@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site";
 import { values } from "@/lib/values";
 import { credentials, cidaGrades } from "@/lib/credentials";
 import { pageMetadata } from "@/lib/seo";
+import { asset } from "@/lib/asset";
 
 export const metadata = pageMetadata({
   title: "About | Bluemoon Engineering (Pvt) Ltd, Welimada",

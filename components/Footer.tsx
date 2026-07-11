@@ -15,7 +15,7 @@ export function Footer() {
         <div className="footer-brand">
           <Link className="brand" href="/" aria-label={`${siteConfig.companyName} home`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-white.png" alt={siteConfig.companyName} width={158} height={159} />
+            <img src={asset("/logo-white.png")} alt={siteConfig.companyName} width={158} height={159} />
           </Link>
           <p>{siteConfig.description}</p>
           <p className="footer-cred">
