@@ -57,8 +57,7 @@ export default function HomePage() {
           />
           <article className="feature-project" data-reveal>
             <div className="feature-project__media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={leadProject.cover} alt={leadProject.alt} loading="lazy" />
+              <ProjectImageCarousel images={leadProject.images} alt={leadProject.alt} />
             </div>
             <div className="feature-project__body">
               <div className="feature-project__meta">
