@@ -37,12 +37,8 @@ export default function HomePage() {
             title="Construction and civil-engineering capability, registered and proven."
             text="From institutional buildings to infrastructure and finishing works, our services are backed by CIDA grading and a real record of delivery."
           />
-          <div className="card-grid card-grid--services">
-            {featuredServices.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
-            ))}
-          </div>
-          <p style={{ marginTop: "1.75rem" }}>
+          <ServicesFeature items={featuredServices} />
+          <p style={{ marginTop: "2rem" }}>
             <Link className="btn btn--ghost" href="/services">
               All Services
             </Link>
