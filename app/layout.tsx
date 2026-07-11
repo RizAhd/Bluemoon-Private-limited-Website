@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title:
     "Bluemoon Engineering (Pvt) Ltd | CIDA-Registered Construction Contractor, Uva Province",
   description: siteConfig.description,
-  icons: { icon: "/favicon.png", apple: "/favicon.png" },
+  icons: { icon: asset("/favicon.png"), apple: asset("/favicon.png") },
 };
 
 export const viewport: Viewport = {
