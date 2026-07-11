@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site";
 import { navigation } from "@/lib/navigation";
+import { asset } from "@/lib/asset";
 
 export function Header() {
   const pathname = usePathname();
@@ -34,7 +35,7 @@ export function Header() {
       <div className="container nav-main">
         <Link className="brand" href="/" aria-label={`${siteConfig.companyName} home`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-icon.png" alt="" width={44} height={44} />
+          <img src={asset("/logo-icon.png")} alt="" width={44} height={44} />
           <span className="brand__text">
             <strong>{siteConfig.brandName}</strong>
             <span className="brand__meta">{siteConfig.brandMeta}</span>
