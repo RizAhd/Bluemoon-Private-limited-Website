@@ -4,6 +4,7 @@ import { CredentialStrip } from "@/components/CredentialStrip";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServicesFeature } from "@/components/ServicesFeature";
 import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectImageCarousel } from "@/components/ProjectImageCarousel";
 import { StatBand } from "@/components/StatBand";
 import { CtaBand } from "@/components/CtaBand";
 import { Icon } from "@/components/Icon";
