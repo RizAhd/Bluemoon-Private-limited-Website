@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { ScrollAnimations } from "@/components/ScrollAnimations";
 import { businessJsonLd, SITE_URL } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+import { asset } from "@/lib/asset";
 
 const grotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],

@@ -21,6 +21,7 @@ export function pageMetadata({
   ogImage = "/og/og-default.jpg",
 }: PageMetaArgs): Metadata {
   const url = SITE_URL + path;
+  const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`;
   return {
     title,
     description,
@@ -30,11 +31,11 @@ export function pageMetadata({
       description,
       url,
       siteName: siteConfig.companyName,
-      images: [{ url: ogImage }],
+      images: [{ url: ogImageUrl }],
       locale: "en_LK",
       type: "website",
     },
-    twitter: { card: "summary_large_image", title, description, images: [ogImage] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImageUrl] },
   };
 }
 
