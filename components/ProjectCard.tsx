@@ -6,25 +6,23 @@ export function ProjectCard({ project }: { project: Project }) {
   const statusLabel = project.status.charAt(0).toUpperCase() + project.status.slice(1);
   const images = project.images.length ? project.images : [project.cover];
   return (
-    <article className="project-card" data-tags={project.tags.join(" ")}>
-      <div className="project-card__image">
-        <ProjectImageCarousel images={images} alt={project.alt} />
-        <span className="project-card__cat">{project.category}</span>
-        {images.length > 1 && <span className="project-card__count">{images.length} photos</span>}
+    <article className="pcard" data-tags={project.tags.join(" ")}>
+      <ProjectImageCarousel images={images} alt={project.alt} />
+      <div className="pcard__scrim" />
+      <div className="pcard__top">
+        <span className="pcard__cat">{project.category}</span>
       </div>
-      <div className="project-card__content">
-        <div className="project-card__meta">
+      <div className="pcard__info">
+        <div className="pcard__row">
           <span className={`status-badge status-badge--${project.status}`}>{statusLabel}</span>
           {project.valueLKR ? (
-            <span className="project-card__value">{formatLKRCompact(project.valueLKR)}</span>
+            <span className="pcard__value">{formatLKRCompact(project.valueLKR)}</span>
           ) : null}
         </div>
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
-        <div className="project-card__details">
-          <span>{project.client}</span>
-          <span>{project.year}</span>
-        </div>
+        <h3 className="pcard__title">{project.title}</h3>
+        <p className="pcard__client">
+          {project.client} · {project.year}
+        </p>
       </div>
     </article>
   );
