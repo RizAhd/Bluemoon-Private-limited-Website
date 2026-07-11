@@ -38,7 +38,7 @@ export const values: ValueItem[] = [
  */
 export const stats: Stat[] = [
   { value: trackRecord.length, suffix: "+", label: "Government & private contracts delivered" },
-  { value: totalMillions, suffix: "M+", label: "Rupees (LKR) in completed works — Rs 84M+" },
+  { value: totalMillions, suffix: "M+", label: "Rupees (millions, LKR) in completed works" },
   { value: 6, suffix: "", label: "CIDA-registered construction fields" },
   { value: 5, suffix: "+", label: "Years serving Uva Province" },
 ];
