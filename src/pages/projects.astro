@@ -87,10 +87,16 @@ const filters = [
                 <td>{row.client}</td>
                 <td>{row.category}</td>
                 <td>{row.year}</td>
-                <td class="num">{formatLKR(row.valueLKR)}</td>
+                <td class="num">{formatLKRFull(row.valueLKR)}</td>
               </tr>
             ))}
           </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4"><strong>Total — {contractCount} completed contracts</strong></td>
+              <td class="num"><strong>{formatLKRFull(totalContractValue)}</strong></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>
