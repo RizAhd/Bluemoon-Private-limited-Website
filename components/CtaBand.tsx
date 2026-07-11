@@ -8,16 +8,14 @@ export function CtaBand({
   text?: string;
 }) {
   return (
-    <section className="section section--cta">
+    <section className="section">
       <div className="container">
-        <div className="cta-band" data-reveal>
-          <div>
-            <p className="eyebrow">Start Your Project</p>
-            <h2>{title}</h2>
-            <p className="cta-band__text">{text}</p>
-          </div>
-          <div className="cta-band__actions">
-            <Link className="btn btn--primary" href="/quote">
+        <div className="cta-panel" data-reveal>
+          <p className="eyebrow">Start Your Project</p>
+          <h2>{title}</h2>
+          <p className="cta-panel__text">{text}</p>
+          <div className="cta-panel__actions">
+            <Link className="btn btn--secondary" href="/quote">
               Request a Quote
             </Link>
             <Link className="btn btn--ghost" href="/contact">
