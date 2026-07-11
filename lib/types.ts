@@ -1,5 +1,3 @@
-import type { ImageMetadata } from "astro";
-
 export interface NavItem {
   label: string;
   href: string;
@@ -32,8 +30,8 @@ export interface Project {
   duration?: string;
   status: ProjectStatus;
   description: string;
-  cover: ImageMetadata;
-  images: ImageMetadata[];
+  cover: string;
+  images: string[];
   alt: string;
   featured?: boolean;
   tags: string[];

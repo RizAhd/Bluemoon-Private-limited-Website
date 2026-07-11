@@ -1,4 +1,4 @@
-import { trackRecord } from "../data/trackRecord";
+import { trackRecord } from "./trackRecord";
 
 /** Full, unambiguous LKR amount, e.g. "Rs 13,094,510". */
 export function formatLKRFull(value: number): string {
