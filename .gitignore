@@ -3,10 +3,13 @@
 # ---------------------------------------------------------------------------
 node_modules/
 dist/
+.next/
+next-env.d.ts
 .astro/
 .vercel/
 .netlify/
 .output/
+*.tsbuildinfo
 
 # ---------------------------------------------------------------------------
 # Environment / secrets  (keep the example file committed)

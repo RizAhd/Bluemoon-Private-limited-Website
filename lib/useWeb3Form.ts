@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const phonePattern = /^[0-9+\-()\s]{7,20}$/;
@@ -63,7 +63,7 @@ export function useWeb3Form(type: FormType) {
       return next;
     });
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);

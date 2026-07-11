@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://bluemoonengineering.lk/sitemap-index.xml
