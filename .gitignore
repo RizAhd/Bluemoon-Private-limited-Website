@@ -1,0 +1,37 @@
+# ---------------------------------------------------------------------------
+# Build output & tooling
+# ---------------------------------------------------------------------------
+node_modules/
+dist/
+.astro/
+.vercel/
+.netlify/
+.output/
+
+# ---------------------------------------------------------------------------
+# Environment / secrets  (keep the example file committed)
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# ---------------------------------------------------------------------------
+# OS / editor cruft
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# ---------------------------------------------------------------------------
+# PRIVATE company documents & legacy source — MUST NEVER reach GitHub
+# Root-anchored (leading slash) so that src/assets/ stays committed.
+# ---------------------------------------------------------------------------
+/_source/
+/legacy/
+/assets/
+/Works'/
+Works*/
+
+# Never publish any PDF (e.g. the CIDA / CamScanner registration document)
+*.pdf
