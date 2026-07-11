@@ -733,7 +733,23 @@ p {
   margin: 0;
 }
 .hero-lamp__title .gold-text {
-  color: var(--color-gold-bright);
+  background: linear-gradient(270deg, #efe0c4, #d6a959, #bf8a3c, #d6a959, #efe0c4);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldShift 8s ease infinite;
+}
+@keyframes goldShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .hero-lamp__lead {
   color: rgba(255, 255, 255, 0.74);
