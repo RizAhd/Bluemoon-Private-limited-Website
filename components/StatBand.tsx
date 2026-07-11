@@ -2,16 +2,16 @@ import { stats } from "@/lib/values";
 
 export function StatBand() {
   return (
-    <div className="stat-band" data-stagger>
+    <div className="metrics" data-reveal>
       {stats.map((stat, i) => (
-        <article className="stat-card" key={i}>
-          <span className="stat-card__value">
+        <div className="metrics__item" key={i}>
+          <span className="metrics__value">
             {stat.prefix}
             <span data-counter={stat.value}>0</span>
             {stat.suffix}
           </span>
-          <p className="stat-card__label">{stat.label}</p>
-        </article>
+          <span className="metrics__label">{stat.label}</span>
+        </div>
       ))}
     </div>
   );
