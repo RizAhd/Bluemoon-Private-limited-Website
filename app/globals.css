@@ -79,8 +79,8 @@
   --color-danger: #b3341f;
   --color-white: #ffffff;
 
-  --font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-body: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), ui-serif, Georgia, serif;
 
   --radius-sm: 0.85rem;
   --radius-md: 1.35rem;
