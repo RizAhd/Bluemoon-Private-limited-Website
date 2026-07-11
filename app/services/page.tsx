@@ -1,5 +1,5 @@
 import { SectionHeading } from "@/components/SectionHeading";
-import { ServiceCard } from "@/components/ServiceCard";
+import { ServicesFeature } from "@/components/ServicesFeature";
 import { CtaBand } from "@/components/CtaBand";
 import { services } from "@/lib/services";
 import { sectors } from "@/lib/sectors";
