@@ -1,6 +1,7 @@
 import type { Project } from "./types";
+import { asset } from "./asset";
 
-const P = "/images/projects";
+const P = asset("/images/projects");
 
 export const projects: Project[] = [
   {
