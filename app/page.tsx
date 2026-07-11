@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Marquee />
+      <CredentialStrip />
 
       <section className="section">
         <div className="container">
