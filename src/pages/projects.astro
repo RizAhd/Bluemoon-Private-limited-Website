@@ -4,7 +4,8 @@ import SectionHeading from "../components/SectionHeading.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import CtaBand from "../components/CtaBand.astro";
 import { projects } from "../data/projects";
-import { trackRecord, formatLKR } from "../data/trackRecord";
+import { trackRecord } from "../data/trackRecord";
+import { formatLKRFull, totalContractValue, contractCount } from "../lib/currency";
 
 const filters = [
   { label: "All", value: "all" },
