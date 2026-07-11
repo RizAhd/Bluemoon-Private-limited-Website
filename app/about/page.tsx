@@ -50,7 +50,7 @@ export default function AboutPage() {
         <div className="container split-layout">
           <div className="about-showcase" data-reveal>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-icon-white.png" alt="" width={58} height={58} />
+            <img src="/logo-icon.png" alt="" width={58} height={58} />
             <p className="eyebrow">Registered Contractor</p>
             <h2>{siteConfig.companyName}</h2>
             <ul className="about-facts">
