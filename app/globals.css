@@ -1934,6 +1934,14 @@ p {
   color: var(--color-gold-bright);
   font-size: 1rem;
 }
+.pcard .status-badge--completed {
+  background: rgba(52, 199, 124, 0.2);
+  color: #8ce9b6;
+}
+.pcard .status-badge--ongoing {
+  background: rgba(214, 169, 89, 0.22);
+  color: var(--color-gold-bright);
+}
 .pcard__title {
   color: #fff;
   font-size: clamp(1.15rem, 1.4vw, 1.4rem);
