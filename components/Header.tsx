@@ -8,11 +8,12 @@ import { navigation } from "@/lib/navigation";
 
 export function Header() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
-  const [solid, setSolid] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -27,25 +28,17 @@ export function Header() {
     setOpen(false);
   }, [pathname]);
 
+  // Transparent glass over the dark hero only on the home page, before scroll, menu closed.
+  const overHero = isHome && !scrolled && !open;
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  const logoSrc = overHero ? "/logo-icon-white.png" : "/logo-icon.png";
 
   return (
-    <header className={`site-header${solid ? " is-solid" : ""}`}>
-      <div className="nav-utility-bar">
-        <div className="container nav-utility">
-          <span className="nav-utility__item">
-            <strong>CIDA Reg.</strong> {siteConfig.cidaReg}
-          </span>
-          <span className="nav-utility__item">{siteConfig.hours}</span>
-          <a className="nav-utility__item" href={`tel:${siteConfig.phoneHref}`}>
-            {siteConfig.phoneDisplay}
-          </a>
-        </div>
-      </div>
+    <header className={`site-header ${overHero ? "is-over" : "is-solid"}`}>
       <div className="container nav-main">
         <Link className="brand" href="/" aria-label={`${siteConfig.companyName} home`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-icon.png" alt="" width={46} height={46} />
+          <img src={logoSrc} alt="" width={44} height={44} />
           <span className="brand__text">
             <strong>{siteConfig.brandName}</strong>
             <span className="brand__meta">{siteConfig.brandMeta}</span>
@@ -78,7 +71,7 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <Link className="btn btn--primary nav-cta" href="/quote">
+          <Link className="btn btn--secondary nav-cta" href="/quote">
             Request a Quote
           </Link>
         </div>
