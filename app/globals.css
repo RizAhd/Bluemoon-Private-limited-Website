@@ -1860,6 +1860,100 @@ p {
   }
 }
 
+/* ---------- project card (editorial overlay) ---------- */
+.pcard {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-navy);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.pcard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-soft);
+}
+.pcard .carousel img {
+  transition: opacity 0.55s ease, transform 4s ease;
+}
+.pcard:hover .carousel img.is-active {
+  transform: scale(1.05);
+}
+.pcard__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(8, 18, 29, 0.95) 0%,
+    rgba(8, 18, 29, 0.6) 26%,
+    rgba(8, 18, 29, 0.08) 52%,
+    transparent 70%
+  );
+}
+.pcard__top {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.pcard__cat {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.34rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(214, 169, 89, 0.94);
+  color: var(--color-navy);
+}
+.pcard__info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  padding: 1.5rem 1.5rem 1.75rem;
+  color: #fff;
+  pointer-events: none;
+}
+.pcard__row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+}
+.pcard__value {
+  font-weight: 700;
+  color: var(--color-gold-bright);
+  font-size: 1rem;
+}
+.pcard__title {
+  color: #fff;
+  font-size: clamp(1.15rem, 1.4vw, 1.4rem);
+  line-height: 1.18;
+  margin: 0 0 0.4rem;
+}
+.pcard__client {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.pcard .carousel__nav {
+  z-index: 5;
+}
+.pcard .carousel__dots {
+  z-index: 5;
+  bottom: auto;
+  top: 1.15rem;
+}
+
 /* ---------- header (sticky glass) ---------- */
 .site-header {
   position: sticky;
