@@ -7,12 +7,6 @@ import { ScrollAnimations } from "@/components/ScrollAnimations";
 import { businessJsonLd, SITE_URL } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-const serif = Instrument_Serif({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-instrument",
-  display: "swap",
-});
 const grotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
