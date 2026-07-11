@@ -42,7 +42,7 @@ export const projects: Project[] = [
     status: "completed",
     description:
       "Construction of a two-storey primary learning resources centre (final stage) for B/Ganapathi Tamil Vidyalaya — a columned school block with balcony access, classrooms, plaster and paint finishing, delivered for the Uva Provincial Council engineering service.",
-    cover: helabogan1 && ganapathi1,
+    cover: ganapathi1,
     images: [
       ganapathi1,
       ganapathi2,
