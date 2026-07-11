@@ -71,9 +71,12 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: clip;
   font-family: var(--font-body);
   font-size: var(--text-body);
   line-height: 1.62;
@@ -101,9 +104,10 @@ h4 {
   letter-spacing: var(--tracking-tight);
   margin: 0 0 0.5em;
   color: var(--color-navy-900);
+  overflow-wrap: break-word;
 }
 h1 {
-  font-size: clamp(2.6rem, 5.4vw, 4.6rem);
+  font-size: clamp(2.15rem, 5.2vw, 4.6rem);
 }
 h2 {
   font-size: clamp(2rem, 3.6vw, 3.1rem);
@@ -612,8 +616,8 @@ p {
 }
 .hero h1 {
   color: var(--color-white);
-  max-width: 20ch;
-  font-size: clamp(2.7rem, 6vw, 5rem);
+  max-width: min(20ch, 100%);
+  font-size: clamp(2.25rem, 5.6vw, 5rem);
   margin-bottom: 1.5rem;
 }
 .hero__lead-row {
@@ -775,7 +779,7 @@ p {
 }
 .page-hero h1 {
   color: var(--color-white);
-  max-width: 20ch;
+  max-width: min(22ch, 100%);
 }
 .page-hero__grid {
   display: grid;
