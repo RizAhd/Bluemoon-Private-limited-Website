@@ -50,7 +50,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section--dark">
+      <section className="section section--alt">
         <div className="container">
           <SectionHeading
             index="02"
