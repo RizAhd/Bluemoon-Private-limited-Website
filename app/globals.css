@@ -883,6 +883,7 @@ p {
   box-shadow: var(--shadow-soft);
 }
 .project-card__image {
+  position: relative;
   aspect-ratio: 3 / 2;
   overflow: hidden;
 }
