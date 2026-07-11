@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { projects } from "../data/projects";
+import { trackRecord, formatLKR } from "../data/trackRecord";
+
+const filters = [
+  { label: "All", value: "all" },
+  { label: "Education", value: "education" },
+  { label: "Commercial", value: "commercial" },
+  { label: "Building", value: "building" },
+  { label: "Renovation", value: "renovation" },
+];
+---
+<BaseLayout
+  title="Projects | Bluemoon Engineering (Pvt) Ltd"
+  description="Completed construction projects by Bluemoon Engineering across Uva Province — schools, learning resource centres, commercial buildings, and renovations for government and private clients, with real contract values."
+  page="projects"
+>
+  <section class="page-hero">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow" data-hero-item>Project Portfolio</p>
+        <h1 data-hero-item>Real projects, real clients, real delivery.</h1>
+        <p data-hero-item>
+          A record of completed work across schools, public buildings, commercial projects, and
+          renovations in Welimada, Badulla, Bandarawela, and beyond.
+        </p>
+      </div>
+      <div class="page-hero__panel surface-card" data-hero-item>
+        <p style="margin-bottom:0">
+          Government projects are named by department; private projects are shown by type, value, and
+          location.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Featured Projects"
+        title="Selected work with photography."
+        text="Filter by category to review relevant experience."
+      />
+      <div class="filter-bar" data-project-filters>
+        {filters.map((f, i) => (
+          <button class={`filter-pill ${i === 0 ? "is-active" : ""}`} data-filter={f.value} type="button">
+            {f.label}
+          </button>
+        ))}
+      </div>
+      <div id="projects-grid" class="card-grid card-grid--projects">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+      <p class="empty-state" data-projects-empty hidden style="margin-top:1.5rem;color:var(--color-ink-500)">
+        No projects match this filter.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Record of Work"
+        title="A track record of completed contracts."
+        text="Selected contracts delivered for government departments and private clients across Uva Province."
+      />
+      <div class="track-table-wrap" data-reveal>
+        <table class="track-table">
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Client</th>
+              <th scope="col">Category</th>
+              <th scope="col">Year</th>
+              <th scope="col" style="text-align:right">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {trackRecord.map((row) => (
+              <tr>
+                <td>{row.project}</td>
+                <td>{row.client}</td>
+                <td>{row.category}</td>
+                <td>{row.year}</td>
+                <td class="num">{formatLKR(row.valueLKR)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<script>
+  import { initFilters } from "../scripts/filters";
+  initFilters();
+</script>

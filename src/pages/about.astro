@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+import { siteConfig } from "../data/site";
+import { values } from "../data/values";
+import { credentials, cidaGrades } from "../data/credentials";
+import aboutImage from "../assets/projects/ganapathi-learning-centre-1.jpg";
+---
+<BaseLayout
+  title="About | Bluemoon Engineering (Pvt) Ltd, Welimada"
+  description="Bluemoon Engineering (Pvt) Ltd is a CIDA-registered construction contractor established in 2021 in Welimada, Badulla, led by Mr. M.J.M. Aswar, delivering building and civil-engineering projects across Uva Province."
+  page="about"
+>
+  <section class="page-hero">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow" data-hero-item>About Bluemoon Engineering</p>
+        <h1 data-hero-item>A registered contractor built on capability, method, and trust.</h1>
+        <p data-hero-item>
+          Established in {siteConfig.established} and based in Welimada, Badulla, we deliver
+          construction and civil-engineering projects for government departments and private clients
+          across Uva Province and Sri Lanka.
+        </p>
+      </div>
+      <div class="page-hero__panel surface-card" data-hero-item>
+        <p style="margin-bottom:0">
+          A CIDA-registered team (Reg. {credentials.cidaReg}) combining building and infrastructure
+          capability with disciplined delivery.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-layout">
+      <div class="media-frame" data-reveal>
+        <Image
+          src={aboutImage}
+          alt="School building constructed by Bluemoon Engineering for the Uva Provincial Council"
+          widths={[500, 800]}
+          sizes="(max-width: 1080px) 100vw, 50vw"
+        />
+      </div>
+      <div class="split-layout__content" data-reveal>
+        <p class="eyebrow">Company Introduction</p>
+        <h2>Building and civil-engineering work delivered with a practical, accountable approach.</h2>
+        <p>
+          Bluemoon Engineering (Private) Limited was established to provide dependable construction in
+          the Uva hill country. We deliver schools, public buildings, sanitation, roads and drainage,
+          renovations, and finishing works — planned carefully and supervised closely from start to
+          handover.
+        </p>
+        <p>
+          Registered with the Construction Industry Development Authority (CIDA) and the Registrar of
+          Companies (Reg. {credentials.businessReg}), we work to the standards expected on government
+          contracts and by private clients making meaningful investments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container card-grid card-grid--two-up">
+      <article class="surface-card" data-reveal>
+        <p class="eyebrow">Mission</p>
+        <h2>Deliver construction that is well-planned, well-built, and accountable.</h2>
+        <p style="margin-bottom:0">
+          To remove uncertainty from construction through transparent process, sound method, and
+          finish discipline — for both public and private clients in Uva Province.
+        </p>
+      </article>
+      <article class="surface-card" data-reveal>
+        <p class="eyebrow">Vision</p>
+        <h2>Be a trusted name for quality building and civil works in the region.</h2>
+        <p style="margin-bottom:0">
+          To grow a respected Welimada-based contractor known for dependable delivery across
+          building, infrastructure, and renovation projects.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Registration & Grading"
+        title="CIDA-registered and graded across building and civil-engineering fields."
+        text="Our Construction Industry Development Authority registration confirms verified capability across the fields below."
+      />
+      <div class="split-layout" style="align-items:start">
+        <div class="surface-card" data-reveal style="padding:0;overflow:hidden">
+          <table class="grade-table">
+            <thead>
+              <tr><th>Construction Field</th><th>CIDA Grade</th></tr>
+            </thead>
+            <tbody>
+              {cidaGrades.map((g) => (
+                <tr><td>{g.field}</td><td><span class="grade-pill">{g.grade}</span></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div class="split-layout__content" data-reveal>
+          <p class="eyebrow">Leadership</p>
+          <h2>{credentials.director}, Director.</h2>
+          <p>
+            Under director-level oversight, Bluemoon Engineering emphasises preparation,
+            accountability, and finish quality — listening carefully, coordinating decisively, and
+            holding to the terms of every contract.
+          </p>
+          <ul class="feature-list">
+            <li>CIDA Registration: {credentials.cidaReg}</li>
+            <li>Business Registration: {credentials.businessReg}</li>
+            <li>Registered contractor since {credentials.registeredSince}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <SectionHeading eyebrow="Core Values" title="Principles that shape how we plan, build, and report." />
+      <div class="card-grid card-grid--compact" data-stagger>
+        {values.map((value) => (
+          <article class="reason-card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.12)">
+            <span class="icon-badge"><Icon name={value.icon} /></span>
+            <h3 style="color:#fff">{value.title}</h3>
+            <p style="color:rgba(255,255,255,0.8)">{value.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

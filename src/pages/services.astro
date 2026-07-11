@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { services } from "../data/services";
+import { sectors } from "../data/sectors";
+---
+<BaseLayout
+  title="Services | Bluemoon Engineering (Pvt) Ltd, Welimada"
+  description="Building construction, civil & infrastructure works, water supply & drainage, renovation, finishing, sanitation, and retaining walls — CIDA-registered construction services by Bluemoon Engineering across Uva Province."
+  page="services"
+>
+  <section class="page-hero">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow" data-hero-item>Our Services</p>
+        <h1 data-hero-item>Registered construction and civil-engineering services.</h1>
+        <p data-hero-item>
+          From institutional buildings and infrastructure to renovation and finishing works, our
+          services are backed by CIDA grading and delivered with disciplined supervision.
+        </p>
+      </div>
+      <div class="page-hero__panel surface-card" data-hero-item>
+        <p style="margin-bottom:0">
+          Each service can be delivered on its own or as part of a full build, depending on the scope
+          and site.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Service Portfolio"
+        title="Practical capability across building and civil works."
+        text="Whether leading a full build or a focused phase, we stay measured, responsive, and closely coordinated around the realities of each site."
+      />
+      <div class="card-grid card-grid--services" data-stagger>
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <SectionHeading eyebrow="Sectors We Serve" title="Trusted across public and private construction." />
+      <div class="sector-strip">
+        {sectors.map((sector) => <span class="sector-chip">{sector}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-layout split-layout--balanced">
+      <div class="split-layout__content" data-reveal>
+        <p class="eyebrow">How We Deliver</p>
+        <h2>Structured planning and close supervision for demanding sites and standards.</h2>
+        <p>
+          Our approach suits projects that need careful sequencing, weather-aware method, and strong
+          finishing discipline — from school buildings and public works to private builds and
+          renovations.
+        </p>
+      </div>
+      <article class="surface-card" data-reveal>
+        <p class="eyebrow">Service Strengths</p>
+        <h2>What clients rely on most.</h2>
+        <ul class="feature-list">
+          <li>Grounded estimates that reduce uncertainty before work begins</li>
+          <li>Method and materials matched to hill-country conditions</li>
+          <li>Transparent progress reporting for government and private clients</li>
+          <li>Supervision from structure through to finishing and handover</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
