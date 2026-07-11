@@ -78,7 +78,7 @@ export default function WhyChooseUsPage() {
         </div>
       </section>
 
-      <section className="section section--dark">
+      <section className="section section--alt">
         <div className="container split-layout split-layout--balanced">
           <div className="split-layout__content" data-reveal>
             <p className="eyebrow">Built for Context</p>
