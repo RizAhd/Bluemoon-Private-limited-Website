@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { siteConfig } from "./site";
 import { credentials, cidaGrades } from "./credentials";
 
-export const SITE_URL = "https://bluemoonengineering.lk";
+// Deployed base URL. For the GitHub Pages project site this includes the repo
+// path so every derived URL (canonical, OG, sitemap, JSON-LD) is correct.
+// Change this to your custom domain root if/when you add one.
+export const SITE_URL = "https://rizahd.github.io/Bluemoon-Private-limited-Website";
 
 interface PageMetaArgs {
   title: string;
