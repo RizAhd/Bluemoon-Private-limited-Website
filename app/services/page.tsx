@@ -43,11 +43,7 @@ export default function ServicesPage() {
             title="Practical capability across building and civil works."
             text="Whether leading a full build or a focused phase, we stay measured, responsive, and closely coordinated around the realities of each site."
           />
-          <div className="card-grid card-grid--services">
-            {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
-            ))}
-          </div>
+          <ServicesFeature items={services} />
         </div>
       </section>
 
