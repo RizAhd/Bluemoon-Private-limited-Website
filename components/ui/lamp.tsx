@@ -23,7 +23,7 @@ export const LampContainer = ({
         "relative isolate z-0 flex w-full flex-col items-center justify-center overflow-hidden",
         className,
       )}
-      style={{ background: NAVY, minHeight: "min(92vh, 880px)" }}
+      style={{ background: NAVY, minHeight: "min(82vh, 760px)" }}
     >
       <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
         {/* left beam */}
