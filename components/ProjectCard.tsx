@@ -1,13 +1,15 @@
 import type { Project } from "@/lib/types";
 import { formatLKRCompact } from "@/lib/currency";
+import { ProjectImageCarousel } from "./ProjectImageCarousel";
 
 export function ProjectCard({ project }: { project: Project }) {
   const statusLabel = project.status.charAt(0).toUpperCase() + project.status.slice(1);
+  const images = project.images.length ? project.images : [project.cover];
   return (
     <article className="project-card" data-tags={project.tags.join(" ")}>
       <div className="project-card__image">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={project.cover} alt={project.alt} loading="lazy" />
+        <ProjectImageCarousel images={images} alt={project.alt} />
+        <span className="project-card__count">{images.length} photos</span>
       </div>
       <div className="project-card__content">
         <div className="project-card__meta">
