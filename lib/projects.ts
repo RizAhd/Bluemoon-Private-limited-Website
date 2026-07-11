@@ -1,30 +1,6 @@
 import type { Project } from "./types";
 
-// Ganapathi Tamil Vidyalaya — Primary Learning Resources Centre
-import ganapathi1 from "../assets/projects/ganapathi-learning-centre-1.jpg";
-import ganapathi2 from "../assets/projects/ganapathi-learning-centre-2.jpg";
-import ganapathi3 from "../assets/projects/ganapathi-learning-centre-3.jpg";
-import ganapathi4 from "../assets/projects/ganapathi-learning-centre-4.jpg";
-import ganapathi5 from "../assets/projects/ganapathi-learning-centre-5.jpg";
-import ganapathi6 from "../assets/projects/ganapathi-learning-centre-6.jpg";
-import ganapathi7 from "../assets/projects/ganapathi-learning-centre-7.jpg";
-import ganapathi8 from "../assets/projects/ganapathi-learning-centre-8.jpg";
-import ganapathi9 from "../assets/projects/ganapathi-learning-centre-9.jpg";
-
-// Helabogan Commercial Building, Bandarawela
-import helabogan1 from "../assets/projects/helabogan-commercial-1.jpg";
-import helabogan2 from "../assets/projects/helabogan-commercial-2.jpg";
-import helabogan3 from "../assets/projects/helabogan-commercial-3.jpg";
-import helabogan4 from "../assets/projects/helabogan-commercial-4.jpg";
-import helabogan5 from "../assets/projects/helabogan-commercial-5.jpg";
-import helabogan6 from "../assets/projects/helabogan-commercial-6.jpg";
-
-// Al Murshid Maha Vidyalaya — Renovation
-import alMurshid1 from "../assets/projects/al-murshid-renovation-1.jpg";
-import alMurshid2 from "../assets/projects/al-murshid-renovation-2.jpg";
-import alMurshid3 from "../assets/projects/al-murshid-renovation-3.jpg";
-import alMurshid4 from "../assets/projects/al-murshid-renovation-4.jpg";
-import alMurshid5 from "../assets/projects/al-murshid-renovation-5.jpg";
+const P = "/images/projects";
 
 export const projects: Project[] = [
   {
@@ -42,18 +18,8 @@ export const projects: Project[] = [
     status: "completed",
     description:
       "Construction of a two-storey primary learning resources centre (final stage) for B/Ganapathi Tamil Vidyalaya — a columned school block with balcony access, classrooms, plaster and paint finishing, delivered for the Uva Provincial Council engineering service.",
-    cover: ganapathi1,
-    images: [
-      ganapathi1,
-      ganapathi2,
-      ganapathi3,
-      ganapathi4,
-      ganapathi5,
-      ganapathi6,
-      ganapathi7,
-      ganapathi8,
-      ganapathi9,
-    ],
+    cover: `${P}/ganapathi-learning-centre-1.jpg`,
+    images: Array.from({ length: 9 }, (_, i) => `${P}/ganapathi-learning-centre-${i + 1}.jpg`),
     alt: "Two-storey school building constructed by Bluemoon Engineering at Ganapathi Tamil Vidyalaya",
     featured: true,
     tags: ["education", "building", "government", "completed"],
@@ -73,8 +39,8 @@ export const projects: Project[] = [
     status: "completed",
     description:
       "A modern commercial hall on a main road in Helabogan, Bandarawela — clean rendered façade, a full-width glazed shopfront, and a landscaped stepped frontage, delivered for the Badulla local government.",
-    cover: helabogan1,
-    images: [helabogan1, helabogan2, helabogan3, helabogan4, helabogan5, helabogan6],
+    cover: `${P}/helabogan-commercial-1.jpg`,
+    images: Array.from({ length: 6 }, (_, i) => `${P}/helabogan-commercial-${i + 1}.jpg`),
     alt: "Modern glass-fronted commercial building on a main road in Bandarawela",
     featured: true,
     tags: ["commercial", "building", "government", "completed"],
@@ -94,8 +60,8 @@ export const projects: Project[] = [
     status: "completed",
     description:
       "Renovation of Al Murshid Maha Vidyalaya — classroom refurbishment with new plaster and two-tone painting, and premium polished granite flooring with an inlaid border, upgrading the school for the education department.",
-    cover: alMurshid1,
-    images: [alMurshid1, alMurshid2, alMurshid3, alMurshid4, alMurshid5],
+    cover: `${P}/al-murshid-renovation-1.jpg`,
+    images: Array.from({ length: 5 }, (_, i) => `${P}/al-murshid-renovation-${i + 1}.jpg`),
     alt: "Polished granite classroom flooring completed during the Al Murshid school renovation",
     featured: true,
     tags: ["education", "renovation", "finishing", "government", "completed"],
