@@ -6,7 +6,7 @@ export const processSteps: ProcessStep[] = [
     eyebrow: "Consultation",
     title: "Understand the requirement and scope.",
     description:
-      "We start by understanding the project type, client priorities, and the practical requirements — whether it is a government tender or a private build.",
+      "We start by understanding the project type, client priorities, and the practical requirements, whether it is a government tender or a private build.",
   },
   {
     step: "02",
@@ -41,6 +41,6 @@ export const processSteps: ProcessStep[] = [
     eyebrow: "Handover",
     title: "Complete, inspect, and hand over.",
     description:
-      "We close out with inspection, finishing refinement, and a clean handover — ready for use and accountable to the contract.",
+      "We close out with inspection, finishing refinement, and a clean handover, ready for use and accountable to the contract.",
   },
 ];

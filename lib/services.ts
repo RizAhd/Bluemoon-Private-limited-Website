@@ -38,7 +38,7 @@ export const services: Service[] = [
     slug: "renovation-repairs",
     icon: "refresh",
     excerpt:
-      "Careful upgrades and repairs for schools, clinics, and buildings — improving function, safety, and finish with minimal disruption.",
+      "Careful upgrades and repairs for schools, clinics, and buildings, improving function, safety, and finish with minimal disruption.",
     highlights: ["Institutional renovation", "Roof, ceiling & structural repair"],
     featured: true,
   },
@@ -71,7 +71,7 @@ export const services: Service[] = [
     slug: "government-projects",
     icon: "shield",
     excerpt:
-      "Trusted delivery for provincial councils, education and health departments — with transparent process and accountable reporting.",
+      "Trusted delivery for provincial councils, education and health departments, with transparent process and accountable reporting.",
     highlights: ["Provincial council contracts", "Education & health sectors"],
   },
 ];

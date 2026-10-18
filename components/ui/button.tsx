@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-// Reuses the brand `.btn` design-system classes (navy + gold).
+// Reuses the brand `.btn` design-system classes (navy + royal blue).
 const buttonVariants = cva("btn", {
   variants: {
     variant: {

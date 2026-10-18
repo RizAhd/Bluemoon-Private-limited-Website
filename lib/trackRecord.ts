@@ -31,7 +31,7 @@ export const trackRecord: TrackRecordItem[] = [
     year: "2021",
   },
   {
-    project: "Shopping Hall — wall & floor finishing",
+    project: "Shopping Hall: wall & floor finishing",
     client: "Private client",
     clientType: "private",
     category: "Finishing",
@@ -47,7 +47,7 @@ export const trackRecord: TrackRecordItem[] = [
     year: "2023",
   },
   {
-    project: "Playground development — Welimada Vijaya & Muslim Vidyalaya",
+    project: "Playground development, Welimada Vijaya & Muslim Vidyalaya",
     client: "Provincial Department of Education",
     clientType: "government",
     category: "Education",
@@ -87,7 +87,7 @@ export const trackRecord: TrackRecordItem[] = [
     year: "2024",
   },
   {
-    project: "Welanvita Clinic Centre — roof & ceiling repair",
+    project: "Welanvita Clinic Centre: roof & ceiling repair",
     client: "Provincial Ministry / Department of Health",
     clientType: "government",
     category: "Health",

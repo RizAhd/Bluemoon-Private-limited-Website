@@ -71,7 +71,7 @@ export default function AboutPage() {
             <p>
               Bluemoon Engineering (Private) Limited was established to provide dependable
               construction in the Uva hill country. We deliver schools, public buildings, sanitation,
-              roads and drainage, renovations, and finishing works — planned carefully and supervised
+              roads and drainage, renovations, and finishing works, planned carefully and supervised
               closely from start to handover.
             </p>
             <p>
@@ -90,7 +90,7 @@ export default function AboutPage() {
             <h2>Deliver construction that is well-planned, well-built, and accountable.</h2>
             <p style={{ marginBottom: 0 }}>
               To remove uncertainty from construction through transparent process, sound method, and
-              finish discipline — for both public and private clients in Uva Province.
+              finish discipline, for both public and private clients in Uva Province.
             </p>
           </article>
           <article className="surface-card" data-reveal>
@@ -137,7 +137,7 @@ export default function AboutPage() {
               <h2>{credentials.director}, Director.</h2>
               <p>
                 Under director-level oversight, Bluemoon Engineering emphasises preparation,
-                accountability, and finish quality — listening carefully, coordinating decisively,
+                accountability, and finish quality: listening carefully, coordinating decisively,
                 and holding to the terms of every contract.
               </p>
               <ul className="feature-list">

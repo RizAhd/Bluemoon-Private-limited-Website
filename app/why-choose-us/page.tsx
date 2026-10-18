@@ -30,7 +30,7 @@ export default function WhyChooseUsPage() {
           </div>
           <div className="page-hero__panel surface-card" data-hero-item>
             <p style={{ marginBottom: 0 }}>
-              CIDA Reg. {credentials.cidaReg} — graded across {cidaGrades.length} construction
+              CIDA Reg. {credentials.cidaReg}, graded across {cidaGrades.length} construction
               fields.
             </p>
           </div>
@@ -76,7 +76,7 @@ export default function WhyChooseUsPage() {
             <h2>Method that suits real site conditions and reporting standards.</h2>
             <p>
               That matters in Uva Province, where access, weather, existing structures, and finishing
-              quality all demand better forward planning — and where government contracts require
+              quality all demand better forward planning, and where government contracts require
               accountable delivery.
             </p>
           </div>

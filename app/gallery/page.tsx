@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Gallery | Bluemoon Engineering (Pvt) Ltd",
   description:
-    "Photographs of real construction and renovation work by Bluemoon Engineering — school buildings, commercial projects, and finishing works across Uva Province, Sri Lanka.",
+    "Photographs of real construction and renovation work by Bluemoon Engineering: school buildings, commercial projects, and finishing works across Uva Province, Sri Lanka.",
   path: "/gallery",
 });
 
@@ -20,7 +20,7 @@ export default function GalleryPage() {
             </p>
             <h1 data-hero-item>A closer look at our work on site.</h1>
             <p data-hero-item>
-              Photographs from completed and in-progress projects — building work, finishing, and
+              Photographs from completed and in-progress projects: building work, finishing, and
               renovation across Welimada, Badulla, and Bandarawela.
             </p>
           </div>

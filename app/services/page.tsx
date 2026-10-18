@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Services | Bluemoon Engineering (Pvt) Ltd, Welimada",
   description:
-    "Building construction, civil & infrastructure works, water supply & drainage, renovation, finishing, sanitation, and retaining walls — CIDA-registered construction services by Bluemoon Engineering across Uva Province.",
+    "Building construction, civil & infrastructure works, water supply & drainage, renovation, finishing, sanitation, and retaining walls. CIDA-registered construction services by Bluemoon Engineering across Uva Province.",
   path: "/services",
 });
 
@@ -70,7 +70,7 @@ export default function ServicesPage() {
             <h2>Structured planning and close supervision for demanding sites and standards.</h2>
             <p>
               Our approach suits projects that need careful sequencing, weather-aware method, and
-              strong finishing discipline — from school buildings and public works to private builds
+              strong finishing discipline, from school buildings and public works to private builds
               and renovations.
             </p>
           </div>

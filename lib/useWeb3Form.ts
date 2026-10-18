@@ -97,8 +97,8 @@ export function useWeb3Form(type: FormType) {
         setFeedback({
           msg:
             type === "contact"
-              ? "Thank you — your message has been sent. We'll be in touch shortly."
-              : "Thank you — your quote request has been sent. Our team will respond soon.",
+              ? "Thank you. Your message has been sent. We'll be in touch shortly."
+              : "Thank you. Your quote request has been sent. Our team will respond soon.",
           tone: "success",
         });
       } else {

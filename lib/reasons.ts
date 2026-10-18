@@ -5,7 +5,7 @@ export const reasons: ValueItem[] = [
     title: "CIDA Registered",
     icon: "shield",
     description:
-      "Registered contractor C-21184 — graded C-6 for building and C-7 across highway, bridge, water supply, and drainage works.",
+      "Registered contractor C-21184, graded C-6 for building and C-7 across highway, bridge, water supply, and drainage works.",
   },
   {
     title: "Government-Ready Delivery",

@@ -2,7 +2,7 @@
   "name": "bluemoon-engineering",
   "version": "1.0.0",
   "private": true,
-  "description": "Bluemoon Engineering (Pvt) Ltd — CIDA-registered building & civil-engineering contractor, Uva Province, Sri Lanka.",
+  "description": "Bluemoon Engineering (Pvt) Ltd: CIDA-registered building & civil-engineering contractor, Uva Province, Sri Lanka.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +12,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.43.0",
     "lucide-react": "^0.469.0",
     "motion": "^12.42.2",
     "next": "^15.1.6",

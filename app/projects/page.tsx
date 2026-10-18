@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Projects | Bluemoon Engineering (Pvt) Ltd",
   description:
-    "Completed construction projects by Bluemoon Engineering across Uva Province — schools, learning resource centres, commercial buildings, and renovations for government and private clients, with real contract values.",
+    "Completed construction projects by Bluemoon Engineering across Uva Province: schools, learning resource centres, commercial buildings, and renovations for government and private clients, with real contract values.",
   path: "/projects",
 });
 
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
               <tfoot>
                 <tr>
                   <td colSpan={4}>
-                    <strong>Total — {contractCount} completed contracts</strong>
+                    <strong>Total: {contractCount} completed contracts</strong>
                   </td>
                   <td className="num">
                     <strong>{formatLKRFull(totalContractValue)}</strong>

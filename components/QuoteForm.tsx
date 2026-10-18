@@ -40,8 +40,8 @@ export function QuoteForm() {
   return (
     <form className="form" onSubmit={onSubmit} noValidate>
       <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-      <input type="hidden" name="subject" value="New quote request — Bluemoon Engineering website" />
-      <input type="hidden" name="from_name" value={`Website quote — ${siteConfig.companyName}`} />
+      <input type="hidden" name="subject" value="New quote request | Bluemoon Engineering website" />
+      <input type="hidden" name="from_name" value={`Website quote | ${siteConfig.companyName}`} />
       <input
         type="checkbox"
         name="botcheck"
