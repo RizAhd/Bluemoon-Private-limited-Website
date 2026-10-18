@@ -2304,6 +2304,28 @@ body.nav-open .wa-fab {
 .footer-col a:hover {
   color: var(--color-royal-bright);
 }
+.footer-col--contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+.footer-col--contact a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+.footer-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2em;
+  color: var(--color-royal-bright);
+}
+.footer-hours {
+  padding-left: 1.55rem;
+  color: rgba(255, 255, 255, 0.55);
+}
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -2415,6 +2437,55 @@ body.nav-open .wa-fab {
 }
 
 /* ---------- small-screen refinements (kept last so they win) ---------- */
+@media (max-width: 620px) {
+  /* compact footer: short summary, link row, contact rows; no repeated service list */
+  .site-footer {
+    padding-top: 2.5rem;
+  }
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+  .footer-brand .brand {
+    margin-bottom: 0.75rem;
+  }
+  .footer-brand .brand img {
+    width: 84px;
+  }
+  .footer-brand p {
+    font-size: 0.88rem;
+    margin-bottom: 0.6rem;
+  }
+  .footer-col h3 {
+    margin-bottom: 0.65rem;
+  }
+  .footer-col--services {
+    display: none;
+  }
+  .footer-col--explore ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.15rem;
+  }
+  .footer-col--explore a {
+    display: inline-block;
+    padding-block: 0.3rem;
+  }
+  .footer-col--contact ul {
+    gap: 0.2rem;
+  }
+  .footer-col--contact a {
+    padding-block: 0.4rem;
+  }
+  .footer-col--contact li:nth-child(4) {
+    padding-block: 0.4rem;
+  }
+  .footer-bottom {
+    padding-block: 1.1rem;
+    font-size: 0.76rem;
+  }
+}
 @media (max-width: 560px) {
   /* gallery: two tight columns instead of one very long column */
   .gallery-grid {

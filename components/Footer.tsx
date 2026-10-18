@@ -4,6 +4,7 @@ import { navigation } from "@/lib/navigation";
 import { services } from "@/lib/services";
 import { credentials } from "@/lib/credentials";
 import { asset } from "@/lib/asset";
+import { Icon } from "@/components/Icon";
 
 export function Footer() {
   const year = 2026;
@@ -17,13 +18,13 @@ export function Footer() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={asset("/logo-white.png")} alt={siteConfig.companyName} width={158} height={159} />
           </Link>
-          <p>{siteConfig.description}</p>
+          <p>{siteConfig.tagline}</p>
           <p className="footer-cred">
             CIDA Reg. {credentials.cidaReg} · Business Reg. {credentials.businessReg}
           </p>
         </div>
 
-        <div className="footer-col">
+        <nav className="footer-col footer-col--explore" aria-label="Footer">
           <h3>Explore</h3>
           <ul>
             {navigation.map((item) => (
@@ -32,9 +33,9 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
 
-        <div className="footer-col">
+        <div className="footer-col footer-col--services">
           <h3>Services</h3>
           <ul>
             {footerServices.map((s) => (
@@ -45,22 +46,32 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="footer-col">
+        <div className="footer-col footer-col--contact">
           <h3>Contact</h3>
           <ul>
             <li>
-              <a href={`tel:${siteConfig.phoneHref}`}>{siteConfig.phoneDisplay}</a>
+              <a href={`tel:${siteConfig.phoneHref}`}>
+                <Icon name="phone" className="footer-icon" />
+                {siteConfig.phoneDisplay}
+              </a>
             </li>
             <li>
-              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-            </li>
-            <li>
-              <a href={siteConfig.whatsapp} target="_blank" rel="noopener">
+              <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer">
+                <Icon name="whatsapp" className="footer-icon" />
                 WhatsApp
               </a>
             </li>
-            <li>{siteConfig.addressInline}</li>
-            <li>{siteConfig.hours}</li>
+            <li>
+              <a href={`mailto:${siteConfig.email}`}>
+                <Icon name="mail" className="footer-icon" />
+                {siteConfig.email}
+              </a>
+            </li>
+            <li>
+              <Icon name="map" className="footer-icon" />
+              {siteConfig.addressInline}
+            </li>
+            <li className="footer-hours">{siteConfig.hours}</li>
           </ul>
         </div>
       </div>
