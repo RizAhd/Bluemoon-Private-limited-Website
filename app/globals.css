@@ -84,7 +84,7 @@
   --shadow-soft: 0 22px 48px -26px rgba(11, 31, 77, 0.28);
   --shadow-lift: 0 34px 64px -30px rgba(11, 31, 77, 0.34);
   --container: min(1240px, calc(100% - clamp(1.25rem, 5vw, 5rem)));
-  --section-space: clamp(5rem, 9vw, 9rem);
+  --section-space: clamp(3.5rem, 8vw, 9rem);
   --tracking-label: 0.16em;
   --transition: 260ms cubic-bezier(0.33, 1, 0.68, 1);
   color-scheme: light;
@@ -2411,5 +2411,28 @@ body.nav-open .wa-fab {
   .js-reveal [data-reveal]:not(.in) {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+/* ---------- small-screen refinements (kept last so they win) ---------- */
+@media (max-width: 560px) {
+  /* gallery: two tight columns instead of one very long column */
+  .gallery-grid {
+    columns: 2;
+    column-gap: 0.65rem;
+  }
+  .gallery-card {
+    margin-bottom: 0.65rem;
+    border-radius: 0.8rem;
+  }
+  .gallery-card__meta {
+    padding: 0.6rem 0.7rem;
+  }
+  .gallery-card__title {
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+  .gallery-card__meta span:not(.gallery-card__title) {
+    display: none;
   }
 }
