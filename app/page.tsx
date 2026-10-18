@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HeroSection } from "@/components/ui/hero-section-2";
+import { FormBuilderHero } from "@/components/ui/hero-section-8";
 import { CredentialStrip } from "@/components/CredentialStrip";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServicesFeature } from "@/components/ServicesFeature";
@@ -28,24 +28,25 @@ export default function HomePage() {
 
   return (
     <>
-      <HeroSection
-        slogan="CIDA C-6 / C-7 Registered Contractor"
+      <FormBuilderHero
+        illustrationSrc="/logo-icon.png"
+        illustrationAlt={`${siteConfig.companyName} logo`}
         title={
           <>
             Building Sri Lanka&apos;s hill country{" "}
             <span className="text-primary">to a higher standard.</span>
           </>
         }
-        subtitle="Schools, public buildings, roads, drainage, and renovations, delivered by a registered contractor with accountable delivery across Uva Province."
-        callToAction={{ text: "Request a Quote", href: "/quote" }}
+        description="Bluemoon Engineering is a CIDA-registered contractor in Welimada, Badulla, delivering schools, public buildings, roads, drainage, and renovations across Uva Province."
+        buttonText="Request a Quote"
+        buttonHref="/quote"
         secondaryAction={{ text: "View Projects", href: "/projects" }}
-        backgroundImage="/images/hero/hero-concrete-frame.jpg"
-        backgroundImageAlt="Multi-storey concrete building under construction against a clear blue sky"
-        contactInfo={{
-          phone: { label: siteConfig.phoneDisplay, href: `tel:${siteConfig.phoneHref}` },
-          email: { label: siteConfig.email, href: `mailto:${siteConfig.email}` },
-          address: { label: siteConfig.addressShort, href: siteConfig.mapLink, external: true },
-        }}
+        details={[
+          { label: `CIDA Reg. ${siteConfig.cidaReg}` },
+          { label: `Est. ${siteConfig.established}` },
+          { label: siteConfig.phoneDisplay, href: `tel:${siteConfig.phoneHref}` },
+          { label: siteConfig.addressShort, href: siteConfig.mapLink, external: true },
+        ]}
       />
       <CredentialStrip />
 
