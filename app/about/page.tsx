@@ -49,7 +49,7 @@ export default function AboutPage() {
         </div>
         <div
           className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/projects/ganapathi-learning-centre-1.jpg")})` }}
+          style={{ backgroundImage: `url(${asset("/images/hero/page-about-drafting.jpg")})` }}
           aria-hidden="true"
         />
       </section>

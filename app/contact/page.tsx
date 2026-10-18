@@ -36,7 +36,7 @@ export default function ContactPage() {
         </div>
         <div
           className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/projects/helabogan-commercial-2.jpg")})` }}
+          style={{ backgroundImage: `url(${asset("/images/hero/page-contact-plans-review.jpg")})` }}
           aria-hidden="true"
         />
       </section>

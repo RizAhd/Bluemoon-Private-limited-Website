@@ -33,7 +33,7 @@ export default function GalleryPage() {
         </div>
         <div
           className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/projects/ganapathi-learning-centre-2.jpg")})` }}
+          style={{ backgroundImage: `url(${asset("/images/hero/page-gallery-column-crew.jpg")})` }}
           aria-hidden="true"
         />
       </section>

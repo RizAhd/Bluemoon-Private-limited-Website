@@ -1,9 +1,15 @@
 # Hero image credits
 
-Free photos from Unsplash, used under the Unsplash License (free for commercial use, no attribution required). Credited here anyway.
+Free photos from Unsplash, used under the Unsplash License (free for commercial use, no attribution required). Credited here anyway. Each photo is used in exactly one place on the site.
 
-| File | Photographer | Source |
-|---|---|---|
-| hero-concrete-frame.jpg | Tolu Olubode | https://unsplash.com/photos/gray-concrete-building-under-construction-PlBsJ5MybGc |
-| site-rebar-crew.jpg | Etienne Girardet | https://unsplash.com/photos/two-men-working-sgYamIzhAhg |
-| site-rebar-inspection.jpg | Toni Reed | https://unsplash.com/photos/construction-worker-inspects-rebar-on-a-building-site-dSjrv4w1g1Q |
+| File | Used on | Photographer | Source |
+|---|---|---|---|
+| hero-concrete-frame.jpg | Quote page header | Tolu Olubode | https://unsplash.com/photos/gray-concrete-building-under-construction-PlBsJ5MybGc |
+| site-rebar-crew.jpg | Services page header | Etienne Girardet | https://unsplash.com/photos/two-men-working-sgYamIzhAhg |
+| site-rebar-inspection.jpg | Why Choose Us page header | Toni Reed | https://unsplash.com/photos/construction-worker-inspects-rebar-on-a-building-site-dSjrv4w1g1Q |
+| page-about-drafting.jpg | About page header | Daniel McCullough | https://unsplash.com/photos/an-architect-working-on-a-draft-with-a-pencil-and-ruler-HtBlQdxfG9k |
+| page-projects-cranes-dusk.jpg | Projects page header | EJ Yao | https://unsplash.com/photos/several-cranes-above-the-buildings-D46mXLsQRJw |
+| page-gallery-column-crew.jpg | Gallery page header | Josue Isai Ramos Figueroa | https://unsplash.com/photos/people-working-on-building-during-daytime-qvBYnMuNJ9A |
+| page-contact-plans-review.jpg | Contact page header | ThisisEngineering | https://unsplash.com/photos/people-reviewing-architectural-blueprints-in-workspace-SyRlD4s_amw |
+
+Real project photos live in `public/images/projects/` and are used only in the project cards, the featured project, the gallery and the social share image.
