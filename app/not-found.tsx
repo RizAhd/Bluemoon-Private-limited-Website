@@ -9,7 +9,7 @@ export default function NotFound() {
         </p>
         <h1>This page could not be found.</h1>
         <p className="lead" style={{ marginInline: "auto" }}>
-          The page may have moved or no longer exists. Let&apos;s get you back on track.
+          The page may have moved or no longer exists. Let’s get you back on track.
         </p>
         <div
           style={{

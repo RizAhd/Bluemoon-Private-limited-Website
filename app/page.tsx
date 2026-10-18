@@ -33,7 +33,7 @@ export default function HomePage() {
         illustration={<HeroIllustration className="mx-auto h-auto w-full max-w-[30rem]" />}
         title={
           <>
-            Building Sri Lanka&apos;s hill country{" "}
+            Building Sri Lanka’s hill country{" "}
             <span className="text-primary">to a higher standard.</span>
           </>
         }

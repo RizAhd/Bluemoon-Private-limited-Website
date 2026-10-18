@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
+import { Barlow, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,18 +10,19 @@ import { asset } from "@/lib/asset";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-const grotesk = Space_Grotesk({
-  weight: ["400", "500", "600", "700"],
+// Display face: Barlow, from road and highway signage, for headings, nav and buttons.
+const barlow = Barlow({
+  weight: ["500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-grotesk",
+  variable: "--font-barlow",
   display: "swap",
 });
 
-// Readable body face; Space Grotesk stays for headings, nav and buttons.
-const plex = IBM_Plex_Sans({
+// Body face: Source Sans 3, for comfortable reading in paragraphs and forms.
+const sourceSans = Source_Sans_3({
   weight: ["400", "500", "600"],
   subsets: ["latin"],
-  variable: "--font-plex",
+  variable: "--font-source-sans",
   display: "swap",
 });
 
@@ -63,7 +64,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${grotesk.variable} ${plex.variable}`}>
+    <html lang="en" className={`${barlow.variable} ${sourceSans.variable}`}>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content
