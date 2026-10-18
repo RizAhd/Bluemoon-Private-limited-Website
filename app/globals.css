@@ -68,7 +68,7 @@
   --color-success: #1f7a4f;
   --color-danger: #b3341f;
 
-  --font-body: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: 0.7rem;
@@ -112,8 +112,10 @@ body {
   max-width: 100%;
   overflow-x: clip;
   font-family: var(--font-body);
-  font-size: clamp(1rem, 0.2vw + 0.96rem, 1.06rem);
-  line-height: 1.65;
+  font-size: clamp(1rem, 0.25vw + 0.95rem, 1.0625rem);
+  line-height: 1.6;
+  font-feature-settings: "kern" 1;
+  font-variant-numeric: lining-nums;
   color: var(--color-ink);
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
@@ -141,19 +143,37 @@ h4 {
   margin: 0 0 0.5em;
   color: var(--color-navy);
   overflow-wrap: break-word;
+  text-wrap: balance;
 }
 h1 {
-  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  font-size: clamp(2.2rem, 4.6vw + 0.6rem, 4.2rem);
+  letter-spacing: -0.028em;
+  line-height: 1.04;
 }
 h2 {
-  font-size: clamp(1.85rem, 3.2vw, 2.85rem);
+  font-size: clamp(1.75rem, 2.6vw + 0.7rem, 2.85rem);
+  letter-spacing: -0.024em;
+  line-height: 1.08;
 }
 h3 {
-  font-size: clamp(1.2rem, 1.5vw, 1.45rem);
+  font-size: clamp(1.15rem, 0.8vw + 0.95rem, 1.45rem);
   letter-spacing: -0.015em;
+  line-height: 1.2;
 }
 p {
   margin: 0 0 1rem;
+  text-wrap: pretty;
+}
+/* UI text keeps the display face so controls match the headings */
+.btn,
+.site-nav a,
+.brand__text,
+.eyebrow,
+.filter-pill,
+.metrics__value,
+.pcard__facts dd,
+.credential-chip__value {
+  font-family: var(--font-display);
 }
 
 :focus-visible {

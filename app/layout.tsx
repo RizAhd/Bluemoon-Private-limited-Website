@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -14,6 +14,14 @@ const grotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-grotesk",
+  display: "swap",
+});
+
+// Readable body face; Space Grotesk stays for headings, nav and buttons.
+const plex = IBM_Plex_Sans({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-plex",
   display: "swap",
 });
 
@@ -55,7 +63,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={grotesk.variable}>
+    <html lang="en" className={`${grotesk.variable} ${plex.variable}`}>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content
