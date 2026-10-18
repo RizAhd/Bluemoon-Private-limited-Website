@@ -126,7 +126,7 @@ export function Header() {
                 Call
               </a>
               <a className="btn btn--ghost" href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer">
-                <Icon name="chat" className="nav-panel__icon" />
+                <Icon name="whatsapp" className="nav-panel__icon" />
                 WhatsApp
               </a>
             </div>

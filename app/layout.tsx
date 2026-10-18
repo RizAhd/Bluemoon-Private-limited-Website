@@ -8,6 +8,7 @@ import { businessJsonLd, websiteJsonLd, SITE_URL } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import { asset } from "@/lib/asset";
 import { JsonLd } from "@/components/JsonLd";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const grotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <WhatsAppButton />
         <ScrollAnimations />
         <JsonLd data={[businessJsonLd(), websiteJsonLd()]} />
       </body>

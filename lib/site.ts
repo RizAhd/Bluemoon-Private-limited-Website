@@ -56,7 +56,7 @@ export const contactChannels: ContactChannel[] = [
   },
   {
     title: "WhatsApp",
-    icon: "chat",
+    icon: "whatsapp",
     description: siteConfig.phoneDisplay,
     link: siteConfig.whatsapp,
     linkLabel: "Message on WhatsApp",
