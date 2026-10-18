@@ -1,4 +1,5 @@
 import { QuoteForm } from "@/components/QuoteForm";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -11,7 +12,7 @@ export const metadata = pageMetadata({
 export default function QuotePage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>
             <p className="eyebrow" data-hero-item>
@@ -30,6 +31,11 @@ export default function QuotePage() {
             </p>
           </div>
         </div>
+        <div
+          className="page-hero__media"
+          style={{ backgroundImage: `url(${asset("/images/hero/hero-concrete-frame.jpg")})` }}
+          aria-hidden="true"
+        />
       </section>
 
       <section className="section section--soft">

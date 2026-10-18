@@ -3,6 +3,7 @@ import { ServicesFeature } from "@/components/ServicesFeature";
 import { CtaBand } from "@/components/CtaBand";
 import { services } from "@/lib/services";
 import { sectors } from "@/lib/sectors";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -15,7 +16,7 @@ export const metadata = pageMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>
             <p className="eyebrow" data-hero-item>
@@ -34,6 +35,11 @@ export default function ServicesPage() {
             </p>
           </div>
         </div>
+        <div
+          className="page-hero__media"
+          style={{ backgroundImage: `url(${asset("/images/hero/site-rebar-crew.jpg")})` }}
+          aria-hidden="true"
+        />
       </section>
 
       <section className="section">

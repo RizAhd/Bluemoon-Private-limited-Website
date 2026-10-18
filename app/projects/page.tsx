@@ -3,6 +3,7 @@ import { ProjectsExplorer } from "@/components/ProjectsExplorer";
 import { CtaBand } from "@/components/CtaBand";
 import { trackRecord } from "@/lib/trackRecord";
 import { formatLKRFull, totalContractValue, contractCount } from "@/lib/currency";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -15,7 +16,7 @@ export const metadata = pageMetadata({
 export default function ProjectsPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>
             <p className="eyebrow" data-hero-item>
@@ -34,6 +35,11 @@ export default function ProjectsPage() {
             </p>
           </div>
         </div>
+        <div
+          className="page-hero__media"
+          style={{ backgroundImage: `url(${asset("/images/projects/helabogan-commercial-1.jpg")})` }}
+          aria-hidden="true"
+        />
       </section>
 
       <section className="section">

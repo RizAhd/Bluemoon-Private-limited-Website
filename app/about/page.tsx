@@ -25,7 +25,7 @@ const facts = [
 export default function AboutPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>
             <p className="eyebrow" data-hero-item>
@@ -45,6 +45,11 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+        <div
+          className="page-hero__media"
+          style={{ backgroundImage: `url(${asset("/images/projects/ganapathi-learning-centre-1.jpg")})` }}
+          aria-hidden="true"
+        />
       </section>
 
       <section className="section">

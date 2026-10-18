@@ -4,6 +4,7 @@ import { Icon } from "@/components/Icon";
 import { reasons } from "@/lib/reasons";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { credentials, cidaGrades } from "@/lib/credentials";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -16,7 +17,7 @@ export const metadata = pageMetadata({
 export default function WhyChooseUsPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>
             <p className="eyebrow" data-hero-item>
@@ -35,6 +36,11 @@ export default function WhyChooseUsPage() {
             </p>
           </div>
         </div>
+        <div
+          className="page-hero__media"
+          style={{ backgroundImage: `url(${asset("/images/hero/site-rebar-inspection.jpg")})` }}
+          aria-hidden="true"
+        />
       </section>
 
       <section className="section">

@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { Gallery } from "@/components/Gallery";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -12,7 +13,7 @@ export const metadata = pageMetadata({
 export default function GalleryPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>
             <p className="eyebrow" data-hero-item>
@@ -28,6 +29,11 @@ export default function GalleryPage() {
             <p style={{ marginBottom: 0 }}>Select any image to view it larger.</p>
           </div>
         </div>
+        <div
+          className="page-hero__media"
+          style={{ backgroundImage: `url(${asset("/images/projects/ganapathi-learning-centre-2.jpg")})` }}
+          aria-hidden="true"
+        />
       </section>
 
       <section className="section">
