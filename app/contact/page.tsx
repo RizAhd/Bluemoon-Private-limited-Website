@@ -2,18 +2,20 @@ import { ContactForm } from "@/components/ContactForm";
 import { Icon } from "@/components/Icon";
 import { siteConfig, contactChannels } from "@/lib/site";
 import { asset } from "@/lib/asset";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata = pageMetadata({
   title: "Contact | Bluemoon Engineering (Pvt) Ltd, Welimada",
   description:
-    "Contact Bluemoon Engineering in Welimada, Badulla for construction consultations, site visits, and project discussions across Uva Province. Call 077 337 0056 or email bluemoonengi@gmail.com.",
+    "Contact Bluemoon Engineering in Welimada, Badulla for site visits, consultations and quotes across Uva Province. Call 077 337 0056 or email the office.",
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Contact", "/contact")} />
       <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>

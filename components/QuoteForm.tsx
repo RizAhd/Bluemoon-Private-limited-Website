@@ -18,9 +18,9 @@ const projectTypes = [
 ];
 const budgets = [
   "Below Rs 1 Million",
-  "Rs 1M – 5M",
-  "Rs 5M – 15M",
-  "Rs 15M – 30M",
+  "Rs 1M to 5M",
+  "Rs 5M to 15M",
+  "Rs 15M to 30M",
   "Above Rs 30 Million",
 ];
 

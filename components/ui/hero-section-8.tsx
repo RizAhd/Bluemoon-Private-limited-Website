@@ -9,8 +9,10 @@ import { asset } from "@/lib/asset";
 
 // Define the props for the component
 interface FormBuilderHeroProps {
-  /** The source URL for the main illustration. */
-  illustrationSrc: string;
+  /** The source URL for the main illustration (ignored when `illustration` is given). */
+  illustrationSrc?: string;
+  /** An inline illustration element, used instead of an image. */
+  illustration?: React.ReactNode;
   /** The alt text for the illustration. */
   illustrationAlt?: string;
   /** The main heading text. */
@@ -51,6 +53,7 @@ const itemVariants: Variants = {
  */
 export const FormBuilderHero: React.FC<FormBuilderHeroProps> = ({
   illustrationSrc,
+  illustration,
   illustrationAlt = "Hero Illustration",
   title,
   description,
@@ -74,15 +77,18 @@ export const FormBuilderHero: React.FC<FormBuilderHeroProps> = ({
         variants={containerVariants}
       >
         {/* Illustration */}
-        <motion.div variants={itemVariants} className="mb-8">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={asset(illustrationSrc)}
-            alt={illustrationAlt}
-            width={256}
-            height={257}
-            className="mx-auto h-auto w-40 select-none md:w-56"
-          />
+        <motion.div variants={itemVariants} className="mb-8 w-full">
+          {illustration ??
+            (illustrationSrc && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={asset(illustrationSrc)}
+                alt={illustrationAlt}
+                width={256}
+                height={257}
+                className="mx-auto h-auto w-40 select-none md:w-56"
+              />
+            ))}
         </motion.div>
 
         {/* Title */}

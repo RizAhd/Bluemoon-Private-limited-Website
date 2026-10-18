@@ -31,7 +31,7 @@ export const siteConfig = {
   region: "Welimada · Badulla · Bandarawela · Uva Province",
   serviceArea:
     "Serving Welimada, Badulla, Bandarawela, Nuwara Eliya and projects across Uva Province and Sri Lanka.",
-  hours: "Mon – Sat · 8:30 AM – 6:00 PM",
+  hours: "Mon to Sat · 8:30 AM to 6:00 PM",
 
   businessReg: "PV 00232701",
   cidaReg: "C-21184",

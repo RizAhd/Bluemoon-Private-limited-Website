@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FormBuilderHero } from "@/components/ui/hero-section-8";
+import { HeroIllustration } from "@/components/HeroIllustration";
 import { CredentialStrip } from "@/components/CredentialStrip";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServicesFeature } from "@/components/ServicesFeature";
@@ -16,9 +17,9 @@ import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Bluemoon Engineering (Pvt) Ltd | CIDA-Registered Construction Contractor, Uva Province",
+  title: "Bluemoon Engineering | CIDA Building Contractor, Welimada",
   description:
-    "Bluemoon Engineering (Pvt) Ltd is a CIDA-registered building & civil-engineering contractor in Welimada, Badulla, delivering schools, public buildings, roads, drainage, and renovations for government and private clients across Uva Province, Sri Lanka.",
+    "CIDA-registered building and civil-engineering contractor in Welimada, Badulla. Schools, public buildings, roads, drainage and renovations across Uva Province.",
   path: "/",
 });
 
@@ -29,8 +30,7 @@ export default function HomePage() {
   return (
     <>
       <FormBuilderHero
-        illustrationSrc="/logo-icon.png"
-        illustrationAlt={`${siteConfig.companyName} logo`}
+        illustration={<HeroIllustration className="mx-auto h-auto w-full max-w-[30rem]" />}
         title={
           <>
             Building Sri Lanka&apos;s hill country{" "}
@@ -96,7 +96,7 @@ export default function HomePage() {
               </p>
             </div>
           </article>
-          <div className="card-grid card-grid--projects">
+          <div className="card-grid card-grid--two-up">
             {otherProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

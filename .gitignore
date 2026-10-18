@@ -28,7 +28,7 @@ Thumbs.db
 npm-debug.log*
 
 # ---------------------------------------------------------------------------
-# PRIVATE company documents & legacy source — MUST NEVER reach GitHub
+# PRIVATE company documents & legacy source: MUST NEVER reach GitHub
 # Root-anchored (leading slash) so that src/assets/ stays committed.
 # ---------------------------------------------------------------------------
 /_source/

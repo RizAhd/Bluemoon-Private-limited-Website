@@ -5,18 +5,20 @@ import { reasons } from "@/lib/reasons";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { credentials, cidaGrades } from "@/lib/credentials";
 import { asset } from "@/lib/asset";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata = pageMetadata({
   title: "Why Choose Us | Bluemoon Engineering (Pvt) Ltd",
   description:
-    "Why clients choose Bluemoon Engineering: CIDA registration and grading, government-ready delivery, hill-country expertise, and a clear construction process from consultation to handover.",
+    "Why clients choose Bluemoon Engineering: CIDA registration, government-ready delivery, hill-country expertise and a clear process from consultation to handover.",
   path: "/why-choose-us",
 });
 
 export default function WhyChooseUsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Why Choose Us", "/why-choose-us")} />
       <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>

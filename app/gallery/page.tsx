@@ -1,18 +1,20 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { Gallery } from "@/components/Gallery";
 import { asset } from "@/lib/asset";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata = pageMetadata({
   title: "Gallery | Bluemoon Engineering (Pvt) Ltd",
   description:
-    "Photographs of real construction and renovation work by Bluemoon Engineering: school buildings, commercial projects, and finishing works across Uva Province, Sri Lanka.",
+    "Photos of real construction and renovation work by Bluemoon Engineering: school buildings, commercial projects and finishing works across Uva Province.",
   path: "/gallery",
 });
 
 export default function GalleryPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Gallery", "/gallery")} />
       <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>

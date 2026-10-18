@@ -4,18 +4,20 @@ import { CtaBand } from "@/components/CtaBand";
 import { trackRecord } from "@/lib/trackRecord";
 import { formatLKRFull, totalContractValue, contractCount } from "@/lib/currency";
 import { asset } from "@/lib/asset";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata = pageMetadata({
   title: "Projects | Bluemoon Engineering (Pvt) Ltd",
   description:
-    "Completed construction projects by Bluemoon Engineering across Uva Province: schools, learning resource centres, commercial buildings, and renovations for government and private clients, with real contract values.",
+    "Completed projects by Bluemoon Engineering across Uva Province: schools, learning centres, commercial buildings and renovations, with real contract values.",
   path: "/projects",
 });
 
 export default function ProjectsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Projects", "/projects")} />
       <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>

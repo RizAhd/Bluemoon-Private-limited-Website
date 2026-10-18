@@ -4,18 +4,20 @@ import { CtaBand } from "@/components/CtaBand";
 import { services } from "@/lib/services";
 import { sectors } from "@/lib/sectors";
 import { asset } from "@/lib/asset";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata = pageMetadata({
   title: "Services | Bluemoon Engineering (Pvt) Ltd, Welimada",
   description:
-    "Building construction, civil & infrastructure works, water supply & drainage, renovation, finishing, sanitation, and retaining walls. CIDA-registered construction services by Bluemoon Engineering across Uva Province.",
+    "CIDA-registered construction services in Uva Province: building, civil and infrastructure works, water supply, drainage, renovation, finishing and sanitation.",
   path: "/services",
 });
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Services", "/services")} />
       <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>

@@ -4,13 +4,14 @@ import { Icon } from "@/components/Icon";
 import { siteConfig } from "@/lib/site";
 import { values } from "@/lib/values";
 import { credentials, cidaGrades } from "@/lib/credentials";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { asset } from "@/lib/asset";
 
 export const metadata = pageMetadata({
   title: "About | Bluemoon Engineering (Pvt) Ltd, Welimada",
   description:
-    "Bluemoon Engineering (Pvt) Ltd is a CIDA-registered construction contractor established in 2021 in Welimada, Badulla, led by Mr. M.J.M. Aswar, delivering building and civil-engineering projects across Uva Province.",
+    "Bluemoon Engineering, a CIDA-registered contractor founded in 2021 in Welimada, Badulla, delivers building and civil-engineering projects across Uva Province.",
   path: "/about",
 });
 
@@ -25,6 +26,7 @@ const facts = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("About", "/about")} />
       <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>

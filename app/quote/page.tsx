@@ -1,17 +1,19 @@
 import { QuoteForm } from "@/components/QuoteForm";
 import { asset } from "@/lib/asset";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata = pageMetadata({
   title: "Request a Quote | Bluemoon Engineering (Pvt) Ltd",
   description:
-    "Request a construction quote from Bluemoon Engineering in Welimada, Badulla for building, civil, water & drainage, renovation, and finishing projects across Uva Province, Sri Lanka.",
+    "Request a construction quote from Bluemoon Engineering, Welimada: building, civil works, water and drainage, renovation and finishing across Uva Province.",
   path: "/quote",
 });
 
 export default function QuotePage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Request a Quote", "/quote")} />
       <section className="page-hero page-hero--media">
         <div className="container page-hero__grid">
           <div>

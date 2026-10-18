@@ -295,66 +295,130 @@ p {
   color: var(--color-royal);
 }
 
-/* ---------- buttons ---------- */
+/* ---------- buttons ----------
+   Squared, engineered buttons. Each variant sets a few custom properties;
+   on hover a fill wipes across from the left and the icon nudges forward. */
 .btn {
+  --btn-bg: transparent;
+  --btn-fg: var(--color-navy);
+  --btn-border: transparent;
+  --btn-wipe: var(--color-navy);
+  --btn-wipe-fg: #fff;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
+  min-height: 3rem;
+  padding: 0 1.5rem;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 0.85rem 1.6rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 0.6rem;
+  border: 1.5px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
   cursor: pointer;
   text-decoration: none;
-  transition: transform var(--transition), box-shadow var(--transition),
-    background-color var(--transition), border-color var(--transition), color var(--transition);
+  transition: color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease,
+    transform 0.2s ease;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--btn-wipe);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn:hover {
-  transform: translateY(-2px);
+  color: var(--btn-wipe-fg);
+  border-color: var(--btn-wipe);
 }
+.btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:focus-visible {
+  outline: 3px solid var(--color-royal-bright);
+  outline-offset: 3px;
+}
+.btn svg {
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn:hover svg {
+  transform: translateX(3px);
+}
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn:disabled::before,
+.btn[aria-disabled="true"]::before {
+  display: none;
+}
+.btn:disabled:hover {
+  color: var(--btn-fg);
+  border-color: var(--btn-border);
+}
+
 .btn--primary {
-  background: var(--color-navy);
-  color: #fff;
-  box-shadow: var(--shadow-sm);
-}
-.btn--primary:hover {
-  background: var(--color-navy-700);
-  box-shadow: var(--shadow-soft);
+  --btn-bg: var(--color-navy);
+  --btn-fg: #fff;
+  --btn-border: var(--color-navy);
+  --btn-wipe: var(--color-royal);
+  box-shadow: 0 10px 22px -14px rgba(11, 31, 77, 0.6);
 }
 .btn--secondary {
-  background: var(--royal-gradient);
-  color: #fff;
-  box-shadow: 0 12px 26px -12px rgba(29, 78, 216, 0.55);
+  --btn-bg: var(--color-royal);
+  --btn-fg: #fff;
+  --btn-border: var(--color-royal);
+  --btn-wipe: var(--color-navy);
+  box-shadow: 0 12px 24px -14px rgba(29, 78, 216, 0.7);
 }
 .btn--ghost {
-  background: transparent;
-  border-color: var(--color-line-strong);
-  color: var(--color-navy);
+  --btn-fg: var(--color-navy);
+  --btn-border: var(--color-line-strong);
+  --btn-wipe: var(--color-navy);
 }
-.btn--ghost:hover {
-  border-color: var(--color-navy);
-  background: var(--color-navy);
-  color: #fff;
-}
+
+/* on navy surfaces the fill wipes to white */
 .section--dark .btn--ghost,
-.section--cta .btn--ghost {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
+.section--cta .btn--ghost,
+.cta-panel .btn--ghost {
+  --btn-fg: #fff;
+  --btn-border: rgba(255, 255, 255, 0.35);
+  --btn-wipe: #fff;
+  --btn-wipe-fg: var(--color-navy);
 }
-.section--dark .btn--ghost:hover,
-.section--cta .btn--ghost:hover {
-  background: #fff;
-  color: var(--color-navy);
-  border-color: #fff;
+.section--dark .btn--secondary,
+.section--cta .btn--secondary,
+.cta-panel .btn--secondary {
+  --btn-wipe: #fff;
+  --btn-wipe-fg: var(--color-navy);
 }
+
 .btn--small {
-  padding: 0.55rem 1.05rem;
+  min-height: 2.4rem;
+  padding: 0 1rem;
   font-size: 0.85rem;
+  gap: 0.5rem;
 }
 .btn--large {
-  padding: 1rem 2rem;
+  min-height: 3.4rem;
+  padding: 0 1.9rem;
   font-size: 1rem;
 }
 
@@ -1675,15 +1739,6 @@ p {
   justify-content: center;
   flex-wrap: wrap;
 }
-.cta-panel .btn--ghost {
-  border-color: rgba(255, 255, 255, 0.32);
-  color: #fff;
-}
-.cta-panel .btn--ghost:hover {
-  background: #fff;
-  color: var(--color-navy);
-  border-color: #fff;
-}
 
 /* ---------- process timeline ---------- */
 .timeline {
@@ -1764,106 +1819,138 @@ p {
   }
 }
 
-/* ---------- project card (editorial overlay) ---------- */
+/* ---------- project card (photo top, details on white) ---------- */
 .pcard {
   position: relative;
-  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-navy);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 .pcard:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
+  border-color: var(--color-royal-soft);
   box-shadow: var(--shadow-soft);
 }
-.pcard .carousel img {
-  transition: opacity 0.55s ease, transform 4s ease;
+.pcard__media {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  background: var(--color-navy);
+  overflow: hidden;
 }
-.pcard:hover .carousel img.is-active {
-  transform: scale(1.05);
-}
-.pcard__scrim {
+.pcard__media .carousel {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    to top,
-    rgba(6, 18, 46, 0.95) 0%,
-    rgba(6, 18, 46, 0.6) 26%,
-    rgba(6, 18, 46, 0.08) 52%,
-    transparent 70%
-  );
 }
-.pcard__top {
+.pcard .carousel img {
+  transition: opacity 0.55s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pcard:hover .carousel img.is-active {
+  transform: scale(1.04);
+}
+.pcard__media::after {
+  content: "";
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  right: 1rem;
-  z-index: 4;
-  display: flex;
-  justify-content: space-between;
+  inset: auto 0 0;
+  height: 40%;
+  z-index: 2;
   pointer-events: none;
+  background: linear-gradient(to top, rgba(6, 18, 46, 0.45), transparent);
 }
-.pcard__cat {
+.pcard__cat,
+.pcard__count {
+  position: absolute;
+  top: 0.9rem;
+  z-index: 4;
+  pointer-events: none;
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.34rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(96, 165, 250, 0.94);
+  padding: 0.38rem 0.7rem;
+  border-radius: 0.4rem;
+}
+.pcard__cat {
+  left: 0.9rem;
+  background: #fff;
   color: var(--color-navy);
+  box-shadow: 0 4px 12px -6px rgba(6, 18, 46, 0.5);
 }
-.pcard__info {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 4;
-  padding: 1.5rem 1.5rem 1.75rem;
+.pcard__count {
+  right: 0.9rem;
+  background: rgba(6, 18, 46, 0.62);
   color: #fff;
-  pointer-events: none;
-}
-.pcard__row {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.65rem;
-}
-.pcard__value {
-  font-weight: 700;
-  color: var(--color-royal-bright);
-  font-size: 1rem;
-}
-.pcard .status-badge--completed {
-  background: rgba(52, 199, 124, 0.2);
-  color: #8ce9b6;
-}
-.pcard .status-badge--ongoing {
-  background: rgba(96, 165, 250, 0.22);
-  color: var(--color-royal-bright);
-}
-.pcard__title {
-  color: #fff;
-  font-size: clamp(1.15rem, 1.4vw, 1.4rem);
-  line-height: 1.18;
-  margin: 0 0 0.4rem;
-}
-.pcard__client {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
-  margin: 0;
+  backdrop-filter: blur(6px);
 }
 .pcard .carousel__nav {
   z-index: 5;
 }
 .pcard .carousel__dots {
   z-index: 5;
-  bottom: auto;
-  top: 1.15rem;
+  bottom: 0.85rem;
+}
+.pcard__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.4rem 1.5rem 1.5rem;
+}
+.pcard__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+.pcard__year {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+.pcard__title {
+  font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+  line-height: 1.22;
+  margin: 0 0 0.45rem;
+  text-wrap: balance;
+}
+.pcard__client {
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 1.25rem;
+}
+.pcard__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin: auto 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-line);
+}
+.pcard__facts dt {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+}
+.pcard__facts dd {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+.pcard__facts .pcard__value {
+  color: var(--color-royal-text);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- header (sticky glass) ---------- */
