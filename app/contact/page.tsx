@@ -43,7 +43,7 @@ export default function ContactPage() {
 
       <section className="section">
         <div className="container">
-          <div className="card-grid card-grid--three-up">
+          <div className="card-grid card-grid--services">
             {contactChannels.map((c) => (
               <article className="contact-card" key={c.title}>
                 <span className="icon-badge">
