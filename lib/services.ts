@@ -16,7 +16,7 @@ export const services: Service[] = [
     featured: true,
   },
   {
-    title: "Civil & Infrastructure Works",
+    title: "Civil & Infrastructure Works",
     slug: "civil-infrastructure",
     icon: "road",
     excerpt:
@@ -59,7 +59,7 @@ export const services: Service[] = [
     highlights: ["School sanitation units", "Hygiene-focused delivery"],
   },
   {
-    title: "Retaining Walls & Site Works",
+    title: "Retaining Walls & Site Works",
     slug: "retaining-site-works",
     icon: "wall",
     excerpt:
@@ -67,7 +67,7 @@ export const services: Service[] = [
     highlights: ["Retaining & boundary walls", "Playgrounds & ground works"],
   },
   {
-    title: "Government & Institutional Projects",
+    title: "Government & Institutional Projects",
     slug: "government-projects",
     icon: "shield",
     excerpt:

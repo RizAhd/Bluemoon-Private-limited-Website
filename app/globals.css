@@ -2496,6 +2496,11 @@ body.nav-open .nav-toggle__line:nth-child(3) {
   transform: translateY(-3px) scale(1.04);
   box-shadow: 0 18px 34px -12px rgba(6, 18, 46, 0.5), 0 2px 6px rgba(6, 18, 46, 0.18);
 }
+.wa-fab.is-away {
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 1rem;
+}
 .wa-fab:focus-visible {
   outline: 3px solid var(--color-royal-bright);
   outline-offset: 3px;
