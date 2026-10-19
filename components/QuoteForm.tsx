@@ -51,75 +51,88 @@ export function QuoteForm() {
         aria-hidden="true"
       />
 
-      <div className="form-grid">
-        <div className="field">
-          <label htmlFor="quote-name">
-            Full Name <span className="req">*</span>
-          </label>
-          <input id="quote-name" name="fullName" type="text" autoComplete="name" minLength={3} required aria-invalid={!!errors.fullName} aria-describedby="q-fullName-error" onInput={() => clear("fullName")} />
-          <span className="field__error" id="q-fullName-error" aria-live="polite">{errors.fullName}</span>
+      <fieldset className="form-section">
+        <legend>Your details</legend>
+        <div className="form-grid">
+          <div className="field field--full">
+            <label htmlFor="quote-name">
+              Full Name <span className="req">*</span>
+            </label>
+            <input id="quote-name" name="fullName" type="text" autoComplete="name" minLength={3} required aria-invalid={!!errors.fullName} aria-describedby="q-fullName-error" onInput={() => clear("fullName")} />
+            <span className="field__error" id="q-fullName-error" aria-live="polite">{errors.fullName}</span>
+          </div>
+          <div className="field">
+            <label htmlFor="quote-phone">
+              Phone <span className="req">*</span>
+            </label>
+            <input id="quote-phone" name="phone" type="tel" autoComplete="tel" maxLength={20} required aria-invalid={!!errors.phone} aria-describedby="q-phone-error" onInput={() => clear("phone")} />
+            <span className="field__error" id="q-phone-error" aria-live="polite">{errors.phone}</span>
+          </div>
+          <div className="field">
+            <label htmlFor="quote-email">
+              Email <span className="req">*</span>
+            </label>
+            <input id="quote-email" name="email" type="email" autoComplete="email" required aria-invalid={!!errors.email} aria-describedby="q-email-error" onInput={() => clear("email")} />
+            <span className="field__error" id="q-email-error" aria-live="polite">{errors.email}</span>
+          </div>
         </div>
-        <div className="field">
-          <label htmlFor="quote-phone">
-            Phone <span className="req">*</span>
-          </label>
-          <input id="quote-phone" name="phone" type="tel" autoComplete="tel" maxLength={20} required aria-invalid={!!errors.phone} aria-describedby="q-phone-error" onInput={() => clear("phone")} />
-          <span className="field__error" id="q-phone-error" aria-live="polite">{errors.phone}</span>
+      </fieldset>
+      <fieldset className="form-section">
+        <legend>Project</legend>
+        <div className="form-grid">
+          <div className="field">
+            <label htmlFor="quote-type">
+              Project Type <span className="req">*</span>
+            </label>
+            <select id="quote-type" name="projectType" required aria-invalid={!!errors.projectType} aria-describedby="q-type-error" onChange={() => clear("projectType")} defaultValue="">
+              <option value="">Select a project type</option>
+              {projectTypes.map((t) => (
+                <option key={t}>{t}</option>
+              ))}
+            </select>
+            <span className="field__error" id="q-type-error" aria-live="polite">{errors.projectType}</span>
+          </div>
+          <div className="field">
+            <label htmlFor="quote-budget">
+              Estimated Budget <span className="req">*</span>
+            </label>
+            <select id="quote-budget" name="estimatedBudget" required aria-invalid={!!errors.estimatedBudget} aria-describedby="q-budget-error" onChange={() => clear("estimatedBudget")} defaultValue="">
+              <option value="">Select a budget range</option>
+              {budgets.map((b) => (
+                <option key={b}>{b}</option>
+              ))}
+            </select>
+            <span className="field__error" id="q-budget-error" aria-live="polite">{errors.estimatedBudget}</span>
+          </div>
+          <div className="field">
+            <label htmlFor="quote-location">
+              Location <span className="req">*</span>
+            </label>
+            <input id="quote-location" name="location" type="text" minLength={3} placeholder="Welimada, Badulla, Bandarawela…" required aria-invalid={!!errors.location} aria-describedby="q-loc-error" onInput={() => clear("location")} />
+            <span className="field__error" id="q-loc-error" aria-live="polite">{errors.location}</span>
+          </div>
+          <div className="field">
+            <label htmlFor="quote-start-date">
+              Preferred Start Date <span className="req">*</span>
+            </label>
+            <input id="quote-start-date" name="preferredStartDate" type="date" ref={dateRef} required aria-invalid={!!errors.preferredStartDate} aria-describedby="q-date-error" onInput={() => clear("preferredStartDate")} />
+            <span className="field__error" id="q-date-error" aria-live="polite">{errors.preferredStartDate}</span>
+          </div>
         </div>
-        <div className="field">
-          <label htmlFor="quote-email">
-            Email <span className="req">*</span>
-          </label>
-          <input id="quote-email" name="email" type="email" autoComplete="email" required aria-invalid={!!errors.email} aria-describedby="q-email-error" onInput={() => clear("email")} />
-          <span className="field__error" id="q-email-error" aria-live="polite">{errors.email}</span>
+      </fieldset>
+      <fieldset className="form-section">
+        <legend>Describe the work</legend>
+        <div className="form-grid">
+          <div className="field field--full">
+            <label htmlFor="quote-details">
+              Project Details <span className="req">*</span>
+            </label>
+            <textarea id="quote-details" name="projectDetails" rows={6} minLength={20} required aria-invalid={!!errors.projectDetails} aria-describedby="q-details-error" onInput={() => clear("projectDetails")} />
+            <span className="field__error" id="q-details-error" aria-live="polite">{errors.projectDetails}</span>
+          </div>
         </div>
-        <div className="field">
-          <label htmlFor="quote-type">
-            Project Type <span className="req">*</span>
-          </label>
-          <select id="quote-type" name="projectType" required aria-invalid={!!errors.projectType} aria-describedby="q-type-error" onChange={() => clear("projectType")} defaultValue="">
-            <option value="">Select a project type</option>
-            {projectTypes.map((t) => (
-              <option key={t}>{t}</option>
-            ))}
-          </select>
-          <span className="field__error" id="q-type-error" aria-live="polite">{errors.projectType}</span>
-        </div>
-        <div className="field">
-          <label htmlFor="quote-location">
-            Location <span className="req">*</span>
-          </label>
-          <input id="quote-location" name="location" type="text" minLength={3} placeholder="Welimada, Badulla, Bandarawela…" required aria-invalid={!!errors.location} aria-describedby="q-loc-error" onInput={() => clear("location")} />
-          <span className="field__error" id="q-loc-error" aria-live="polite">{errors.location}</span>
-        </div>
-        <div className="field">
-          <label htmlFor="quote-budget">
-            Estimated Budget <span className="req">*</span>
-          </label>
-          <select id="quote-budget" name="estimatedBudget" required aria-invalid={!!errors.estimatedBudget} aria-describedby="q-budget-error" onChange={() => clear("estimatedBudget")} defaultValue="">
-            <option value="">Select a budget range</option>
-            {budgets.map((b) => (
-              <option key={b}>{b}</option>
-            ))}
-          </select>
-          <span className="field__error" id="q-budget-error" aria-live="polite">{errors.estimatedBudget}</span>
-        </div>
-        <div className="field">
-          <label htmlFor="quote-start-date">
-            Preferred Start Date <span className="req">*</span>
-          </label>
-          <input id="quote-start-date" name="preferredStartDate" type="date" ref={dateRef} required aria-invalid={!!errors.preferredStartDate} aria-describedby="q-date-error" onInput={() => clear("preferredStartDate")} />
-          <span className="field__error" id="q-date-error" aria-live="polite">{errors.preferredStartDate}</span>
-        </div>
-        <div className="field field--full">
-          <label htmlFor="quote-details">
-            Project Details <span className="req">*</span>
-          </label>
-          <textarea id="quote-details" name="projectDetails" rows={6} minLength={20} required aria-invalid={!!errors.projectDetails} aria-describedby="q-details-error" onInput={() => clear("projectDetails")} />
-          <span className="field__error" id="q-details-error" aria-live="polite">{errors.projectDetails}</span>
-        </div>
-      </div>
-      <Button type="submit" disabled={submitting}>
+      </fieldset>
+      <Button type="submit" variant="secondary" size="lg" disabled={submitting}>
         {submitting ? "Sending…" : "Submit Quote Request"}
       </Button>
       <p className={`form-feedback${feedback.tone ? ` is-${feedback.tone}` : ""}`} role="status" aria-live="polite">

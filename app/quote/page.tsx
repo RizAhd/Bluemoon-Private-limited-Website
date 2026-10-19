@@ -22,33 +22,25 @@ export default function QuotePage() {
         actions={["call", "whatsapp"]}
       />
 
-      <section className="section section--soft">
-        <div className="container contact-layout">
-          <div className="surface-card" data-reveal>
+      <section className="section section--alt">
+        <div className="container contact-layout quote-layout">
+          <div className="surface-card form-card" data-reveal>
             <p className="eyebrow">Project Details</p>
-            <h2>Help us understand your scope.</h2>
+            <h2 className="form-card__title">Help us understand your scope.</h2>
             <QuoteForm />
           </div>
-          <div className="contact-side">
-            <div className="surface-card" data-reveal>
+          <aside className="quote-side" data-reveal>
+            <div className="surface-card">
               <p className="eyebrow">What Happens Next</p>
-              <h2>We review your brief and respond with practical guidance.</h2>
-              <ul className="feature-list">
-                <li>Initial scope review and feasibility understanding</li>
-                <li>Recommended consultation or site visit where needed</li>
-                <li>Clarification of timeline, budget, and project goals</li>
-                <li>A structured quotation pathway for the next phase</li>
-              </ul>
+              <h3>We review your brief and reply with practical guidance.</h3>
+              <ol className="next-steps">
+                <li>Scope review and feasibility check</li>
+                <li>Consultation or site visit where needed</li>
+                <li>Timeline, budget and goals clarified</li>
+                <li>A structured quotation for the next phase</li>
+              </ol>
             </div>
-            <div className="surface-card" data-reveal>
-              <p className="eyebrow">Suitable For</p>
-              <h2>Public and private construction projects.</h2>
-              <p style={{ marginBottom: 0 }}>
-                Use this form for building, civil, water & drainage, renovation, sanitation, retaining
-                wall, and finishing requirements that need a registered contractor.
-              </p>
-            </div>
-          </div>
+          </aside>
         </div>
       </section>
     </>
