@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,10 +10,16 @@ import { asset } from "@/lib/asset";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-// Geist: one variable family for headings, UI and body text.
+// Geist for body, UI and small headings; Source Serif 4 for h1/h2 display type.
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
+  display: "swap",
+});
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  variable: "--font-source-serif",
   display: "swap",
 });
 
@@ -57,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     // suppressHydrationWarning: the home hero intro script sets data-intro-seen
     // on <html> before hydration (same pattern as theme scripts).
-    <html lang="en" className={geist.variable} suppressHydrationWarning>
+    <html lang="en" className={`${geist.variable} ${sourceSerif.variable}`} suppressHydrationWarning>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content
