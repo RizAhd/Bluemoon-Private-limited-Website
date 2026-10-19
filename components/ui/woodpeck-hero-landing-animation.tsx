@@ -559,58 +559,62 @@ function HeroBannerSection({
             </picture>
           )}
 
-          {/* Navy tint so white text always reads clearly */}
-          <div className="absolute inset-0 pointer-events-none z-[2] bg-[linear-gradient(180deg,rgba(6,18,46,0.62)_0%,rgba(6,18,46,0.42)_42%,rgba(6,18,46,0.78)_100%)]" />
-          {/* Extra soft shade behind the centred text block */}
-          <div className="absolute inset-0 pointer-events-none z-[2] bg-[radial-gradient(ellipse_60%_45%_at_50%_50%,rgba(6,18,46,0.42),transparent_75%)]" />
+          {/* Navy shade: heavier on the left behind the copy, photo stays clear on the right */}
+          <div className="absolute inset-0 pointer-events-none z-[2] bg-[linear-gradient(180deg,rgba(6,18,46,0.55)_0%,rgba(6,18,46,0.62)_55%,rgba(6,18,46,0.85)_100%)] md:bg-[linear-gradient(90deg,rgba(6,18,46,0.86)_0%,rgba(6,18,46,0.66)_42%,rgba(6,18,46,0.18)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none z-[2] bg-[linear-gradient(0deg,rgba(6,18,46,0.55),transparent)]" />
         </div>
 
-        {/* Centered headline, copy and actions */}
-        <div className="absolute inset-0 z-[3] flex flex-col justify-center items-center text-center px-5 sm:px-6 md:px-8 lg:px-12 max-w-5xl lg:max-w-7xl mx-auto">
-          {headlineKicker && (
-            <div className="overflow-hidden mb-3 sm:mb-4">
-              <span
-                {...rise('0.4s')}
-                className={`${rise('0.4s').className} inline-block text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.22em] font-semibold text-white/85`}
-              >
-                {headlineKicker}
-              </span>
+        {/* Left-aligned headline, copy and actions on the site container */}
+        <div className="absolute inset-0 z-[3] flex flex-col justify-center">
+          <div className="container">
+            <div className="max-w-[44rem]">
+              {headlineKicker && (
+                <div className="overflow-hidden mb-4 sm:mb-5">
+                  <span
+                    {...rise('0.4s')}
+                    className={`${rise('0.4s').className} flex items-center gap-3 text-[11px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] font-semibold text-[var(--color-sky)]`}
+                  >
+                    <span aria-hidden="true" className="inline-block w-7 h-[2px] rounded bg-[var(--color-royal-bright)]" />
+                    {headlineKicker}
+                  </span>
+                </div>
+              )}
+
+              <div className="overflow-hidden block">
+                <h1
+                  {...rise('0.55s')}
+                  className={`${rise('0.55s').className} text-white! font-semibold! text-[clamp(2.4rem,6.4vw,4.6rem)]! tracking-[-0.015em]! leading-[1.04]! m-0!`}
+                >
+                  {headlineFirst}
+                </h1>
+              </div>
+
+              <div className="overflow-hidden block mt-1 sm:mt-1.5">
+                <p
+                  {...rise('0.72s')}
+                  className={`${rise('0.72s').className} text-[var(--color-royal-bright)]! font-semibold text-[clamp(2.4rem,6.4vw,4.6rem)] tracking-[-0.015em] leading-[1.04] m-0!`}
+                  style={{ ...rise('0.72s').style, fontFamily: 'var(--font-serif)' }}
+                >
+                  {headlineSecond}
+                </p>
+              </div>
+
+              {description && (
+                <p
+                  {...fade('0.95s')}
+                  className={`${fade('0.95s').className} mt-5! sm:mt-6! mb-0! max-w-[34rem] text-base sm:text-lg leading-relaxed text-white/85`}
+                >
+                  {description}
+                </p>
+              )}
+
+              {children && (
+                <div {...fade('1.1s')} className={`${fade('1.1s').className} mt-7 sm:mt-9`}>
+                  {children}
+                </div>
+              )}
             </div>
-          )}
-
-          <div className="overflow-hidden block max-w-full">
-            <h1
-              {...rise('0.55s')}
-              className={`${rise('0.55s').className} text-white! font-semibold! text-[clamp(2.1rem,6.2vw,4.5rem)]! lg:text-[clamp(2.6rem,4.4vw,4.75rem)]! tracking-[-0.035em]! leading-[1.08]! m-0! max-w-[92vw] sm:max-w-4xl lg:max-w-none break-words lg:break-normal lg:whitespace-nowrap`}
-            >
-              {headlineFirst}
-            </h1>
           </div>
-
-          <div className="overflow-hidden block max-w-full mt-1 sm:mt-1.5">
-            <p
-              {...rise('0.72s')}
-              className={`${rise('0.72s').className} text-[var(--color-sky)]! font-semibold text-[clamp(2.1rem,6.2vw,4.5rem)] lg:text-[clamp(2.6rem,4.4vw,4.75rem)] tracking-[-0.035em] leading-[1.08] m-0! max-w-[92vw] sm:max-w-4xl lg:max-w-none break-words lg:break-normal lg:whitespace-nowrap`}
-              style={{ ...rise('0.72s').style, fontFamily: 'var(--font-display)' }}
-            >
-              {headlineSecond}
-            </p>
-          </div>
-
-          {description && (
-            <p
-              {...fade('0.95s')}
-              className={`${fade('0.95s').className} mt-5! sm:mt-6! mb-0! max-w-[38rem] text-base sm:text-lg leading-relaxed text-white/85`}
-            >
-              {description}
-            </p>
-          )}
-
-          {children && (
-            <div {...fade('1.1s')} className={`${fade('1.1s').className} mt-7 sm:mt-9 w-full flex flex-col items-center`}>
-              {children}
-            </div>
-          )}
         </div>
 
         {shouldRenderVideo && (
