@@ -101,9 +101,9 @@ export default function HomePage() {
                   </span>
                 ) : null}
               </div>
-              <h3 style={{ fontSize: "clamp(1.5rem,2.4vw,2.1rem)" }}>{leadProject.title}</h3>
+              <h3 className="feature-project__title">{leadProject.title}</h3>
               <p>{leadProject.description}</p>
-              <p style={{ color: "var(--color-ink-500)", fontSize: "0.9rem", margin: 0 }}>
+              <p className="feature-project__meta-line">
                 {leadProject.client} · {leadProject.location} · {leadProject.year}
               </p>
             </div>

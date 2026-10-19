@@ -37,7 +37,7 @@ export function ProjectsExplorer() {
         ))}
       </div>
       {visible.length === 0 && (
-        <p className="empty-state" style={{ marginTop: "1.5rem", color: "var(--color-ink-500)" }}>
+        <p className="empty-state">
           No projects match this filter.
         </p>
       )}
