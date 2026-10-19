@@ -68,8 +68,8 @@
   --color-success: #1f7a4f;
   --color-danger: #b3341f;
 
-  --font-body: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: 0.7rem;
   --radius-md: 1.2rem;
@@ -112,8 +112,9 @@ body {
   max-width: 100%;
   overflow-x: clip;
   font-family: var(--font-body);
-  font-size: clamp(1.0625rem, 0.2vw + 1.02rem, 1.125rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 0.15vw + 0.98rem, 1.0625rem);
+  line-height: 1.62;
+  letter-spacing: -0.003em;
   font-feature-settings: "kern" 1;
   font-variant-numeric: lining-nums;
   color: var(--color-ink);
@@ -137,29 +138,28 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.06;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
   margin: 0 0 0.5em;
   color: var(--color-navy);
   overflow-wrap: break-word;
   text-wrap: balance;
 }
 h1 {
-  font-size: clamp(2.4rem, 4.8vw + 0.7rem, 4.5rem);
-  letter-spacing: -0.018em;
-  line-height: 1.02;
+  font-size: clamp(2.25rem, 4.4vw + 0.6rem, 4.25rem);
+  letter-spacing: -0.035em;
+  line-height: 1.03;
 }
 h2 {
-  font-size: clamp(1.9rem, 2.7vw + 0.8rem, 3rem);
-  letter-spacing: -0.014em;
-  line-height: 1.06;
+  font-size: clamp(1.8rem, 2.5vw + 0.75rem, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
 }
 h3 {
-  font-size: clamp(1.25rem, 0.8vw + 1.02rem, 1.55rem);
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  line-height: 1.18;
+  font-size: clamp(1.15rem, 0.6vw + 1rem, 1.4rem);
+  letter-spacing: -0.018em;
+  line-height: 1.22;
 }
 p {
   margin: 0 0 1rem;

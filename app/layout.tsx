@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow, Source_Sans_3 } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,19 +10,10 @@ import { asset } from "@/lib/asset";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-// Display face: Barlow, from road and highway signage, for headings, nav and buttons.
-const barlow = Barlow({
-  weight: ["500", "600", "700"],
+// Geist: one variable family for headings, UI and body text.
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-barlow",
-  display: "swap",
-});
-
-// Body face: Source Sans 3, for comfortable reading in paragraphs and forms.
-const sourceSans = Source_Sans_3({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-source-sans",
+  variable: "--font-geist",
   display: "swap",
 });
 
@@ -64,7 +55,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${barlow.variable} ${sourceSans.variable}`}>
+    <html lang="en" className={geist.variable}>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content
