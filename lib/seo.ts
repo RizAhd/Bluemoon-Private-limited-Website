@@ -6,7 +6,7 @@ import { services } from "./services";
 // Deployed base URL. For the GitHub Pages project site this includes the repo
 // path so every derived URL (canonical, OG, sitemap, JSON-LD) is correct.
 // Change this to your custom domain root if/when you add one.
-export const SITE_URL = "https://rizahd.github.io/Bluemoon-Private-limited-Website";
+export const SITE_URL = "https://bluemoonengineering.lk";
 
 export const DEFAULT_OG_IMAGE = {
   path: "/og/og-default.jpg",
