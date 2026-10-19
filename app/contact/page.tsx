@@ -24,40 +24,42 @@ export default function ContactPage() {
         actions={["call", "whatsapp"]}
       />
 
-      <section className="section">
-        <div className="container">
-          <div className="card-grid card-grid--services">
-            {contactChannels.map((c) => (
-              <article className="contact-card" key={c.title}>
-                <span className="icon-badge">
-                  <Icon name={c.icon} />
-                </span>
-                <h3>{c.title}</h3>
-                <p>{c.description}</p>
-                <a href={c.link} {...(c.external ? { target: "_blank", rel: "noopener" } : {})}>
-                  {c.linkLabel}
-                </a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--soft">
+      <section className="section section--alt">
         <div className="container contact-layout">
-          <div className="surface-card" data-reveal>
+          <div className="surface-card form-card" data-reveal>
             <p className="eyebrow">Send an Enquiry</p>
-            <h2>Tell us how we can help.</h2>
+            <h2 className="form-card__title">Tell us how we can help.</h2>
             <ContactForm />
           </div>
           <div className="contact-side">
-            <div className="surface-card" data-reveal>
-              <p className="eyebrow">Visit or Call</p>
-              <h2>Consultations by appointment.</h2>
-              <p style={{ marginBottom: 0 }}>
-                We support building, civil, renovation, and finishing requirements with responsive
-                guidance and clear next steps from our Welimada base.
-              </p>
+            <div className="surface-card contact-list-card" data-reveal>
+              <ul className="contact-list">
+                {contactChannels.map((c) => (
+                  <li key={c.title}>
+                    <span className="contact-list__icon">
+                      <Icon name={c.icon} />
+                    </span>
+                    <span className="contact-list__text">
+                      <span className="contact-list__label">{c.title}</span>
+                      <a
+                        href={c.link}
+                        {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      >
+                        {c.title === "Visit us" ? siteConfig.addressInline : c.description}
+                      </a>
+                    </span>
+                  </li>
+                ))}
+                <li>
+                  <span className="contact-list__icon">
+                    <Icon name="check" />
+                  </span>
+                  <span className="contact-list__text">
+                    <span className="contact-list__label">Office hours</span>
+                    <span>{siteConfig.hours}</span>
+                  </span>
+                </li>
+              </ul>
             </div>
             <div className="surface-card map-card" data-reveal>
               <iframe

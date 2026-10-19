@@ -114,7 +114,7 @@ export function ContactForm() {
           </span>
         </div>
       </div>
-      <Button type="submit" disabled={submitting}>
+      <Button type="submit" variant="secondary" size="lg" disabled={submitting}>
         {submitting ? "Sending…" : "Send Message"}
       </Button>
       <p
