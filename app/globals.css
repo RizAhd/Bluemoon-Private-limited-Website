@@ -2414,6 +2414,12 @@ body.nav-open .wa-fab {
   opacity: 0;
   visibility: hidden;
 }
+@media (max-width: 620px) {
+  .wa-fab {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
 
 /* ---------- footer (navy anchor) ---------- */
 .site-footer {

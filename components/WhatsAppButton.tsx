@@ -1,7 +1,15 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site";
 
-/** Floating WhatsApp shortcut, bottom-right on every page. */
+// Contact and Quote already offer WhatsApp in the page, next to their forms.
+const HIDDEN_ON = ["/contact", "/quote"];
+
+/** Floating WhatsApp shortcut, bottom-right on every other page. */
 export function WhatsAppButton() {
+  const pathname = usePathname();
+  if (HIDDEN_ON.some((p) => pathname.startsWith(p))) return null;
   return (
     <a
       className="wa-fab"
