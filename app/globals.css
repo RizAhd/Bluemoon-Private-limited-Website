@@ -63,7 +63,7 @@
   --color-ink: #0b1a33;
   --color-muted: #4f5d78;
   --color-bg: #ffffff;
-  --color-bg-warm: #f3f7ff;
+  --color-bg-warm: #eef6fb; /* light blue section tint */
   --color-line: #e2e8f5;
   --color-line-strong: #cbd5e6;
   --color-white: #ffffff;
@@ -225,7 +225,7 @@ p {
   background: var(--color-bg-warm);
 }
 .section--pattern {
-  background: linear-gradient(180deg, var(--color-white), var(--color-bg-warm));
+  background: var(--color-bg-warm);
 }
 .section--cta {
   background: linear-gradient(150deg, var(--color-navy), var(--color-navy-700));
@@ -474,6 +474,15 @@ p {
 .surface-card--highlight h2,
 .surface-card--highlight h3 {
   color: #fff;
+}
+/* plain paragraphs only, so eyebrows and leads keep their own colour */
+.surface-card p:not([class]),
+.split-layout p:not([class]) {
+  color: var(--color-muted);
+}
+.surface-card--highlight p:not([class]),
+.section--dark .split-layout p:not([class]) {
+  color: var(--on-dark);
 }
 
 .card-grid {
@@ -1135,8 +1144,8 @@ p {
   border-radius: 999px;
 }
 .status-badge--completed {
-  background: rgba(31, 122, 79, 0.14);
-  color: #145c39;
+  background: var(--color-line);
+  color: var(--color-navy);
 }
 .status-badge--ongoing {
   background: rgba(30, 64, 175, 0.16);
