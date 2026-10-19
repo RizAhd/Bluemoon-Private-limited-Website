@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { FormBuilderHero } from "@/components/ui/hero-section-8";
-import { HeroIllustration } from "@/components/HeroIllustration";
+import FluidHeroNavbar from "@/components/ui/woodpeck-hero-landing-animation";
+import { asset } from "@/lib/asset";
 import { CredentialStrip } from "@/components/CredentialStrip";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServicesFeature } from "@/components/ServicesFeature";
@@ -29,25 +29,36 @@ export default function HomePage() {
 
   return (
     <>
-      <FormBuilderHero
-        illustration={<HeroIllustration className="mx-auto h-auto w-full max-w-[30rem]" />}
-        title={
-          <>
-            Building Sri Lanka’s hill country{" "}
-            <span className="text-primary">to a higher standard.</span>
-          </>
-        }
-        description="Bluemoon Engineering is a CIDA-registered contractor in Welimada, Badulla, delivering schools, public buildings, roads, drainage, and renovations across Uva Province."
-        buttonText="Request a Quote"
-        buttonHref="/quote"
-        secondaryAction={{ text: "View Projects", href: "/projects" }}
-        details={[
-          { label: `CIDA Reg. ${siteConfig.cidaReg}` },
-          { label: `Est. ${siteConfig.established}` },
-          { label: siteConfig.phoneDisplay, href: `tel:${siteConfig.phoneHref}` },
-          { label: siteConfig.addressShort, href: siteConfig.mapLink, external: true },
-        ]}
-      />
+      <FluidHeroNavbar
+        brandName="Bluemoon"
+        showNavbar={false}
+        heroImage={asset("/images/hero/home-hero-crane-frame.jpg")}
+        heroImageMobile={asset("/images/hero/home-hero-crane-frame-mobile.jpg")}
+        heroImageAlt="Tower crane above a reinforced-concrete building under construction"
+        headlineKicker="CIDA C-6 / C-7 registered contractor · Welimada, Badulla"
+        headlineFirst="Building Sri Lanka’s hill country"
+        headlineSecond="to a higher standard."
+        description="Schools, public buildings, roads, drainage and renovations for government and private clients across Uva Province."
+      >
+        <div className="hero-fluid__actions">
+          <Link className="btn btn--secondary btn--large" href="/quote">
+            Request a Quote
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </Link>
+          <Link className="btn btn--ghost btn--large" href="/projects">
+            View Projects
+          </Link>
+        </div>
+        <ul className="hero-fluid__facts">
+          <li>CIDA Reg. {siteConfig.cidaReg}</li>
+          <li>Est. {siteConfig.established}</li>
+          <li>
+            <a href={`tel:${siteConfig.phoneHref}`}>{siteConfig.phoneDisplay}</a>
+          </li>
+        </ul>
+      </FluidHeroNavbar>
       <CredentialStrip />
 
       <section className="section">

@@ -30,11 +30,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Expose the header height so the mobile sheet fills exactly the space below it.
+  // Expose the header height (on :root) so the mobile sheet and the full-screen
+  // home hero fill exactly the space below it.
   useEffect(() => {
     const el = headerRef.current;
     if (!el) return;
-    const set = () => el.style.setProperty("--header-h", `${el.offsetHeight}px`);
+    const set = () =>
+      document.documentElement.style.setProperty("--header-h", `${el.offsetHeight}px`);
     set();
     const ro = new ResizeObserver(set);
     ro.observe(el);

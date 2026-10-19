@@ -418,7 +418,8 @@ p {
 /* on navy surfaces the fill wipes to white */
 .section--dark .btn--ghost,
 .section--cta .btn--ghost,
-.cta-panel .btn--ghost {
+.cta-panel .btn--ghost,
+.fluid-hero .btn--ghost {
   --btn-fg: #fff;
   --btn-border: rgba(255, 255, 255, 0.35);
   --btn-wipe: #fff;
@@ -426,7 +427,8 @@ p {
 }
 .section--dark .btn--secondary,
 .section--cta .btn--secondary,
-.cta-panel .btn--secondary {
+.cta-panel .btn--secondary,
+.fluid-hero .btn--secondary {
   --btn-wipe: #fff;
   --btn-wipe-fg: var(--color-navy);
 }
@@ -746,6 +748,60 @@ p {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-navy);
+}
+
+/* ---------- home hero (full-screen photo) ---------- */
+.fluid-hero .btn--ghost {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.06);
+}
+.hero-fluid__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.hero-fluid__facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.6rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-variant-numeric: tabular-nums;
+}
+.hero-fluid__facts li {
+  position: relative;
+}
+.hero-fluid__facts li + li::before {
+  content: "";
+  position: absolute;
+  left: -0.85rem;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  translate: 0 -50%;
+}
+.hero-fluid__facts a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.hero-fluid__facts a:hover {
+  color: #fff;
+}
+@media (max-width: 440px) {
+  .hero-fluid__actions {
+    width: 100%;
+    max-width: 22rem;
+    flex-direction: column;
+  }
 }
 
 /* ---------- PAGE HERO (interior, bright) ---------- */

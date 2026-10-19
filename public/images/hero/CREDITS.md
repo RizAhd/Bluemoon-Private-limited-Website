@@ -4,6 +4,7 @@ Free photos from Unsplash, used under the Unsplash License (free for commercial 
 
 | File | Used on | Photographer | Source |
 |---|---|---|---|
+| home-hero-crane-frame.jpg, home-hero-crane-frame-mobile.jpg | Home page hero (desktop and phone crops) | Adesh Bankar | https://unsplash.com/photos/a-crane-lifting-a-building-YNm1fhRIMa8 |
 | hero-concrete-frame.jpg | Quote page header | Tolu Olubode | https://unsplash.com/photos/gray-concrete-building-under-construction-PlBsJ5MybGc |
 | site-rebar-crew.jpg | Services page header | Etienne Girardet | https://unsplash.com/photos/two-men-working-sgYamIzhAhg |
 | site-rebar-inspection.jpg | Why Choose Us page header | Toni Reed | https://unsplash.com/photos/construction-worker-inspects-rebar-on-a-building-site-dSjrv4w1g1Q |
