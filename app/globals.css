@@ -89,8 +89,8 @@
   --shadow-sm: 0 4px 16px -6px rgba(11, 31, 77, 0.12);
   --shadow-soft: 0 22px 48px -26px rgba(11, 31, 77, 0.28);
   --shadow-lift: 0 34px 64px -30px rgba(11, 31, 77, 0.34);
-  --container: min(1240px, calc(100% - clamp(1.25rem, 5vw, 5rem)));
-  --section-space: clamp(3.5rem, 8vw, 9rem);
+  --container: min(1240px, calc(100% - 2 * clamp(1.25rem, 5vw, 5rem)));
+  --section-space: clamp(4rem, 3rem + 4vw, 6rem);
   /* type scale: small UI steps (headings use their own fluid clamps) */
   --text-label: 0.6875rem; /* 11px uppercase labels and chips */
   --text-xs: 0.75rem; /* 12px meta, badges */
@@ -264,7 +264,7 @@ p {
 /* ---------- section heading ---------- */
 .section-heading {
   max-width: 64ch;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(1.75rem, 3vw, 3rem);
 }
 .section-heading__top {
   display: flex;
@@ -1328,7 +1328,7 @@ p {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.1rem;
+  gap: 1rem 1.1rem;
   margin-bottom: 1.25rem;
 }
 .field {
@@ -1372,7 +1372,10 @@ p {
 .field__error {
   font-size: var(--text-xs);
   color: var(--color-danger);
-  min-height: 1rem;
+}
+.field__error:empty {
+  /* stays in the a11y tree for aria-live, but takes no space or gap */
+  position: absolute;
 }
 .form-feedback {
   font-size: var(--text-md);
@@ -2563,6 +2566,9 @@ body.nav-open .wa-fab {
   }
   .hero__badge {
     left: 0.75rem;
+  }
+  .surface-card {
+    padding: 1.25rem;
   }
 }
 @media (max-width: 440px) {
