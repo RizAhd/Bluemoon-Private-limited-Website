@@ -1,8 +1,8 @@
-import { SectionHeading } from "@/components/SectionHeading";
 import { Gallery } from "@/components/Gallery";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { CtaBand } from "@/components/CtaBand";
 
 export const metadata = pageMetadata({
   title: "Gallery | Bluemoon Engineering (Pvt) Ltd",
@@ -25,13 +25,11 @@ export default function GalleryPage() {
 
       <section className="section">
         <div className="container">
-          <SectionHeading
-            eyebrow="On Site"
-            title="Real photographs from Bluemoon Engineering projects."
-          />
           <Gallery />
         </div>
       </section>
+
+      <CtaBand />
     </>
   );
 }
