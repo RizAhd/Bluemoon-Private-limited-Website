@@ -274,19 +274,6 @@ p {
   max-width: 64ch;
   margin-bottom: clamp(1.75rem, 3vw, 3rem);
 }
-.section-heading__top {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1rem;
-}
-.section-heading__index {
-  font-weight: 600;
-  font-size: var(--text-sm);
-  color: var(--color-royal-text);
-  padding-right: 0.9rem;
-  border-right: 1px solid var(--color-line-strong);
-}
 .section-heading p:last-child {
   color: var(--color-muted);
   margin-bottom: 0;
@@ -294,9 +281,6 @@ p {
 .section-heading--center {
   margin-inline: auto;
   text-align: center;
-}
-.section-heading--center .section-heading__top {
-  justify-content: center;
 }
 
 .eyebrow {
@@ -320,9 +304,6 @@ p {
 .section--dark .eyebrow,
 .section--cta .eyebrow {
   color: var(--color-royal-bright);
-}
-.section-heading__top .eyebrow {
-  margin-bottom: 0;
 }
 
 .lead {
@@ -529,10 +510,7 @@ p {
   color: var(--color-royal-bright);
 }
 
-/* ---------- content cards: numbered, with a drawn top rule on hover ---------- */
-.card-grid {
-  counter-reset: card;
-}
+/* ---------- content cards: drawn top rule on hover ---------- */
 .service-card,
 .reason-card,
 .contact-card,
@@ -563,24 +541,6 @@ p {
   transform-origin: left center;
   transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reason-card,
-.value-card {
-  counter-increment: card;
-}
-.reason-card::after,
-.value-card::after {
-  content: counter(card, decimal-leading-zero);
-  position: absolute;
-  top: 1.5rem;
-  right: 1.6rem;
-  font-family: var(--font-display);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: var(--tracking-caps);
-  font-variant-numeric: tabular-nums;
-  color: var(--color-faint);
-  transition: color 0.35s ease;
-}
 .service-card:hover,
 .reason-card:hover,
 .contact-card:hover,
@@ -594,10 +554,6 @@ p {
 .contact-card:hover::before,
 .value-card:hover::before {
   transform: scaleX(1);
-}
-.reason-card:hover::after,
-.value-card:hover::after {
-  color: var(--color-royal);
 }
 .service-card:hover .icon-badge,
 .reason-card:hover .icon-badge,

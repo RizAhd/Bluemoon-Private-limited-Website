@@ -65,7 +65,6 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <SectionHeading
-            index="01"
             eyebrow="What We Do"
             title="Construction and civil-engineering capability, registered and proven."
             text="From institutional buildings to infrastructure and finishing works, our services are backed by CIDA grading and a real record of delivery."
@@ -82,7 +81,6 @@ export default function HomePage() {
       <section className="section section--alt">
         <div className="container">
           <SectionHeading
-            index="02"
             eyebrow="Selected Work"
             title="Real projects delivered for government and private clients."
             text="A sample of completed work across schools, commercial buildings, and renovations in Uva Province."
@@ -124,7 +122,6 @@ export default function HomePage() {
       <section className="section section--soft">
         <div className="container">
           <SectionHeading
-            index="03"
             eyebrow="By The Numbers"
             title="A track record you can verify."
             text="Honest figures drawn directly from our record of completed work."
