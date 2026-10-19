@@ -58,6 +58,8 @@
   --color-royal-bright: #60a5fa;
   --color-royal-soft: #dbeafe;
   --color-royal-text: #1e40af; /* AA-safe blue on white */
+  --color-sky: #93c5fd; /* light blue accent text on navy and photos */
+  --color-faint: #66748f; /* quiet secondary marks, 4.7:1 on white */
   --color-ink: #0b1a33;
   --color-muted: #4f5d78;
   --color-bg: #ffffff;
@@ -79,6 +81,10 @@
 
 :root {
   --royal-gradient: linear-gradient(115deg, #3b82f6, #1d4ed8);
+  /* text on navy surfaces (all pass AA on navy and navy-700) */
+  --on-dark-strong: rgba(255, 255, 255, 0.92);
+  --on-dark: rgba(255, 255, 255, 0.78);
+  --on-dark-muted: rgba(255, 255, 255, 0.62);
   --shadow-xs: 0 1px 3px rgba(11, 31, 77, 0.05);
   --shadow-sm: 0 4px 16px -6px rgba(11, 31, 77, 0.12);
   --shadow-soft: 0 22px 48px -26px rgba(11, 31, 77, 0.28);
@@ -223,7 +229,7 @@ p {
 }
 .section--cta {
   background: linear-gradient(150deg, var(--color-navy), var(--color-navy-700));
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--on-dark-strong);
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -245,14 +251,14 @@ p {
 /* dark accent section (used sparingly) */
 .section--dark {
   background: linear-gradient(150deg, var(--color-navy), var(--color-navy-700));
-  color: rgba(255, 255, 255, 0.84);
+  color: var(--on-dark-strong);
 }
 .section--dark h2,
 .section--dark h3 {
   color: #fff;
 }
 .section--dark .section-heading p {
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--on-dark);
 }
 
 /* ---------- section heading ---------- */
@@ -317,7 +323,7 @@ p {
   max-width: 56ch;
 }
 .section--dark .lead {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--on-dark);
 }
 .royal-text {
   color: var(--color-royal);
@@ -462,7 +468,7 @@ p {
 }
 .surface-card--highlight {
   background: linear-gradient(150deg, var(--color-navy), var(--color-navy-700));
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--on-dark-strong);
   border-color: transparent;
 }
 .surface-card--highlight h2,
@@ -555,7 +561,7 @@ p {
   font-weight: 600;
   letter-spacing: var(--tracking-caps);
   font-variant-numeric: tabular-nums;
-  color: var(--color-line-strong);
+  color: var(--color-faint);
   transition: color 0.35s ease;
 }
 .service-card:hover,
@@ -639,7 +645,7 @@ p {
 }
 .section--dark .feature-list li,
 .surface-card--highlight .feature-list li {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--on-dark);
 }
 
 /* ---------- credentials ---------- */
@@ -852,7 +858,7 @@ p {
   padding: 0;
   list-style: none;
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--on-dark);
   font-variant-numeric: tabular-nums;
 }
 .hero-fluid__facts li {
@@ -1536,7 +1542,7 @@ p {
   max-width: 22ch;
 }
 .cta-band__text {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--on-dark);
   max-width: 48ch;
   margin-bottom: 0;
 }
@@ -1874,7 +1880,7 @@ p {
   overflow: hidden;
   text-align: center;
   background: linear-gradient(150deg, var(--color-navy), var(--color-navy-700));
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--on-dark);
   border-radius: var(--radius-xl);
   padding: clamp(3rem, 6vw, 5.5rem);
 }
@@ -1900,7 +1906,7 @@ p {
   margin-inline: auto;
 }
 .cta-panel__text {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--on-dark);
   max-width: 52ch;
   margin: 0 auto 1.75rem;
 }
@@ -2141,7 +2147,7 @@ p {
 }
 .nav-utility-bar {
   background: var(--color-navy);
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--on-dark);
   font-size: var(--text-xs);
 }
 .nav-utility {
@@ -2405,7 +2411,7 @@ body.nav-open .wa-fab {
 /* ---------- footer (navy anchor) ---------- */
 .site-footer {
   background: var(--color-navy);
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--on-dark);
   padding-top: clamp(3rem, 6vw, 4.5rem);
 }
 .footer-grid {
@@ -2449,7 +2455,7 @@ body.nav-open .wa-fab {
 }
 .footer-col a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--on-dark);
   transition: color var(--transition);
 }
 .footer-col a:hover {
@@ -2459,7 +2465,7 @@ body.nav-open .wa-fab {
   display: flex;
   align-items: flex-start;
   gap: 0.55rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--on-dark);
 }
 .footer-col--contact a {
   display: inline-flex;
@@ -2475,7 +2481,7 @@ body.nav-open .wa-fab {
 }
 .footer-hours {
   padding-left: 1.55rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--on-dark-muted);
 }
 .footer-bottom {
   display: flex;
@@ -2485,7 +2491,7 @@ body.nav-open .wa-fab {
   padding-block: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--on-dark-muted);
 }
 .footer-bottom p {
   margin: 0;

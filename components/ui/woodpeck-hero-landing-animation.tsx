@@ -275,7 +275,7 @@ function IntroOverlay({ brandName, brandTagline, accentColor, onComplete }: Intr
             {letters.map((char, index) => (
               <span key={index} className="inline-block overflow-hidden">
                 <span
-                  className={`inline-block font-semibold tracking-[-0.045em] text-[#0b1f4d] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
+                  className={`inline-block font-semibold tracking-[-0.045em] text-[var(--color-navy)] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
                     isRevealed ? 'translate-y-0' : 'translate-y-[110%]'
                   }`}
                   style={{
@@ -291,7 +291,7 @@ function IntroOverlay({ brandName, brandTagline, accentColor, onComplete }: Intr
           {brandTagline && (
             <div className="overflow-hidden mt-1 sm:mt-1.5">
               <span
-                className={`block whitespace-nowrap font-semibold uppercase text-[clamp(0.56rem,1.75vw,0.86rem)] tracking-[0.2em] text-[#1d4ed8] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
+                className={`block whitespace-nowrap font-semibold uppercase text-[clamp(0.56rem,1.75vw,0.86rem)] tracking-[0.2em] text-[var(--color-royal)] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
                   isRevealed ? 'translate-y-0' : 'translate-y-[120%]'
                 }`}
                 style={{ transitionDelay: '220ms', fontFamily: 'var(--font-display)' }}
@@ -590,7 +590,7 @@ function HeroBannerSection({
           <div className="overflow-hidden block max-w-full mt-1 sm:mt-1.5">
             <p
               {...rise('0.72s')}
-              className={`${rise('0.72s').className} text-[#93c5fd]! font-semibold text-[clamp(2.1rem,6.2vw,4.5rem)] lg:text-[clamp(2.6rem,4.4vw,4.75rem)] tracking-[-0.035em] leading-[1.08] m-0! max-w-[92vw] sm:max-w-4xl lg:max-w-none break-words lg:break-normal lg:whitespace-nowrap`}
+              className={`${rise('0.72s').className} text-[var(--color-sky)]! font-semibold text-[clamp(2.1rem,6.2vw,4.5rem)] lg:text-[clamp(2.6rem,4.4vw,4.75rem)] tracking-[-0.035em] leading-[1.08] m-0! max-w-[92vw] sm:max-w-4xl lg:max-w-none break-words lg:break-normal lg:whitespace-nowrap`}
               style={{ ...rise('0.72s').style, fontFamily: 'var(--font-display)' }}
             >
               {headlineSecond}
