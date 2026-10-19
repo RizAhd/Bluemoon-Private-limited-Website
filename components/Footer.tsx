@@ -67,7 +67,7 @@ export function Footer() {
                 {siteConfig.email}
               </a>
             </li>
-            <li>
+            <li className="footer-address">
               <Icon name="map" className="footer-icon" />
               {siteConfig.addressInline}
             </li>

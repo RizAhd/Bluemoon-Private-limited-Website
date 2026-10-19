@@ -2433,7 +2433,7 @@ body.nav-open .wa-fab {
   margin-bottom: 1.1rem;
 }
 .footer-brand .brand img {
-  width: 158px;
+  width: 120px;
   height: auto;
 }
 .footer-brand p {
@@ -2548,6 +2548,10 @@ body.nav-open .wa-fab {
   }
 }
 @media (max-width: 760px) {
+  /* clear the floating WhatsApp button */
+  .site-footer {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
   .nav-utility {
     justify-content: center;
     gap: 0.9rem;
@@ -2622,7 +2626,12 @@ body.nav-open .wa-fab {
     margin-bottom: 0.75rem;
   }
   .footer-brand .brand img {
-    width: 84px;
+    width: 72px;
+  }
+  /* address and hours live on the Contact page; phone, WhatsApp and email stay */
+  .footer-address,
+  .footer-hours {
+    display: none;
   }
   .footer-brand p {
     font-size: var(--text-sm);
