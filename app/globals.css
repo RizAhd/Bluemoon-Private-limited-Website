@@ -420,7 +420,6 @@ p {
 /* on navy surfaces the fill wipes to white */
 .section--dark .btn--ghost,
 .section--cta .btn--ghost,
-.cta-panel .btn--ghost,
 .fluid-hero .btn--ghost {
   --btn-fg: #fff;
   --btn-border: rgba(255, 255, 255, 0.35);
@@ -429,7 +428,6 @@ p {
 }
 .section--dark .btn--secondary,
 .section--cta .btn--secondary,
-.cta-panel .btn--secondary,
 .fluid-hero .btn--secondary {
   --btn-wipe: #fff;
   --btn-wipe-fg: var(--color-navy);
@@ -1862,47 +1860,44 @@ p {
   }
 }
 
-/* ---------- CTA statement panel ---------- */
-.cta-panel {
+/* ---------- closing CTA band (full width, runs into the footer) ---------- */
+.cta-band {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cta-band__inner {
   position: relative;
-  overflow: hidden;
-  text-align: center;
-  background: linear-gradient(150deg, var(--color-navy), var(--color-navy-700));
-  color: var(--on-dark);
-  border-radius: var(--radius-xl);
-  padding: clamp(3rem, 6vw, 5.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(1.75rem, 4vw, 4rem);
 }
-.cta-panel::after {
-  content: "";
-  position: absolute;
-  right: -6%;
-  top: -40%;
-  width: 42%;
-  height: 130%;
-  background: radial-gradient(circle at center, rgba(96, 165, 250, 0.22), transparent 60%);
+.cta-band h2 {
+  max-width: 22ch;
+  margin-bottom: 0.9rem;
 }
-.cta-panel > * {
-  position: relative;
-}
-.cta-panel .eyebrow {
-  justify-content: center;
-  color: var(--color-royal-bright);
-}
-.cta-panel h2 {
-  color: #fff;
-  max-width: 20ch;
-  margin-inline: auto;
-}
-.cta-panel__text {
+.cta-band__text {
   color: var(--on-dark);
   max-width: 52ch;
-  margin: 0 auto 1.75rem;
+  margin: 0;
 }
-.cta-panel__actions {
+.cta-band__actions {
   display: flex;
-  gap: 0.9rem;
-  justify-content: center;
+  gap: 0.75rem;
   flex-wrap: wrap;
+}
+@media (max-width: 860px) {
+  .cta-band__inner {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+@media (max-width: 440px) {
+  .cta-band__actions .btn {
+    width: auto;
+    flex: 1 1 0;
+    padding-inline: 0.9rem;
+  }
 }
 
 /* ---------- process timeline ---------- */
