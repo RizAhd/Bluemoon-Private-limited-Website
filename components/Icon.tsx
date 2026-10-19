@@ -21,6 +21,11 @@ const paths: Record<string, string> = {
     '<path d="M3.6 20.4 5 16.3A8.6 8.6 0 1 1 8 19.3Z"/><path d="M9.3 8.4c.3-.4.6-.5.9-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.7l-.5.6c-.1.1-.1.3 0 .5a7 7 0 0 0 2.5 2.4c.2.1.4.1.5 0l.6-.6c.2-.1.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.2.7-.6.9-.7.3-1.6.4-2.7 0a8.3 8.3 0 0 1-4.6-4.6c-.4-1.1-.3-2 0-2.6Z"/>',
   mail: '<path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/>',
   map: '<path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2.3"/>',
+  school: '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
+  landmark: '<path d="M3 21h18"/><path d="M5 21V10M9.5 21V10M14.5 21V10M19 21V10"/><path d="M12 3 3 8h18l-9-5Z"/>',
+  health: '<rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M12 8v8M8 12h8"/>',
+  store: '<path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M9.5 20v-5.5h5V20"/>',
+  home: '<path d="M3 11 12 4l9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/>',
 };
 
 export function Icon({ name, className }: { name: string; className?: string }) {
