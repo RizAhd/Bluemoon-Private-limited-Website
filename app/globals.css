@@ -2534,7 +2534,6 @@ body.nav-open .wa-fab {
   }
   .hero__inner,
   .page-hero__grid,
-  .split-layout,
   .contact-layout,
   .feature-project {
     grid-template-columns: minmax(0, 1fr);
@@ -2554,6 +2553,12 @@ body.nav-open .wa-fab {
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+/* tablets keep two-column text splits; they stack on phones */
+@media (max-width: 860px) {
+  .split-layout {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 @media (max-width: 760px) {
