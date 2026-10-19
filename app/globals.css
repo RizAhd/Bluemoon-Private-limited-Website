@@ -1698,10 +1698,6 @@ col.track-table__cat {
   text-decoration: none;
 }
 .service-card--link p {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   margin-bottom: 0;
 }
 .service-card p:last-child {
