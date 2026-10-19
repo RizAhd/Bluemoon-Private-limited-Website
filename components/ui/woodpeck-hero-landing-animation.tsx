@@ -16,6 +16,8 @@ export interface NavLinkItem {
 export interface FluidHeroNavbarProps {
   /** Brand text to display during intro splash and in navbar. */
   brandName?: string;
+  /** Smaller line under the brand in the intro (e.g. legal suffix) */
+  brandTagline?: string;
   /** Optional custom logo node to override the default text wordmark */
   brandLogo?: React.ReactNode;
   /** Optional background video URL if video hero is preferred */
@@ -193,17 +195,20 @@ export function BrandWordmark({
 
 interface IntroOverlayProps {
   brandName: string;
+  brandTagline?: string;
   accentColor: string;
   onComplete: () => void;
 }
 
-function IntroOverlay({ brandName, accentColor, onComplete }: IntroOverlayProps) {
-  // Stages:
-  // 1: initial state (mark dead center)
-  // 2: mark scales and rotates in center (100ms)
-  // 3: mark shifts left while letters emerge one by one (1200ms)
-  // 4: hold lockup, then dissolve and notify hero (2400ms)
-  // 5: unmount overlay (3400ms)
+// Intro timeline (ms). Kept short so the hero arrives in about 1.4s.
+const INTRO_SPIN_AT = 40; // crescent spins in
+const INTRO_REVEAL_AT = 380; // lockup slides into place, wordmark rises
+const INTRO_EXIT_AT = 1250; // overlay dissolves, hero entrance starts
+const INTRO_UNMOUNT_AT = 1900;
+const HERO_ENTRANCE_MS = 1000; // keep in sync with the 1s fluidHeroEntrance keyframes
+
+function IntroOverlay({ brandName, brandTagline, accentColor, onComplete }: IntroOverlayProps) {
+  // Stages: 1 idle, 2 crescent spins in, 3 lockup revealed, 4 dissolving, 5 gone
   const [stage, setStage] = useState(1);
   const [unmounted, setUnmounted] = useState(false);
   const onCompleteRef = useRef(onComplete);
@@ -213,17 +218,17 @@ function IntroOverlay({ brandName, accentColor, onComplete }: IntroOverlayProps)
   }, [onComplete]);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setStage(2), 100);
-    const t2 = setTimeout(() => setStage(3), 1200);
+    const t1 = setTimeout(() => setStage(2), INTRO_SPIN_AT);
+    const t2 = setTimeout(() => setStage(3), INTRO_REVEAL_AT);
     const t3 = setTimeout(() => {
       setStage(4);
       onCompleteRef.current?.();
       window.dispatchEvent(new CustomEvent('intro-animation-complete'));
-    }, 2400);
+    }, INTRO_EXIT_AT);
     const t4 = setTimeout(() => {
       setStage(5);
       setUnmounted(true);
-    }, 3400);
+    }, INTRO_UNMOUNT_AT);
 
     return () => {
       clearTimeout(t1);
@@ -242,18 +247,19 @@ function IntroOverlay({ brandName, accentColor, onComplete }: IntroOverlayProps)
 
   return (
     <div
-      className={`fluid-intro fixed inset-0 z-[99999] bg-white flex items-center justify-center overflow-hidden px-4 select-none transition-all duration-[1100ms] ease-[cubic-bezier(0.65,0,0.35,1)] ${
+      className={`fluid-intro fixed inset-0 z-[99999] bg-white flex items-center justify-center overflow-hidden px-5 select-none transition-[opacity,visibility,transform] duration-[650ms] ease-[cubic-bezier(0.65,0,0.35,1)] ${
         isFading ? 'opacity-0 scale-[1.02] invisible pointer-events-none' : 'opacity-100 scale-100 pointer-events-auto'
       }`}
+      role="presentation"
       aria-hidden="true"
     >
       <div
-        className={`flex items-center justify-center relative h-12 sm:h-16 md:h-20 max-w-full transition-all duration-[1050ms] ease-[cubic-bezier(0.65,0,0.35,1)] will-change-transform ${
-          isRevealed ? 'translate-x-0' : 'translate-x-10 sm:translate-x-16 md:translate-x-20'
-        } ${isFading ? '-translate-y-[20vh] sm:-translate-y-[28vh] opacity-0 duration-[1100ms]' : ''}`}
+        className={`flex items-center justify-center relative max-w-full transition-all duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
+          isRevealed ? 'translate-x-0' : 'translate-x-8 sm:translate-x-14'
+        } ${isFading ? '-translate-y-[14vh] opacity-0 duration-[650ms]' : ''}`}
       >
         {/* Animated crescent mark */}
-        <div className="relative w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center flex-shrink-0">
+        <div className="relative w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center flex-shrink-0">
           <div
             className={`w-full h-full flex items-center justify-center will-change-transform ${
               isAnimating ? 'fluid-star-intro' : 'scale-[0.12] opacity-0'
@@ -263,26 +269,37 @@ function IntroOverlay({ brandName, accentColor, onComplete }: IntroOverlayProps)
           </div>
         </div>
 
-        {/* Wordmark characters revealed one-by-one */}
-        <div className="flex items-center ml-2.5 sm:ml-4 h-12 sm:h-16 md:h-20 overflow-hidden">
-          {letters.map((char, index) => (
-            <span
-              key={index}
-              className="inline-block overflow-hidden h-10 sm:h-14 md:h-16 leading-[2.5rem] sm:leading-[3.5rem] md:leading-[4rem] align-middle"
-            >
-              <span
-                className={`inline-block font-semibold text-[clamp(1.75rem,5.5vw,3.25rem)] tracking-[-0.04em] text-[#0b1f4d] transition-transform duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
-                  isRevealed ? 'translate-y-0' : 'translate-y-[135%]'
-                }`}
-                style={{
-                  transitionDelay: `${120 + index * 60}ms`,
-                  fontFamily: 'var(--font-display)',
-                }}
-              >
-                {char}
+        {/* Wordmark: name rises letter by letter, legal suffix slides up beneath */}
+        <div className="flex flex-col ml-3 sm:ml-4">
+          <div className="flex items-end overflow-hidden h-[1.15em] text-[clamp(2rem,6vw,3.4rem)] leading-none">
+            {letters.map((char, index) => (
+              <span key={index} className="inline-block overflow-hidden">
+                <span
+                  className={`inline-block font-semibold tracking-[-0.045em] text-[#0b1f4d] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
+                    isRevealed ? 'translate-y-0' : 'translate-y-[110%]'
+                  }`}
+                  style={{
+                    transitionDelay: `${index * 28}ms`,
+                    fontFamily: 'var(--font-display)',
+                  }}
+                >
+                  {char}
+                </span>
               </span>
-            </span>
-          ))}
+            ))}
+          </div>
+          {brandTagline && (
+            <div className="overflow-hidden mt-1 sm:mt-1.5">
+              <span
+                className={`block whitespace-nowrap font-semibold uppercase text-[clamp(0.56rem,1.75vw,0.86rem)] tracking-[0.2em] text-[#1d4ed8] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${
+                  isRevealed ? 'translate-y-0' : 'translate-y-[120%]'
+                }`}
+                style={{ transitionDelay: '220ms', fontFamily: 'var(--font-display)' }}
+              >
+                {brandTagline}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -620,6 +637,7 @@ function HeroBannerSection({
 
 export default function FluidHeroNavbar({
   brandName = 'Bluemoon',
+  brandTagline,
   brandLogo,
   videoSrc,
   heroImage = '',
@@ -657,7 +675,7 @@ export default function FluidHeroNavbar({
       markIntroSeen();
       onHeroComplete?.();
       window.dispatchEvent(new CustomEvent('hero-animation-complete'));
-    }, 1350);
+    }, HERO_ENTRANCE_MS);
   }, [onHeroComplete]);
 
   const handleIntroComplete = useCallback(() => {
@@ -678,7 +696,7 @@ export default function FluidHeroNavbar({
     }
 
     // Safety fallback timer if intro completes or is skipped
-    const fallbackTimer = setTimeout(() => startHeroAnimation(), 2800);
+    const fallbackTimer = setTimeout(() => startHeroAnimation(), INTRO_EXIT_AT + 400);
     return () => clearTimeout(fallbackTimer);
   }, [showIntroAnimation, startHeroAnimation]);
 
@@ -706,13 +724,13 @@ export default function FluidHeroNavbar({
           100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
         .fluid-hero-animating {
-          animation: fluidHeroEntrance 1.35s cubic-bezier(0.65, 0, 0.35, 1) forwards !important;
+          animation: fluidHeroEntrance 1s cubic-bezier(0.65, 0, 0.35, 1) forwards !important;
         }
         .fluid-media-counter-scale {
-          animation: fluidMediaCounterScale 1.35s cubic-bezier(0.65, 0, 0.35, 1) forwards !important;
+          animation: fluidMediaCounterScale 1s cubic-bezier(0.65, 0, 0.35, 1) forwards !important;
         }
         .fluid-star-intro {
-          animation: starIntro 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+          animation: starIntro 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
           transform-origin: center center;
         }
         /* Intro already seen this session or reduced motion: no splash, hero shown as-is */
@@ -722,7 +740,7 @@ export default function FluidHeroNavbar({
         [data-intro-seen] .fluid-hero .opacity-0 { opacity: 1 !important; }
       `}</style>
 
-      {playIntro && <IntroOverlay brandName={brandName} accentColor={accentColor} onComplete={handleIntroComplete} />}
+      {playIntro && <IntroOverlay brandName={brandName} brandTagline={brandTagline} accentColor={accentColor} onComplete={handleIntroComplete} />}
 
       {showNavbar && (
         <FloatingNavbar

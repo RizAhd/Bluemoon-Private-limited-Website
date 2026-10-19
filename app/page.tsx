@@ -31,6 +31,7 @@ export default function HomePage() {
     <>
       <FluidHeroNavbar
         brandName="Bluemoon"
+        brandTagline="Engineering (Private) Limited"
         showNavbar={false}
         heroImage={asset("/images/hero/home-hero-crane-frame.jpg")}
         heroImageMobile={asset("/images/hero/home-hero-crane-frame-mobile.jpg")}
