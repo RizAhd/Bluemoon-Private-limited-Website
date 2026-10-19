@@ -86,19 +86,24 @@ export function Header() {
           </span>
         </Link>
 
-        <button
-          ref={toggleRef}
-          className="nav-toggle"
-          type="button"
-          aria-expanded={open}
-          aria-controls="site-nav-panel"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="nav-toggle__line" />
-          <span className="nav-toggle__line" />
-          <span className="nav-toggle__line" />
-        </button>
+        <div className="nav-tools">
+          <Link className="btn btn--secondary btn--small nav-tools__quote" href="/quote">
+            Get a Quote
+          </Link>
+          <button
+            ref={toggleRef}
+            className="nav-toggle"
+            type="button"
+            aria-expanded={open}
+            aria-controls="site-nav-panel"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="nav-toggle__line" />
+            <span className="nav-toggle__line" />
+            <span className="nav-toggle__line" />
+          </button>
+        </div>
 
         <div className="nav-panel" id="site-nav-panel">
           <nav className="site-nav" aria-label="Primary" ref={navRef}>
@@ -119,6 +124,10 @@ export function Header() {
             ))}
           </nav>
           <div className="nav-panel__footer">
+            <a className="btn btn--ghost nav-phone" href={`tel:${siteConfig.phoneHref}`}>
+              <Icon name="phone" className="nav-panel__icon" />
+              {siteConfig.phoneDisplay}
+            </a>
             <Link className="btn btn--secondary nav-cta" href="/quote" onClick={() => close()}>
               Request a Quote
             </Link>
