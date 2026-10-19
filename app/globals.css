@@ -971,6 +971,12 @@ col.track-table__cat {
   font-size: var(--text-sm);
   color: var(--color-muted);
 }
+.gallery-group:nth-child(even) {
+  margin-inline: calc(-1 * clamp(0.75rem, 2vw, 1.5rem));
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  background: var(--color-bg-warm);
+  border-radius: var(--radius-md);
+}
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

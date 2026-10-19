@@ -68,8 +68,16 @@ export function Header() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
+  // New page: unlock scroll right away and start at the top (or at the #section).
   useEffect(() => {
     setOpen(false);
+    document.body.classList.remove("nav-open");
+    const hash = window.location.hash;
+    requestAnimationFrame(() => {
+      const target = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+      if (target) target.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
+      else window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    });
   }, [pathname]);
 
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
@@ -114,7 +122,11 @@ export function Header() {
                 className={isActive(item.href) ? "is-active" : ""}
                 aria-current={isActive(item.href) ? "page" : undefined}
                 style={{ "--i": i } as React.CSSProperties}
-                onClick={() => close()}
+                onClick={() => {
+                  // release the scroll lock before navigating so the new page can scroll
+                  document.body.classList.remove("nav-open");
+                  close();
+                }}
               >
                 <span>{item.label}</span>
                 <svg className="site-nav__arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

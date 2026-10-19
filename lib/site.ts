@@ -42,7 +42,7 @@ export const siteConfig = {
   // Welimada, Badulla District (approximate coordinates for LocalBusiness schema)
   geo: { latitude: 6.9078, longitude: 80.9086 },
   mapEmbed:
-    "https://www.google.com/maps?q=Welimada%2C%20Badulla%2C%20Sri%20Lanka&output=embed",
+    "https://www.google.com/maps?q=Ambagaha%20Kubura%2C%20Silmiyapura%2C%20Welimada%2C%20Badulla%2C%20Sri%20Lanka&output=embed",
   mapLink: "https://maps.google.com/?q=Welimada,Badulla,Sri Lanka",
 } as const;
 
