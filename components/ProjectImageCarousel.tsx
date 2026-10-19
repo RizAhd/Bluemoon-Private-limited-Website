@@ -41,17 +41,24 @@ export function ProjectImageCarousel({ images, alt }: { images: string[]; alt: s
               <path d="m9 18 6-6-6-6" />
             </svg>
           </button>
-          <div className="carousel__dots">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                className={i === idx ? "is-on" : ""}
-                aria-label={`Go to photo ${i + 1}`}
-                onClick={() => setIdx(i)}
-              />
-            ))}
-          </div>
+          {count <= 5 ? (
+            <div className="carousel__dots">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={i === idx ? "is-on" : ""}
+                  aria-label={`Go to photo ${i + 1}`}
+                  onClick={() => setIdx(i)}
+                />
+              ))}
+            </div>
+          ) : (
+            // long sets show a quiet counter instead of a row of dots
+            <span className="carousel__count" aria-live="polite">
+              {idx + 1} / {count}
+            </span>
+          )}
         </>
       )}
     </div>

@@ -1,8 +1,15 @@
 import { SectionHeading } from "@/components/SectionHeading";
-import { ProjectsExplorer } from "@/components/ProjectsExplorer";
+import { ProjectCard } from "@/components/ProjectCard";
+import { projects } from "@/lib/projects";
 import { CtaBand } from "@/components/CtaBand";
 import { trackRecord } from "@/lib/trackRecord";
-import { formatLKRFull, totalContractValue, contractCount } from "@/lib/currency";
+import {
+  formatLKRFull,
+  formatLKRCompact,
+  totalContractValue,
+  contractCount,
+} from "@/lib/currency";
+import type { TrackRecordItem } from "@/lib/types";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
@@ -26,64 +33,95 @@ export default function ProjectsPage() {
         actions={["quote", "services"]}
       />
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
           <SectionHeading
             eyebrow="Featured Projects"
             title="Selected work with photography."
-            text="Filter by category to review relevant experience."
           />
-          <ProjectsExplorer />
+          <div className="card-grid card-grid--projects">
+            {projects.map((p, i) => (
+              <ProjectCard key={p.id} project={p} lead={i === 0} />
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section section--soft">
+      <section className="section section--dark stats-band" aria-label="Record of work in numbers">
+        <div className="container">
+          <div className="metrics metrics--two">
+            <div className="metrics__item">
+              <span className="metrics__value">{contractCount}</span>
+              <span className="metrics__label">Completed contracts</span>
+            </div>
+            <div className="metrics__item">
+              <span className="metrics__value">{formatLKRCompact(totalContractValue)}</span>
+              <span className="metrics__label">Total contract value</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="container">
           <SectionHeading
             eyebrow="Record of Work"
-            title="A track record of completed contracts."
-            text="Selected contracts delivered for government departments and private clients across Uva Province."
+            title="Completed contracts, government and private."
           />
           <div className="track-table-wrap" data-reveal>
-            <table className="track-table">
-              <thead>
-                <tr>
-                  <th scope="col">Project</th>
-                  <th scope="col">Client</th>
-                  <th scope="col">Category</th>
-                  <th scope="col">Year</th>
-                  <th scope="col" style={{ textAlign: "right" }}>
-                    Value
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {trackRecord.map((row, i) => (
-                  <tr key={i}>
-                    <td>{row.project}</td>
-                    <td>{row.client}</td>
-                    <td>{row.category}</td>
-                    <td>{row.year}</td>
-                    <td className="num">{formatLKRFull(row.valueLKR)}</td>
-                  </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colSpan={4}>
-                    <strong>Total: {contractCount} completed contracts</strong>
-                  </td>
-                  <td className="num">
-                    <strong>{formatLKRFull(totalContractValue)}</strong>
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
+            <TrackTable rows={trackRecord.slice(0, 6)} />
           </div>
+          {trackRecord.length > 6 && (
+            <details className="track-more">
+              <summary>Show all {trackRecord.length} contracts</summary>
+              <div className="track-table-wrap">
+                <TrackTable rows={trackRecord.slice(6)} hideHead />
+              </div>
+            </details>
+          )}
         </div>
       </section>
 
       <CtaBand />
     </>
+  );
+}
+
+/** Contract table; stacks into one item per contract on phones. */
+function TrackTable({ rows, hideHead = false }: { rows: TrackRecordItem[]; hideHead?: boolean }) {
+  return (
+    <table className="track-table">
+      <colgroup>
+        <col className="track-table__project" />
+        <col className="track-table__client" />
+        <col className="track-table__cat" />
+        <col className="track-table__year" />
+        <col className="track-table__value" />
+      </colgroup>
+      <thead className={hideHead ? "sr-only" : undefined}>
+        <tr>
+          <th scope="col">Project</th>
+          <th scope="col">Client</th>
+          <th scope="col" className="track-table__cat">
+            Category
+          </th>
+          <th scope="col">Year</th>
+          <th scope="col" className="num">
+            Value
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, i) => (
+          <tr key={i}>
+            <td className="track-table__name">{row.project}</td>
+            <td className="track-table__meta">{row.client}</td>
+            <td className="track-table__cat">{row.category}</td>
+            <td className="track-table__meta">{row.year}</td>
+            <td className="num">{formatLKRFull(row.valueLKR)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
