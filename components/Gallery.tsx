@@ -137,7 +137,7 @@ export function Gallery() {
                     />
                     {more > 0 && (
                       <span className="gallery-card__more" aria-hidden="true">
-                        +{more} photos
+                        +{more} {more === 1 ? "photo" : "photos"}
                       </span>
                     )}
                   </button>

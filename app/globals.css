@@ -811,7 +811,10 @@ col.track-table__cat {
   width: 7%;
 }
 .track-table__value {
-  width: 13%;
+  width: 15%;
+}
+.track-table td.num {
+  white-space: nowrap;
 }
 .track-table__name {
   color: var(--color-navy);
@@ -890,7 +893,7 @@ col.track-table__cat {
     width: 31%;
   }
   .track-table__value {
-    width: 16%;
+    width: 21%;
   }
 }
 /* phones: each contract becomes a stacked item */
@@ -1208,6 +1211,10 @@ col.track-table__cat {
   grid-template-columns: 1.15fr 0.85fr;
   gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: stretch;
+}
+.contact-layout > *,
+.contact-side > * {
+  min-width: 0;
 }
 .contact-side {
   display: grid;
@@ -1624,7 +1631,6 @@ col.track-table__cat {
 /* ---------- metrics band (refined stats) ---------- */
 .metrics.metrics--two {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 44rem;
 }
 .stats-band {
   padding-block: clamp(2.5rem, 4vw, 3.5rem);
@@ -1829,7 +1835,7 @@ col.track-table__cat {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(0deg, rgba(6, 18, 46, 0.9) 0%, rgba(6, 18, 46, 0.55) 38%, rgba(6, 18, 46, 0) 70%);
+  background: linear-gradient(0deg, rgba(6, 18, 46, 0.92) 0%, rgba(6, 18, 46, 0.72) 45%, rgba(6, 18, 46, 0.2) 80%, rgba(6, 18, 46, 0) 100%);
 }
 .bento__tile:hover .bento__img {
   transform: scale(1.04);

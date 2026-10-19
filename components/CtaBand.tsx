@@ -2,7 +2,7 @@ import Link from "next/link";
 
 /** Full-width navy closing band; sits directly on the footer. */
 export function CtaBand({
-  title = "Planning a build, renovation, or public-works project?",
+  title = "Planning a build, renovation, or public‑works project?",
   text = "Tell us what you need and we will reply with a clear next step and a grounded quotation.",
 }: {
   title?: string;
