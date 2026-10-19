@@ -3,9 +3,9 @@ import { ServicesFeature } from "@/components/ServicesFeature";
 import { CtaBand } from "@/components/CtaBand";
 import { services } from "@/lib/services";
 import { sectors } from "@/lib/sectors";
-import { asset } from "@/lib/asset";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata = pageMetadata({
   title: "Services | Bluemoon Engineering (Pvt) Ltd, Welimada",
@@ -18,31 +18,13 @@ export default function ServicesPage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd("Services", "/services")} />
-      <section className="page-hero page-hero--media">
-        <div className="container page-hero__grid">
-          <div>
-            <p className="eyebrow" data-hero-item>
-              Our Services
-            </p>
-            <h1 data-hero-item>Registered construction and civil-engineering services.</h1>
-            <p data-hero-item>
-              From institutional buildings and infrastructure to renovation and finishing works, our
-              services are backed by CIDA grading and delivered with disciplined supervision.
-            </p>
-          </div>
-          <div className="page-hero__panel surface-card" data-hero-item>
-            <p style={{ marginBottom: 0 }}>
-              Each service can be delivered on its own or as part of a full build, depending on the
-              scope and site.
-            </p>
-          </div>
-        </div>
-        <div
-          className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/hero/site-rebar-crew.jpg")})` }}
-          aria-hidden="true"
-        />
-      </section>
+      <PageHero
+        eyebrow="Our Services"
+        title="Registered construction and civil-engineering services."
+        text="Institutional buildings, infrastructure, renovation and finishing works, backed by CIDA grading and disciplined site supervision."
+        image="/images/hero/site-rebar-crew.jpg"
+        actions={["quote", "projects"]}
+      />
 
       <section className="section">
         <div className="container">

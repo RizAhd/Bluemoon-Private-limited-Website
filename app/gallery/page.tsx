@@ -1,8 +1,8 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { Gallery } from "@/components/Gallery";
-import { asset } from "@/lib/asset";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata = pageMetadata({
   title: "Gallery | Bluemoon Engineering (Pvt) Ltd",
@@ -15,28 +15,13 @@ export default function GalleryPage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd("Gallery", "/gallery")} />
-      <section className="page-hero page-hero--media">
-        <div className="container page-hero__grid">
-          <div>
-            <p className="eyebrow" data-hero-item>
-              Project Gallery
-            </p>
-            <h1 data-hero-item>A closer look at our work on site.</h1>
-            <p data-hero-item>
-              Photographs from completed and in-progress projects: building work, finishing, and
-              renovation across Welimada, Badulla, and Bandarawela.
-            </p>
-          </div>
-          <div className="page-hero__panel surface-card" data-hero-item>
-            <p style={{ marginBottom: 0 }}>Select any image to view it larger.</p>
-          </div>
-        </div>
-        <div
-          className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/hero/page-gallery-column-crew.jpg")})` }}
-          aria-hidden="true"
-        />
-      </section>
+      <PageHero
+        eyebrow="Project Gallery"
+        title="A closer look at our work on site."
+        text="Photographs from our building, finishing and renovation projects across Welimada, Badulla and Bandarawela."
+        image="/images/hero/page-gallery-column-crew.jpg"
+        actions={["quote", "projects"]}
+      />
 
       <section className="section">
         <div className="container">

@@ -3,9 +3,9 @@ import { ProjectsExplorer } from "@/components/ProjectsExplorer";
 import { CtaBand } from "@/components/CtaBand";
 import { trackRecord } from "@/lib/trackRecord";
 import { formatLKRFull, totalContractValue, contractCount } from "@/lib/currency";
-import { asset } from "@/lib/asset";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata = pageMetadata({
   title: "Projects | Bluemoon Engineering (Pvt) Ltd",
@@ -18,31 +18,13 @@ export default function ProjectsPage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd("Projects", "/projects")} />
-      <section className="page-hero page-hero--media">
-        <div className="container page-hero__grid">
-          <div>
-            <p className="eyebrow" data-hero-item>
-              Project Portfolio
-            </p>
-            <h1 data-hero-item>Real projects, real clients, real delivery.</h1>
-            <p data-hero-item>
-              A record of completed work across schools, public buildings, commercial projects, and
-              renovations in Welimada, Badulla, Bandarawela, and beyond.
-            </p>
-          </div>
-          <div className="page-hero__panel surface-card" data-hero-item>
-            <p style={{ marginBottom: 0 }}>
-              Government projects are named by department; private projects are shown by type, value,
-              and location.
-            </p>
-          </div>
-        </div>
-        <div
-          className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/hero/page-projects-cranes-dusk.jpg")})` }}
-          aria-hidden="true"
-        />
-      </section>
+      <PageHero
+        eyebrow="Project Portfolio"
+        title="Real projects, real clients, real delivery."
+        text="Completed work across schools, public buildings, commercial projects and renovations in Welimada, Badulla, Bandarawela and beyond."
+        image="/images/hero/page-projects-cranes-dusk.jpg"
+        actions={["quote", "services"]}
+      />
 
       <section className="section">
         <div className="container">

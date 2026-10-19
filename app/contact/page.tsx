@@ -1,9 +1,9 @@
 import { ContactForm } from "@/components/ContactForm";
 import { Icon } from "@/components/Icon";
 import { siteConfig, contactChannels } from "@/lib/site";
-import { asset } from "@/lib/asset";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata = pageMetadata({
   title: "Contact | Bluemoon Engineering (Pvt) Ltd, Welimada",
@@ -16,30 +16,13 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd("Contact", "/contact")} />
-      <section className="page-hero page-hero--media">
-        <div className="container page-hero__grid">
-          <div>
-            <p className="eyebrow" data-hero-item>
-              Contact Us
-            </p>
-            <h1 data-hero-item>Start the conversation with a registered contractor.</h1>
-            <p data-hero-item>
-              Reach out from Welimada, Badulla, Bandarawela, or anywhere in Uva Province for
-              consultations, site visits, and project discussions.
-            </p>
-          </div>
-          <div className="page-hero__panel surface-card" data-hero-item>
-            <p style={{ marginBottom: 0 }}>
-              Office: {siteConfig.addressInline}. {siteConfig.hours}.
-            </p>
-          </div>
-        </div>
-        <div
-          className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/hero/page-contact-plans-review.jpg")})` }}
-          aria-hidden="true"
-        />
-      </section>
+      <PageHero
+        eyebrow="Contact Us"
+        title="Start the conversation with a registered contractor."
+        text="Consultations, site visits and project discussions anywhere in Welimada, Badulla, Bandarawela and Uva Province."
+        image="/images/hero/page-contact-plans-review.jpg"
+        actions={["call", "whatsapp"]}
+      />
 
       <section className="section">
         <div className="container">

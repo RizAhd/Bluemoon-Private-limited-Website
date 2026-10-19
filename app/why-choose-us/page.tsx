@@ -3,10 +3,9 @@ import { CtaBand } from "@/components/CtaBand";
 import { Icon } from "@/components/Icon";
 import { reasons } from "@/lib/reasons";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
-import { credentials, cidaGrades } from "@/lib/credentials";
-import { asset } from "@/lib/asset";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata = pageMetadata({
   title: "Why Choose Us | Bluemoon Engineering (Pvt) Ltd",
@@ -19,31 +18,13 @@ export default function WhyChooseUsPage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd("Why Choose Us", "/why-choose-us")} />
-      <section className="page-hero page-hero--media">
-        <div className="container page-hero__grid">
-          <div>
-            <p className="eyebrow" data-hero-item>
-              Why Choose Us
-            </p>
-            <h1 data-hero-item>Confidence comes from registration, method, and delivery.</h1>
-            <p data-hero-item>
-              Bluemoon Engineering gives clients a construction partner backed by CIDA grading,
-              transparent process, and a real record of completed public and private work.
-            </p>
-          </div>
-          <div className="page-hero__panel surface-card" data-hero-item>
-            <p style={{ marginBottom: 0 }}>
-              CIDA Reg. {credentials.cidaReg}, graded across {cidaGrades.length} construction
-              fields.
-            </p>
-          </div>
-        </div>
-        <div
-          className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/hero/site-rebar-inspection.jpg")})` }}
-          aria-hidden="true"
-        />
-      </section>
+      <PageHero
+        eyebrow="Why Choose Us"
+        title="Confidence comes from registration, method, and delivery."
+        text="A construction partner backed by CIDA grading, a transparent process and a real record of completed public and private work."
+        image="/images/hero/site-rebar-inspection.jpg"
+        actions={["quote", "projects"]}
+      />
 
       <section className="section">
         <div className="container">

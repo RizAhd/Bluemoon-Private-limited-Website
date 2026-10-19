@@ -6,6 +6,7 @@ import { values } from "@/lib/values";
 import { credentials, cidaGrades } from "@/lib/credentials";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { asset } from "@/lib/asset";
 
 export const metadata = pageMetadata({
@@ -27,32 +28,13 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd("About", "/about")} />
-      <section className="page-hero page-hero--media">
-        <div className="container page-hero__grid">
-          <div>
-            <p className="eyebrow" data-hero-item>
-              About Bluemoon Engineering
-            </p>
-            <h1 data-hero-item>A registered contractor built on capability, method, and trust.</h1>
-            <p data-hero-item>
-              Established in {siteConfig.established} and based in Welimada, Badulla, we deliver
-              construction and civil-engineering projects for government departments and private
-              clients across Uva Province and Sri Lanka.
-            </p>
-          </div>
-          <div className="page-hero__panel surface-card" data-hero-item>
-            <p style={{ marginBottom: 0 }}>
-              A CIDA-registered team (Reg. {credentials.cidaReg}) combining building and
-              infrastructure capability with disciplined delivery.
-            </p>
-          </div>
-        </div>
-        <div
-          className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/hero/page-about-drafting.jpg")})` }}
-          aria-hidden="true"
-        />
-      </section>
+      <PageHero
+        eyebrow="About Bluemoon Engineering"
+        title="A registered contractor built on capability, method, and trust."
+        text={`Established in ${siteConfig.established} in Welimada, Badulla, delivering building and civil-engineering work for government and private clients across Uva Province.`}
+        image="/images/hero/page-about-drafting.jpg"
+        actions={["quote", "projects"]}
+      />
 
       <section className="section">
         <div className="container split-layout">

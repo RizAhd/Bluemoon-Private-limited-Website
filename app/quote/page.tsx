@@ -1,7 +1,7 @@
 import { QuoteForm } from "@/components/QuoteForm";
-import { asset } from "@/lib/asset";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata = pageMetadata({
   title: "Request a Quote | Bluemoon Engineering (Pvt) Ltd",
@@ -14,31 +14,13 @@ export default function QuotePage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd("Request a Quote", "/quote")} />
-      <section className="page-hero page-hero--media">
-        <div className="container page-hero__grid">
-          <div>
-            <p className="eyebrow" data-hero-item>
-              Request a Quote
-            </p>
-            <h1 data-hero-item>Share your project brief and get a focused response.</h1>
-            <p data-hero-item>
-              Tell us the project type, location, budget, and timeline so we can guide you toward a
-              practical quotation from our Welimada base.
-            </p>
-          </div>
-          <div className="page-hero__panel surface-card" data-hero-item>
-            <p style={{ marginBottom: 0 }}>
-              Every brief is reviewed with site context and scope in mind before we recommend the
-              right next step.
-            </p>
-          </div>
-        </div>
-        <div
-          className="page-hero__media"
-          style={{ backgroundImage: `url(${asset("/images/hero/hero-concrete-frame.jpg")})` }}
-          aria-hidden="true"
-        />
-      </section>
+      <PageHero
+        eyebrow="Request a Quote"
+        title="Share your project brief and get a focused response."
+        text="Tell us the project type, location, budget and timeline, and we will guide you toward a practical quotation."
+        image="/images/hero/hero-concrete-frame.jpg"
+        actions={["call", "whatsapp"]}
+      />
 
       <section className="section section--soft">
         <div className="container contact-layout">

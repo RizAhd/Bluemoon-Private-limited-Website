@@ -868,42 +868,38 @@ p {
 .page-hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #ffffff, var(--color-bg-warm));
-  padding-top: clamp(3.25rem, 5vw, 5rem);
-  padding-bottom: clamp(2.75rem, 5vw, 4.5rem);
+  background: #fff;
+  padding-block: clamp(3rem, 5vw, 5.5rem);
+  border-bottom: 1px solid var(--color-line);
 }
-.page-hero::after {
-  content: "";
-  position: absolute;
-  top: -30%;
-  right: -8%;
-  width: 42%;
-  height: 120%;
-  z-index: 0;
-  background: radial-gradient(circle at center, rgba(29, 78, 216, 0.13), transparent 60%);
-}
-.page-hero__grid {
+.page-hero__content {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: end;
+  max-width: min(44rem, 58%);
 }
 .page-hero h1 {
+  font-size: clamp(2.2rem, 3vw + 0.9rem, 3.6rem);
   max-width: 22ch;
 }
-.page-hero p {
+.page-hero__text {
   color: var(--color-muted);
-  max-width: 52ch;
+  max-width: 50ch;
+  margin-bottom: 0;
 }
-.page-hero__panel {
-  background: var(--color-white);
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.5rem, 2.5vw, 2rem);
 }
-/* photo panel: same diagonal reveal as the home hero */
-.page-hero--media::after {
-  content: none;
+.btn__icon {
+  width: 1.1rem;
+  height: 1.1rem;
 }
+.btn:hover .btn__icon {
+  transform: none;
+}
+/* photo panel: diagonal reveal, same as the home hero */
 .page-hero__media {
   position: absolute;
   inset-block: 0;
@@ -922,25 +918,41 @@ p {
   inset: 0;
   background: linear-gradient(200deg, transparent 45%, rgba(11, 31, 77, 0.45));
 }
-.page-hero--media .page-hero__panel {
-  box-shadow: var(--shadow-lift);
-}
 @keyframes pageHeroReveal {
   from {
     clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
   }
 }
 @media (max-width: 1080px) {
-  .page-hero--media {
+  .page-hero__content {
+    max-width: 62%;
+  }
+  .page-hero__media {
+    width: 34vw;
+  }
+}
+/* phones and small tablets: copy first, short photo strip below */
+@media (max-width: 860px) {
+  .page-hero {
     padding-bottom: 0;
+  }
+  .page-hero__content {
+    max-width: none;
   }
   .page-hero__media {
     position: relative;
     width: 100%;
-    height: clamp(11rem, 42vw, 18rem);
-    margin-top: clamp(2rem, 6vw, 3rem);
-    clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 100%);
+    height: clamp(9rem, 34vw, 13rem);
+    margin-top: clamp(2rem, 6vw, 2.75rem);
+    clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
     animation: none;
+  }
+}
+@media (max-width: 440px) {
+  .page-hero__actions .btn {
+    width: auto;
+    flex: 1 1 0;
+    padding-inline: 0.9rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2513,7 +2525,6 @@ body.nav-open .wa-fab {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .hero__inner,
-  .page-hero__grid,
   .contact-layout,
   .feature-project {
     grid-template-columns: minmax(0, 1fr);
