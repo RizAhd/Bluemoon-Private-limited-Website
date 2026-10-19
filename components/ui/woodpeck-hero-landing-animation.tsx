@@ -560,7 +560,7 @@ function HeroBannerSection({
           )}
 
           {/* Navy shade: heavier on the left behind the copy, photo stays clear on the right */}
-          <div className="absolute inset-0 pointer-events-none z-[2] bg-[linear-gradient(180deg,rgba(6,18,46,0.55)_0%,rgba(6,18,46,0.62)_55%,rgba(6,18,46,0.85)_100%)] md:bg-[linear-gradient(90deg,rgba(6,18,46,0.86)_0%,rgba(6,18,46,0.66)_42%,rgba(6,18,46,0.18)_100%)]" />
+          <div className="absolute inset-0 pointer-events-none z-[2] bg-[linear-gradient(180deg,rgba(6,18,46,0.6)_0%,rgba(6,18,46,0.7)_55%,rgba(6,18,46,0.88)_100%)] md:bg-[linear-gradient(90deg,rgba(6,18,46,0.86)_0%,rgba(6,18,46,0.66)_42%,rgba(6,18,46,0.18)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none z-[2] bg-[linear-gradient(0deg,rgba(6,18,46,0.55),transparent)]" />
         </div>
 
@@ -572,7 +572,7 @@ function HeroBannerSection({
                 <div className="overflow-hidden mb-4 sm:mb-5">
                   <span
                     {...rise('0.4s')}
-                    className={`${rise('0.4s').className} flex items-center gap-3 text-[11px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] font-semibold text-[var(--color-sky)]`}
+                    className={`${rise('0.4s').className} flex items-center gap-3 text-[11px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] font-semibold text-white/85`}
                   >
                     <span aria-hidden="true" className="inline-block w-7 h-[2px] rounded bg-[var(--color-royal-bright)]" />
                     {headlineKicker}
@@ -592,7 +592,7 @@ function HeroBannerSection({
               <div className="overflow-hidden block mt-1 sm:mt-1.5">
                 <p
                   {...rise('0.72s')}
-                  className={`${rise('0.72s').className} text-[var(--color-royal-bright)]! font-semibold text-[clamp(2.4rem,6.4vw,4.6rem)] tracking-[-0.015em] leading-[1.04] m-0!`}
+                  className={`${rise('0.72s').className} text-[var(--color-sky)]! font-semibold text-[clamp(2.4rem,6.4vw,4.6rem)] tracking-[-0.015em] leading-[1.04] m-0!`}
                   style={{ ...rise('0.72s').style, fontFamily: 'var(--font-serif)' }}
                 >
                   {headlineSecond}
