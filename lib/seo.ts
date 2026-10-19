@@ -87,7 +87,7 @@ export function businessJsonLd() {
     description: siteConfig.description,
     logo: {
       "@type": "ImageObject",
-      url: absoluteUrl("/logo-icon.png"),
+      url: absoluteUrl("/icon-512.png"),
       width: 491,
       height: 493,
     },

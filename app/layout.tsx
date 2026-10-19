@@ -48,8 +48,14 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   icons: {
-    icon: [{ url: asset("/favicon.png"), type: "image/png", sizes: "256x256" }],
-    apple: [{ url: asset("/favicon.png"), sizes: "256x256" }],
+    icon: [
+      { url: asset("/favicon.ico"), sizes: "any" },
+      { url: asset("/icon-48.png"), type: "image/png", sizes: "48x48" },
+      { url: asset("/icon-96.png"), type: "image/png", sizes: "96x96" },
+      { url: asset("/icon-192.png"), type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: [{ url: asset("/favicon.ico") }],
+    apple: [{ url: asset("/apple-touch-icon.png"), sizes: "180x180", type: "image/png" }],
   },
   manifest: asset("/manifest.webmanifest"),
   formatDetection: { telephone: true, email: true, address: true },
