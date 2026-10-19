@@ -55,7 +55,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={geist.variable}>
+    // suppressHydrationWarning: the home hero intro script sets data-intro-seen
+    // on <html> before hydration (same pattern as theme scripts).
+    <html lang="en" className={geist.variable} suppressHydrationWarning>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content
