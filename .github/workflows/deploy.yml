@@ -20,10 +20,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      # Project repo → served from https://<user>.github.io/<repo>/, so every
-      # asset/route needs this prefix. If you switch to a custom domain, set this
-      # to an empty string.
-      NEXT_PUBLIC_BASE_PATH: /Bluemoon-Private-limited-Website
+      # Served from the custom domain root (bluemoonengineering.lk), so no path prefix.
+      NEXT_PUBLIC_BASE_PATH: ""
     steps:
       - name: Checkout
         uses: actions/checkout@v4
