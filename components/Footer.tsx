@@ -88,6 +88,12 @@ export function Footer() {
           <p>
             CIDA Reg. {credentials.cidaReg} · Business Reg. {credentials.businessReg}
           </p>
+          <p className="ftr__credit">
+            Developed by{" "}
+            <a href="https://zyflo.tech" target="_blank" rel="noopener">
+              zyflo.tech
+            </a>
+          </p>
         </div>
       </div>
     </footer>

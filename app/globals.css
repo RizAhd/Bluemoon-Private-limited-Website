@@ -1022,6 +1022,15 @@ body.nav-open {
 .ftr__bottom p {
   margin: 0;
 }
+.ftr__credit a {
+  color: var(--fg-2);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.ftr__credit a:hover {
+  color: var(--accent-text);
+}
 @media (min-width: 621px) {
   .ftr__cols {
     grid-template-columns: 1fr 1fr 1.2fr;
