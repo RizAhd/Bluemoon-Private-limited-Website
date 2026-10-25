@@ -4,8 +4,8 @@ import { asset } from "@/lib/asset";
 import type { Service } from "@/lib/types";
 
 /**
- * Dark service card in a slowly turning metallic frame. On hover (or focus)
- * the site photo fades in and the summary slides up under the title.
+ * Service card: site photo in a slowly turning metallic frame. The photo is
+ * always shown; on hover the card lifts, the photo zooms and the summary slides up.
  */
 export function ServiceCard({ service, className }: { service: Service; className?: string }) {
   return (
@@ -13,13 +13,25 @@ export function ServiceCard({ service, className }: { service: Service; classNam
       <span className="scard__ring" aria-hidden="true" />
       <span className="scard__in">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="scard__img" src={asset(`/images/services/${service.slug}.jpg`)} alt="" loading="lazy" decoding="async" width={720} height={900} />
+        <img
+          className="scard__img"
+          src={asset(`/images/services/${service.slug}.jpg`)}
+          srcSet={`${asset(`/images/services/${service.slug}-sm.jpg`)} 960w, ${asset(`/images/services/${service.slug}.jpg`)} 1400w`}
+          sizes="(min-width: 1081px) 34vw, (min-width: 621px) 50vw, 86vw"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
         <span className="scard__icon">
           <Icon name={service.icon} />
         </span>
         <span className="scard__body">
           <span className="scard__title">{service.title}</span>
           <span className="scard__text">{service.excerpt}</span>
+          <span className="scard__more" aria-hidden="true">
+            View service
+            <Icon name="arrowRight" />
+          </span>
         </span>
       </span>
     </Link>
