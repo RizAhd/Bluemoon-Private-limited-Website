@@ -1,4 +1,4 @@
-export interface NavItem {
+﻿export interface NavItem {
   label: string;
   href: string;
   page: string;
@@ -11,6 +11,8 @@ export interface Service {
   excerpt: string;
   highlights: string[];
   featured?: boolean;
+  /** What the service covers, shown on its own page. */
+  scope: { icon: string; title: string; text: string }[];
 }
 
 export type ClientType = "government" | "private";
@@ -19,6 +21,8 @@ export type ProjectStatus = "completed" | "ongoing";
 export interface Project {
   id: string;
   title: string;
+  /** Short name for cards and headings. */
+  shortTitle: string;
   category: string;
   sector: string;
   client: string;

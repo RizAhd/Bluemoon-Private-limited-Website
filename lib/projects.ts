@@ -7,6 +7,7 @@ export const projects: Project[] = [
   {
     id: "ganapathi-learning-centre",
     title: "Primary Learning Resources Centre, B/Ganapathi Tamil Vidyalaya",
+    shortTitle: "Ganapathi Learning Resources Centre",
     category: "Education",
     sector: "Schools & Education",
     client: "Deputy Chief Secretary (Engineering Services), Uva Provincial Council",
@@ -28,6 +29,7 @@ export const projects: Project[] = [
   {
     id: "helabogan-commercial",
     title: "Commercial Building, Helabogan, Bandarawela",
+    shortTitle: "Helabogan Commercial Building",
     category: "Commercial",
     sector: "Commercial Buildings",
     client: "Local Government, Badulla",
@@ -49,6 +51,7 @@ export const projects: Project[] = [
   {
     id: "al-murshid-renovation",
     title: "Renovation, B/Al Murshid Maha Vidyalaya",
+    shortTitle: "Al Murshid School Renovation",
     category: "Education",
     sector: "Renovations",
     client: "Uva Provincial Department of Education",
@@ -70,3 +73,5 @@ export const projects: Project[] = [
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
+
+export const getProject = (id: string) => projects.find((p) => p.id === id);
