@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Inter, Fragment_Mono } from "next/font/google";
 import "./globals.css";
-import "./home.css";
+import "./sections.css";
+import "./pages.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollAnimations } from "@/components/ScrollAnimations";
@@ -11,10 +12,19 @@ import { asset } from "@/lib/asset";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-// Geist: one variable family for headings, UI and body text.
-const geist = Geist({
+// Inter with its optical-size axis: large headings switch to the Display cut
+// automatically (font-optical-sizing), body text keeps the text cut.
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-geist",
+  axes: ["opsz"],
+  variable: "--font-inter",
+  display: "swap",
+});
+// Monospace figures for the counters.
+const fragmentMono = Fragment_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-fmono",
   display: "swap",
 });
 export const metadata: Metadata = {
@@ -56,14 +66,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1f4d",
+  themeColor: "#050b1a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     // suppressHydrationWarning: the home hero intro script sets data-intro-seen
     // on <html> before hydration (same pattern as theme scripts).
-    <html lang="en" className={geist.variable} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${fragmentMono.variable}`} suppressHydrationWarning>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content
