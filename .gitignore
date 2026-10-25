@@ -39,3 +39,6 @@ Works*/
 
 # Never publish any PDF (e.g. the CIDA / CamScanner registration document)
 *.pdf
+
+# local browser-test artefacts
+.playwright-cli/
