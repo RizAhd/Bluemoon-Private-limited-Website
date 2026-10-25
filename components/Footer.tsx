@@ -75,6 +75,31 @@ export function Footer() {
           </ul>
         </div>
       </div>
+      <div className="container footer-mark">
+        <p className="footer-mark__word" aria-hidden="true">
+          BLUEMOON<span>.</span>
+        </p>
+        <div className="footer-mark__panel">
+          <p>
+            <strong>Prefer to talk it through?</strong>
+            Call, WhatsApp or email the Welimada office.
+          </p>
+          <div className="footer-mark__actions">
+            <a href={`tel:${siteConfig.phoneHref}`} aria-label={`Call ${siteConfig.phoneDisplay}`}>
+              <Icon name="phone" />
+            </a>
+            <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <Icon name="whatsapp" />
+            </a>
+            <a href={`mailto:${siteConfig.email}`} aria-label={`Email ${siteConfig.email}`}>
+              <Icon name="mail" />
+            </a>
+            <a href={siteConfig.mapLink} target="_blank" rel="noopener noreferrer" aria-label="Open the office location in Google Maps">
+              <Icon name="map" />
+            </a>
+          </div>
+        </div>
+      </div>
       <div className="container footer-bottom">
         <p>
           &copy; {year} {siteConfig.companyName}. All rights reserved.
