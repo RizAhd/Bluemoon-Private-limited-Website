@@ -140,7 +140,7 @@ export function businessJsonLd() {
           "@type": "Service",
           name: s.title,
           description: s.excerpt,
-          url: absoluteUrl("/services"),
+          url: absoluteUrl(`/services/${s.slug}`),
         },
       })),
     },
@@ -164,12 +164,19 @@ export function websiteJsonLd() {
 
 /** Home > Page breadcrumb trail for an interior page. */
 export function breadcrumbJsonLd(name: string, path: string) {
+  return breadcrumbTrail([{ name, path }]);
+}
+
+/** Home > ... breadcrumb trail for nested pages, e.g. Services > Building Construction. */
+export function breadcrumbTrail(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-      { "@type": "ListItem", position: 2, name, item: absoluteUrl(path) },
-    ],
+    itemListElement: [{ name: "Home", path: "/" }, ...items].map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: absoluteUrl(it.path),
+    })),
   };
 }
