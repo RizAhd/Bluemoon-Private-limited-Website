@@ -18,7 +18,15 @@ export function PageHero({
     <section className="phero">
       <div className="phero__frame">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="phero__img" src={asset(image)} alt={alt} fetchPriority="high" decoding="async" />
+        <img
+          className="phero__img"
+          src={asset(image)}
+          srcSet={`${asset(image.replace(/\.jpg$/, "-sm.jpg"))} 960w, ${asset(image)} 1920w`}
+          sizes="100vw"
+          alt={alt}
+          fetchPriority="high"
+          decoding="async"
+        />
         <div className="phero__inner">
           <h1 data-hero style={{ "--d": "120ms" } as React.CSSProperties}>
             {title}
