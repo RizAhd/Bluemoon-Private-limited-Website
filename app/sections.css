@@ -334,84 +334,42 @@ html.intro-done .hhero__media img {
   background: var(--accent-text);
 }
 
-/* ---------- slider ---------- */
-.slider__track {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+/* ---------- services row: glides on its own, pauses on hover ---------- */
+.smarquee {
+  overflow: hidden;
   margin-inline: calc(-1 * var(--gutter));
-  padding: 0 var(--gutter);
-  scroll-padding-inline: var(--gutter);
+  padding-block: 0.75rem 1.25rem;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.slider__track::-webkit-scrollbar {
-  display: none;
-}
-.slider__track > .scard {
-  flex: 0 0 84%;
-  scroll-snap-align: start;
-}
-.slider__controls {
+.smarquee__track {
+  --g: 1rem;
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 2.5rem;
+  gap: var(--g);
+  width: max-content;
+  animation: smarquee 60s linear infinite;
 }
-.slider__btn {
-  display: grid;
-  place-items: center;
+.smarquee:hover .smarquee__track,
+.smarquee:focus-within .smarquee__track {
+  animation-play-state: paused;
+}
+.smarquee__item {
   flex: none;
-  width: 2.6rem;
-  height: 2.6rem;
-  border: 0;
-  border-radius: 50%;
-  background: rgb(var(--ink) / 0.08);
-  color: var(--fg);
-  cursor: pointer;
-  transition: background-color 0.25s ease, opacity 0.25s ease;
+  width: min(80vw, 21rem);
 }
-.slider__btn svg {
-  width: 1.15rem;
-  height: 1.15rem;
-}
-.slider__btn:hover:not(:disabled) {
-  background: var(--accent);
-  color: #fff;
-}
-.slider__btn:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-.slider__progress {
-  position: relative;
-  flex: 1;
-  height: 1px;
-  background: rgb(var(--ink) / 0.16);
-}
-.slider__progress span {
-  position: absolute;
-  top: -0.5px;
-  height: 2px;
-  width: calc(var(--share, 0.3) * 100%);
-  left: calc(var(--p, 0) * (100% - var(--share, 0.3) * 100%));
-  background: rgb(var(--ink) / 0.6);
-  transition: left 0.15s linear;
-}
-@media (min-width: 621px) {
-  .slider__track > .scard {
-    flex-basis: calc((100% - 1rem) / 2);
+@keyframes smarquee {
+  to {
+    transform: translateX(calc(-50% - var(--g) / 2));
   }
 }
 @media (min-width: 1081px) {
-  .slider__track {
-    gap: 1.25rem;
-    margin-inline: 0;
-    padding: 0;
-    scroll-padding-inline: 0;
+  .smarquee {
+    margin-inline: calc((100vw - 100%) / -2);
   }
-  .slider__track > .scard {
-    flex-basis: calc((100% - 2.5rem) / 3);
+  .smarquee__track {
+    --g: 1.25rem;
+  }
+  .smarquee__item {
+    width: 24rem;
   }
 }
 
@@ -963,9 +921,6 @@ html.intro-done .hhero__media img {
   opacity: 1;
   transform: none;
 }
-.process-rail {
-  display: none;
-}
 .process-list {
   display: grid;
   gap: 0.3rem;
@@ -1029,60 +984,70 @@ html.intro-done .hhero__media img {
 .process-list li.is-active .process-list__body p {
   padding-bottom: 1.4rem;
 }
+.process-list li {
+  position: relative;
+}
+.process-list__timer {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 0.6rem;
+  height: 2px;
+  border-radius: 2px;
+  background: rgb(var(--ink) / 0.1);
+  overflow: hidden;
+}
+.process-list__timer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.is-running .process-list__timer::after {
+  animation: stepTimer var(--step-ms, 5s) linear forwards;
+}
+@keyframes stepTimer {
+  to {
+    transform: scaleX(1);
+  }
+}
 @media (min-width: 861px) {
-  .process-track.is-pinned {
-    height: 300vh;
-  }
-  .process-track.is-pinned .process-sticky {
-    position: sticky;
-    top: var(--header-h);
-    display: flex;
-    align-items: center;
-    height: calc(100vh - var(--header-h));
-  }
   .process-grid2 {
-    grid-template-columns: minmax(0, 1.1fr) 2px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
     gap: clamp(1.5rem, 3.5vw, 3rem);
-    align-items: stretch;
+    align-items: center;
   }
   .process-media {
     aspect-ratio: 6 / 5;
-    max-height: calc(100vh - var(--header-h) - 10vh);
-  }
-  .process-rail {
-    display: block;
-    position: relative;
-    background: rgb(var(--ink) / 0.1);
-  }
-  .process-rail span {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc((var(--step, 0.25) - 0.25) * 100%);
-    height: 25%;
-    background: linear-gradient(180deg, transparent, var(--accent-text) 50%, transparent);
-    transition: top 0.6s var(--ease);
-  }
-  .process-list {
-    align-content: space-between;
   }
   .process-list__body p {
     padding-left: 3.75rem;
   }
 }
 
-/* ---------- featured projects: sticky stacked cards ---------- */
-.stack {
+/* ---------- featured projects: one at a time, changing on its own ---------- */
+.showcase__slides {
   display: grid;
-  gap: 1rem;
 }
 .stack-card {
+  grid-area: 1 / 1;
   display: grid;
   gap: 1rem;
   padding: 0.75rem;
   border-radius: 20px;
   background: var(--bg);
-  transform-origin: 50% 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.985);
+  transition: opacity 0.7s ease, transform 0.9s var(--ease), visibility 0s linear 0.7s;
+}
+.stack-card.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.9s var(--ease);
 }
 .stack-card__media {
   position: relative;
@@ -1094,6 +1059,14 @@ html.intro-done .hhero__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.stack-card.is-active .stack-card__media img {
+  animation: kenBurns 7s ease-out both;
+}
+@keyframes kenBurns {
+  from {
+    transform: scale(1.08);
+  }
 }
 .stack-card__body {
   display: flex;
@@ -1129,18 +1102,81 @@ html.intro-done .hhero__media img {
   font-size: 1.15rem;
   color: var(--fg);
 }
+.showcase__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.showcase__arrow {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.showcase__arrow:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.showcase__arrow svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+.showcase__dots {
+  display: flex;
+  gap: 0.5rem;
+}
+.showcase__dot {
+  position: relative;
+  width: 2.25rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.showcase__dot::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 4px;
+  background: rgb(var(--ink) / 0.18);
+}
+.showcase__dot span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 4px;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.showcase__dot.is-active span {
+  transform: scaleX(1);
+}
+.is-running .showcase__dot.is-active span {
+  animation: stepTimer var(--slide-ms, 6s) linear both;
+}
 @media (min-width: 861px) {
-  .stack {
-    gap: 8vh;
-  }
   .stack-card {
-    position: sticky;
-    top: calc(var(--header-h) + 2rem + var(--i) * 2.75rem);
-    grid-template-columns: 0.9fr 1fr;
+    grid-template-columns: 0.95fr 1fr;
     padding: 1rem;
-    min-height: 30rem;
-    transform: scale(calc(1 - var(--sink, 0) * 0.08));
-    filter: brightness(calc(1 - var(--sink, 0) * 0.45));
+    min-height: 28rem;
   }
   .stack-card__media {
     aspect-ratio: auto;
@@ -1150,30 +1186,30 @@ html.intro-done .hhero__media img {
   }
 }
 
-/* ---------- record of work marquee ---------- */
-.marquee {
+/* ---------- record of work: cards swap in place ---------- */
+.rgrid {
   display: grid;
   gap: 1rem;
-  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
 }
-.marquee__row {
-  overflow: hidden;
+.rgrid .rcard {
+  width: auto;
+  animation: rcardIn 0.75s var(--ease) both;
 }
-.marquee__track {
-  display: flex;
-  gap: 1rem;
-  width: max-content;
-  animation: marqueeMove 70s linear infinite;
+@keyframes rcardIn {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateX(-14deg) translateY(16px) scale(0.97);
+  }
 }
-.marquee__row.is-reverse .marquee__track {
-  animation-direction: reverse;
+@media (min-width: 621px) {
+  .rgrid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-.marquee__row:hover .marquee__track {
-  animation-play-state: paused;
-}
-@keyframes marqueeMove {
-  to {
-    transform: translateX(calc(-50% - 0.5rem));
+@media (min-width: 1081px) {
+  .rgrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 }
 .rcard {
@@ -1238,11 +1274,6 @@ html.intro-done .hhero__media img {
 .rcard__foot span span {
   font-size: 0.95rem;
   color: var(--fg-3);
-}
-@media (min-width: 621px) {
-  .rcard {
-    width: 25rem;
-  }
 }
 
 /* ---------- area map ---------- */
@@ -1765,13 +1796,3 @@ html {
   }
 }
 
-/* ---------- motion preferences ---------- */
-@media (prefers-reduced-motion: reduce) {
-  .marquee__row {
-    overflow-x: auto;
-  }
-  .stack-card {
-    transform: none !important;
-    filter: none !important;
-  }
-}
