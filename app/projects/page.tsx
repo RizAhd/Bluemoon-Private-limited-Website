@@ -1,18 +1,14 @@
-import { SectionHeading } from "@/components/SectionHeading";
-import { ProjectCard } from "@/components/ProjectCard";
+import type { CSSProperties } from "react";
 import { projects } from "@/lib/projects";
-import { CtaBand } from "@/components/CtaBand";
 import { trackRecord } from "@/lib/trackRecord";
-import {
-  formatLKRFull,
-  formatLKRCompact,
-  totalContractValue,
-  contractCount,
-} from "@/lib/currency";
-import type { TrackRecordItem } from "@/lib/types";
+import { headlineStats } from "@/lib/facts";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { ProjectTile } from "@/components/sections/ProjectTile";
+import { StatsRow } from "@/components/sections/Odometer";
+import { TrackTable } from "@/components/sections/TrackTable";
+import { CtaForm } from "@/components/sections/CtaForm";
 
 export const metadata = pageMetadata({
   title: "Projects | Bluemoon Engineering (Pvt) Ltd",
@@ -26,55 +22,52 @@ export default function ProjectsPage() {
     <>
       <JsonLd data={breadcrumbJsonLd("Projects", "/projects")} />
       <PageHero
-        eyebrow="Project Portfolio"
-        title="Real projects, real clients, real delivery."
-        text="Completed work across schools, public buildings, commercial projects and renovations in Welimada, Badulla, Bandarawela and beyond."
+        title="Real Projects, Real Clients, Real Delivery"
+        text="Completed schools, public buildings, commercial work and renovations across Welimada, Badulla and Bandarawela."
         image="/images/hero/page-projects-cranes-dusk.jpg"
-        actions={["quote", "services"]}
       />
 
-      <section className="section section--alt">
+      <section className="sec" aria-labelledby="h-projects">
         <div className="container">
-          <SectionHeading
-            eyebrow="Featured Projects"
-            title="Selected work with photography."
-          />
-          <div className="card-grid card-grid--projects">
+          <div className="head" data-reveal>
+            <p className="eyebrow">Projects</p>
+            <h2 id="h-projects">Completed Work We Are Proud Of</h2>
+          </div>
+          <div className="pgrid">
             {projects.map((p, i) => (
-              <ProjectCard key={p.id} project={p} lead={i === 0} />
+              <div key={p.id} className={i === 0 ? "ptile--wide" : undefined} data-reveal style={{ "--rd": `${(i % 2) * 120}ms` } as CSSProperties}>
+                <ProjectTile project={p} wide={i === 0} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section section--dark stats-band" aria-label="Record of work in numbers">
+      <section className="panel sec sec--tight" aria-label="Record of work in numbers">
         <div className="container">
-          <div className="metrics metrics--two">
-            <div className="metrics__item">
-              <span className="metrics__value">{contractCount}</span>
-              <span className="metrics__label">Completed contracts</span>
-            </div>
-            <div className="metrics__item">
-              <span className="metrics__value">{formatLKRCompact(totalContractValue)}</span>
-              <span className="metrics__label">Total contract value</span>
-            </div>
-          </div>
+          <StatsRow items={headlineStats} />
         </div>
       </section>
 
-      <section className="section">
+      <section className="sec" aria-labelledby="h-record">
         <div className="container">
-          <SectionHeading
-            eyebrow="Record of Work"
-            title="Completed contracts, government and private."
-          />
-          <div className="track-table-wrap" data-reveal>
+          <div className="head head--split" data-reveal>
+            <div>
+              <p className="eyebrow">Record of work</p>
+              <h2 id="h-record">Every Completed Contract, Government and Private</h2>
+            </div>
+            <p>Government clients are named. Private clients are shown by project type and location only, to respect their privacy.</p>
+          </div>
+          <div className="ttable-wrap" data-reveal>
             <TrackTable rows={trackRecord.slice(0, 6)} />
           </div>
           {trackRecord.length > 6 && (
-            <details className="track-more">
-              <summary>Show all {trackRecord.length} contracts</summary>
-              <div className="track-table-wrap">
+            <details className="ttable-more">
+              <summary>
+                Show all {trackRecord.length} contracts
+                <span className="faq__icon" aria-hidden="true" />
+              </summary>
+              <div className="ttable-wrap">
                 <TrackTable rows={trackRecord.slice(6)} hideHead />
               </div>
             </details>
@@ -82,46 +75,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <CtaBand />
+      <CtaForm idPrefix="projects" />
     </>
-  );
-}
-
-/** Contract table; stacks into one item per contract on phones. */
-function TrackTable({ rows, hideHead = false }: { rows: TrackRecordItem[]; hideHead?: boolean }) {
-  return (
-    <table className="track-table">
-      <colgroup>
-        <col className="track-table__project" />
-        <col className="track-table__client" />
-        <col className="track-table__cat" />
-        <col className="track-table__year" />
-        <col className="track-table__value" />
-      </colgroup>
-      <thead className={hideHead ? "sr-only" : undefined}>
-        <tr>
-          <th scope="col">Project</th>
-          <th scope="col">Client</th>
-          <th scope="col" className="track-table__cat">
-            Category
-          </th>
-          <th scope="col">Year</th>
-          <th scope="col" className="num">
-            Value
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row, i) => (
-          <tr key={i}>
-            <td className="track-table__name">{row.project}</td>
-            <td className="track-table__meta">{row.client}</td>
-            <td className="track-table__cat">{row.category}</td>
-            <td className="track-table__meta">{row.year}</td>
-            <td className="num">{formatLKRFull(row.valueLKR)}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
   );
 }

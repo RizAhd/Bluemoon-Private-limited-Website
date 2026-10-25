@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useWeb3Form, WEB3FORMS_KEY } from "@/lib/useWeb3Form";
 import { siteConfig } from "@/lib/site";
-import { Button } from "@/components/ui/button";
+import { Roll } from "@/components/ui/Btn";
 
 const projectTypes = [
   "Building Construction",
@@ -38,7 +38,7 @@ export function QuoteForm() {
   }, []);
 
   return (
-    <form className="form" onSubmit={onSubmit} noValidate>
+    <form onSubmit={onSubmit} noValidate>
       <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
       <input type="hidden" name="subject" value="New quote request | Bluemoon Engineering website" />
       <input type="hidden" name="from_name" value={`Website quote | ${siteConfig.companyName}`} />
@@ -53,7 +53,7 @@ export function QuoteForm() {
 
       <fieldset className="form-section">
         <legend>Your details</legend>
-        <div className="form-grid">
+        <div className="fgrid fgrid--2">
           <div className="field field--full">
             <label htmlFor="quote-name">
               Full Name <span className="req">*</span>
@@ -79,7 +79,7 @@ export function QuoteForm() {
       </fieldset>
       <fieldset className="form-section">
         <legend>Project</legend>
-        <div className="form-grid">
+        <div className="fgrid fgrid--2">
           <div className="field">
             <label htmlFor="quote-type">
               Project Type <span className="req">*</span>
@@ -122,7 +122,7 @@ export function QuoteForm() {
       </fieldset>
       <fieldset className="form-section">
         <legend>Describe the work</legend>
-        <div className="form-grid">
+        <div className="fgrid fgrid--2">
           <div className="field field--full">
             <label htmlFor="quote-details">
               Project Details <span className="req">*</span>
@@ -132,9 +132,9 @@ export function QuoteForm() {
           </div>
         </div>
       </fieldset>
-      <Button type="submit" variant="secondary" size="lg" disabled={submitting}>
-        {submitting ? "Sending…" : "Submit Quote Request"}
-      </Button>
+      <button type="submit" className="b b--primary b--block b--lg enquiry__submit" disabled={submitting}>
+        <Roll text={submitting ? "Sending..." : "Submit Quote Request"} />
+      </button>
       <p className={`form-feedback${feedback.tone ? ` is-${feedback.tone}` : ""}`} role="status" aria-live="polite">
         {feedback.msg}
       </p>

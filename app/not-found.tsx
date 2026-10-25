@@ -1,31 +1,20 @@
-import Link from "next/link";
+import { Btn } from "@/components/ui/Btn";
 
 export default function NotFound() {
   return (
-    <section className="section" style={{ textAlign: "center" }}>
-      <div className="container" style={{ maxWidth: "52ch" }}>
-        <p className="eyebrow" style={{ justifyContent: "center" }}>
-          Error 404
+    <section className="top-pad nf">
+      <div className="container nf__inner">
+        <p className="nf__code mono" aria-hidden="true">
+          404
         </p>
-        <h1>This page could not be found.</h1>
-        <p className="lead" style={{ marginInline: "auto" }}>
-          The page may have moved or no longer exists. Let’s get you back on track.
-        </p>
-        <div
-          style={{
-            display: "flex",
-            gap: "0.9rem",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            marginTop: "1.5rem",
-          }}
-        >
-          <Link className="btn btn--primary" href="/">
-            Back to Home
-          </Link>
-          <Link className="btn btn--ghost" href="/contact">
+        <p className="eyebrow">Page not found</p>
+        <h1>This Page Could Not Be Found</h1>
+        <p>The page may have moved or no longer exists. Let’s get you back on track.</p>
+        <div className="nf__btns">
+          <Btn href="/">Back to Home</Btn>
+          <Btn href="/contact" variant="dark">
             Contact Us
-          </Link>
+          </Btn>
         </div>
       </div>
     </section>

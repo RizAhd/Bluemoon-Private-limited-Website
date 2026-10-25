@@ -1,9 +1,13 @@
-import { ContactForm } from "@/components/ContactForm";
-import { Icon } from "@/components/Icon";
-import { siteConfig, contactChannels } from "@/lib/site";
+import { asset } from "@/lib/asset";
+import { siteConfig } from "@/lib/site";
+import { contactFaqs } from "@/lib/faqs";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { Icon } from "@/components/Icon";
+import { ContactForm } from "@/components/ContactForm";
+import { AreaMap } from "@/components/sections/AreaMap";
+import { Faq } from "@/components/sections/Faq";
 
 export const metadata = pageMetadata({
   title: "Contact | Bluemoon Engineering (Pvt) Ltd, Welimada",
@@ -12,56 +16,66 @@ export const metadata = pageMetadata({
   path: "/contact",
 });
 
+const channels = [
+  { icon: "phone", label: "Call us", value: siteConfig.phoneDisplay, href: `tel:${siteConfig.phoneHref}` },
+  { icon: "whatsapp", label: "WhatsApp", value: "Message the office", href: siteConfig.whatsapp, external: true },
+  { icon: "mail", label: "Email us", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
+  { icon: "map", label: "Visit us", value: siteConfig.addressInline, href: siteConfig.mapLink, external: true },
+];
+
 export default function ContactPage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd("Contact", "/contact")} />
       <PageHero
-        eyebrow="Contact Us"
-        title="Start the conversation with a registered contractor."
-        text="Consultations, site visits and project discussions anywhere in Welimada, Badulla, Bandarawela and Uva Province."
+        title="Let’s Talk About Your Next Build"
+        text="Consultations, site visits and quotes anywhere in Welimada, Badulla, Bandarawela and Uva Province."
         image="/images/hero/page-contact-plans-review.jpg"
-        actions={["call", "whatsapp"]}
       />
 
-      <section className="section section--alt">
-        <div className="container contact-layout">
-          <div className="surface-card form-card" data-reveal>
-            <p className="eyebrow">Send an Enquiry</p>
-            <h2 className="form-card__title">Tell us how we can help.</h2>
-            <ContactForm />
-          </div>
-          <div className="contact-side">
-            <div className="surface-card contact-list-card" data-reveal>
-              <ul className="contact-list">
-                {contactChannels.map((c) => (
-                  <li key={c.title}>
-                    <span className="contact-list__icon">
-                      <Icon name={c.icon} />
-                    </span>
-                    <span className="contact-list__text">
-                      <span className="contact-list__label">{c.title}</span>
-                      <a
-                        href={c.link}
-                        {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      >
-                        {c.title === "Visit us" ? siteConfig.addressInline : c.description}
-                      </a>
-                    </span>
-                  </li>
-                ))}
-                <li>
-                  <span className="contact-list__icon">
-                    <Icon name="check" />
+      <section className="sec" aria-labelledby="h-contact">
+        <div className="container contact">
+          <div className="contact__photo" data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={asset("/images/home/cta-tower.jpg")} alt="" loading="lazy" decoding="async" />
+            <ul className="contact__list">
+              {channels.map((c) => (
+                <li key={c.label}>
+                  <span className="contact__icon">
+                    <Icon name={c.icon} />
                   </span>
-                  <span className="contact-list__text">
-                    <span className="contact-list__label">Office hours</span>
-                    <span>{siteConfig.hours}</span>
+                  <span>
+                    <span className="contact__label">{c.label}</span>
+                    <a href={c.href} {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                      {c.value}
+                    </a>
                   </span>
                 </li>
-              </ul>
+              ))}
+            </ul>
+          </div>
+          <div className="fcard" data-reveal style={{ "--rd": "120ms" } as React.CSSProperties}>
+            <h2 id="h-contact" className="fcard__title">
+              Send Us a Message
+            </h2>
+            <p className="fcard__sub">{siteConfig.hours}. We reply on the next working day at the latest.</p>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+      <section className="panel sec" aria-labelledby="h-areas">
+        <div className="container">
+          <div className="head head--center" data-reveal>
+            <p className="eyebrow">Areas we serve</p>
+            <h2 id="h-areas">Rooted in Welimada, Working Across Uva</h2>
+            <p>{siteConfig.serviceArea}</p>
+          </div>
+          <div className="locate">
+            <div className="amap-wrap" data-reveal>
+              <AreaMap />
             </div>
-            <div className="surface-card map-card" data-reveal>
+            <div className="locate__map" data-reveal style={{ "--rd": "120ms" } as React.CSSProperties}>
               <iframe
                 title={`Map of ${siteConfig.companyName}, Welimada`}
                 src={siteConfig.mapEmbed}
@@ -73,6 +87,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <Faq items={contactFaqs} title="Before You Get in Touch" />
     </>
   );
 }
