@@ -11,6 +11,7 @@ import { siteConfig } from "@/lib/site";
 import { asset } from "@/lib/asset";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { THEME_SCRIPT } from "@/components/ThemeToggle";
 
 // Inter with its optical-size axis: large headings switch to the Display cut
 // automatically (font-optical-sizing), body text keeps the text cut.
@@ -66,16 +67,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050b1a",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // suppressHydrationWarning: the home hero intro script sets data-intro-seen
-    // on <html> before hydration (same pattern as theme scripts).
+    // suppressHydrationWarning: the theme and intro scripts set data attributes
+    // on <html> before hydration.
     <html lang="en" className={`${inter.variable} ${fragmentMono.variable}`} suppressHydrationWarning>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

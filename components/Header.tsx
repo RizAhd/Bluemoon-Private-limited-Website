@@ -8,9 +8,13 @@ import { navigation } from "@/lib/navigation";
 import { services } from "@/lib/services";
 import { asset } from "@/lib/asset";
 import { Icon } from "@/components/Icon";
+import { LogoMark } from "@/components/LogoMark";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Btn, Roll } from "@/components/ui/Btn";
 
 const DESKTOP_QUERY = "(min-width: 1081px)";
+// Pages that open with a full photo hero; the header sits on the photo there.
+const PHOTO_HERO = ["/", "/about", "/services", "/projects", "/gallery", "/why-choose-us", "/contact", "/quote"];
 
 export function Header() {
   const pathname = usePathname();
@@ -70,6 +74,8 @@ export function Header() {
     });
   }, [pathname]);
 
+  const path = pathname.replace(/\/$/, "") || "/";
+  const overlay = PHOTO_HERO.includes(path) && !stuck && !open;
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
   const onNavigate = () => {
     document.body.classList.remove("nav-open");
@@ -77,7 +83,7 @@ export function Header() {
   };
 
   return (
-    <header className={`hdr${stuck ? " is-stuck" : ""}${open ? " is-open" : ""}`}>
+    <header className={`hdr${stuck ? " is-stuck" : ""}${open ? " is-open" : ""}${overlay ? " is-overlay" : ""}`}>
       <div className="hdr__top">
         <a href={`tel:${siteConfig.phoneHref}`}>
           <Icon name="phone" />
@@ -99,8 +105,7 @@ export function Header() {
 
       <div className="container hdr__row">
         <Link className="brand" href="/" aria-label={`${siteConfig.companyName} home`} onClick={onNavigate}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={asset("/logo-mark-white.png")} alt="" width={47} height={48} />
+          <LogoMark />
           <span className="brand__word">BLUEMOON</span>
         </Link>
 
@@ -149,6 +154,8 @@ export function Header() {
             )}
           </ul>
         </nav>
+
+        <ThemeToggle className="hdr__theme" />
 
         <Btn className="hdr__cta" href="/quote" size="sm">
           Request a Quote
