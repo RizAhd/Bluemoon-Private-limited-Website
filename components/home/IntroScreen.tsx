@@ -8,8 +8,8 @@ const COLS = 7;
 let mountedBefore = false;
 
 // Runs before first paint: marks the page for entrance animations and skips the intro
-// when it was already shown this session or the visitor prefers reduced motion.
-const GATE_SCRIPT = `(function(){var d=document.documentElement;d.classList.add('js-anim');try{if(sessionStorage.getItem('${SEEN_KEY}')||matchMedia('(prefers-reduced-motion: reduce)').matches){d.dataset.introSeen='1';d.classList.add('intro-done')}}catch(e){d.classList.add('intro-done')}})();`;
+// when it was already shown this session.
+const GATE_SCRIPT = `(function(){var d=document.documentElement;d.classList.add('js-anim');try{if(sessionStorage.getItem('${SEEN_KEY}')){d.dataset.introSeen='1';d.classList.add('intro-done')}}catch(e){d.classList.add('intro-done')}})();`;
 
 /** Short royal-blue loading screen (once per visit) that lifts away in steps, then the hero animates in. */
 export function IntroScreen() {

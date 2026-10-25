@@ -10,7 +10,7 @@ import { Icon } from "@/components/Icon";
 import { Btn } from "@/components/ui/Btn";
 import { FeatureAccordion } from "@/components/sections/FeatureAccordion";
 import { StickyCards } from "@/components/sections/StickyCards";
-import { RecordMarquee } from "@/components/sections/RecordMarquee";
+import { RecordGrid } from "@/components/sections/RecordGrid";
 import { CtaForm } from "@/components/sections/CtaForm";
 
 export const metadata = pageMetadata({
@@ -114,8 +114,8 @@ export default function WhyChooseUsPage() {
               {contractCount} completed contracts worth Rs {totalContractMillions}M+, from school blocks and clinics to commercial builds.
             </p>
           </div>
+          <RecordGrid />
         </div>
-        <RecordMarquee />
       </section>
 
       <CtaForm idPrefix="why" />

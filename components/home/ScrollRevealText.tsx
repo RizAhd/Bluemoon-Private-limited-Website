@@ -12,10 +12,6 @@ export function ScrollRevealText({ segments, className }: { segments: Segment[];
     const el = ref.current;
     if (!el) return;
     const words = Array.from(el.querySelectorAll<HTMLElement>("[data-w]"));
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      words.forEach((w) => w.classList.add("is-lit"));
-      return;
-    }
     let frame = 0;
     let lit = -1;
     const run = () => {

@@ -7,19 +7,10 @@ export function ScrollAnimations() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     document.documentElement.classList.add("js-reveal");
 
     const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     const counters = Array.from(document.querySelectorAll<HTMLElement>("[data-counter]"));
-
-    if (reduce) {
-      reveals.forEach((el) => el.classList.add("in"));
-      counters.forEach((el) => {
-        el.textContent = el.dataset.counter ?? el.textContent;
-      });
-      return;
-    }
 
     const io = new IntersectionObserver(
       (entries) => {

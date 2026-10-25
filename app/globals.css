@@ -498,22 +498,20 @@ button:focus-visible .roll > span {
   }
 }
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .js-reveal [data-reveal="tilt"] {
-      opacity: 1;
-      filter: none;
-      transform: none;
-      transition: none;
-      transform-origin: 50% 100%;
-      animation: tiltIn linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 32%;
-    }
-    .pz img {
-      animation: pzZoom linear both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 100%;
-    }
+  .js-reveal [data-reveal="tilt"] {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+    transform-origin: 50% 100%;
+    animation: tiltIn linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 32%;
+  }
+  .pz img {
+    animation: pzZoom linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
   }
 }
 
@@ -1345,22 +1343,11 @@ body.nav-open {
   }
 }
 
-/* ---------- motion preferences ---------- */
+/* ---------- motion preferences ----------
+   The site's motion runs for everyone (the owner wants it visible even when the
+   system asks for less motion); only smooth anchor scrolling is switched off. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    transition-delay: 0ms !important;
-  }
-  .js-reveal [data-reveal] {
-    opacity: 1;
-    transform: none;
-    filter: none;
   }
 }

@@ -16,7 +16,7 @@ export function FeatureAccordion({ items, image, alt = "" }: { items: Item[]; im
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!auto || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!auto) return;
     const el = ref.current;
     if (!el) return;
     let timer = 0;
