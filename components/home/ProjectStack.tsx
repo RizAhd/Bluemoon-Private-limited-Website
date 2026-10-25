@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Icon } from "@/components/Icon";
+import { Btn } from "@/components/ui/Btn";
 import { formatLKRCompact } from "@/lib/currency";
 import type { Project } from "@/lib/types";
 
@@ -51,32 +51,30 @@ export function ProjectStack({ projects }: { projects: Project[] }) {
           <div className="stack-card__media">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={p.cover} alt={p.alt} loading="lazy" decoding="async" />
-            <span className="stack-card__chip">{p.category}</span>
-            <span className="stack-card__count">{p.images.length} photos</span>
+            <span className="chip chip--dark">{p.category}</span>
+            <span className="chip chip--dark chip--right">{p.images.length} photos</span>
           </div>
           <div className="stack-card__body">
-            <p className="stack-card__meta">
+            <p className="meta">
               <span>
-                <Icon name="spark" /> {p.year}
+                <Icon name="calendar" />
+                {p.year}
               </span>
+              <span className="meta__dot" aria-hidden="true" />
               <span>
-                <Icon name="map" /> {p.location}
+                <Icon name="map" />
+                {p.location}
               </span>
             </p>
-            <h3>{p.title}</h3>
-            <p className="stack-card__text">{p.description}</p>
+            <div>
+              <h3>{p.shortTitle}</h3>
+              <p className="stack-card__text">{p.description}</p>
+            </div>
             <div className="stack-card__foot">
-              {p.valueLKR ? (
-                <p className="stack-card__value">
-                  {formatLKRCompact(p.valueLKR)} <span>contract value</span>
-                </p>
-              ) : null}
-              <Link className="btn btn--ghost btn--small" href={`/projects#${p.id}`}>
+              <Btn href={`/projects/${p.id}`} variant="dark" label={`Project details: ${p.shortTitle}`}>
                 Project Details
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="m9 6 6 6-6 6" />
-                </svg>
-              </Link>
+              </Btn>
+              {p.valueLKR ? <p className="stack-card__value mono">{formatLKRCompact(p.valueLKR)}</p> : null}
             </div>
           </div>
         </article>

@@ -6,26 +6,26 @@ import { asset } from "@/lib/asset";
 
 const steps = [
   {
-    icon: "chat",
-    title: "Consultation & estimate",
+    icon: "phone",
+    title: "Consultation & Estimate",
     text: "Call, WhatsApp or send a brief. We understand the scope and priorities, then prepare a grounded estimate and quotation.",
     image: "/images/home/step-estimate.jpg",
   },
   {
-    icon: "map",
-    title: "Site assessment & planning",
+    icon: "clipboard",
+    title: "Site Assessment & Planning",
     text: "A site visit checks terrain, access, slope and existing structures, then we plan phasing, materials and approvals.",
     image: "/images/home/step-survey.jpg",
   },
   {
-    icon: "building",
-    title: "Construction with supervision",
+    icon: "hardhat",
+    title: "Supervised Construction",
     text: "Our crew builds with disciplined site supervision, progress reporting and quality checks at every critical stage.",
     image: "/images/home/step-build.jpg",
   },
   {
     icon: "check",
-    title: "Inspection & handover",
+    title: "Final Inspection & Handover",
     text: "We inspect, refine the finishing and hand over a clean, complete project that answers to the contract.",
     image: "/images/home/step-handover.jpg",
   },
@@ -105,10 +105,7 @@ export function ProcessSteps() {
                   <span className="process-list__icon">
                     <Icon name={s.icon} />
                   </span>
-                  <span className="process-list__title">
-                    <span className="process-list__num">0{i + 1}</span>
-                    {s.title}
-                  </span>
+                  <span className="process-list__title">{s.title}</span>
                 </button>
                 <div className="process-list__body">
                   <p>{s.text}</p>
