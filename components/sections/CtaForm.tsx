@@ -25,7 +25,7 @@ export function CtaForm({
           <h2 id={`${idPrefix}-title`}>{title}</h2>
           <p>{text}</p>
         </div>
-        <div className="ctaf__form" data-reveal style={{ "--rd": "120ms" } as React.CSSProperties}>
+        <div className="ctaf__form" data-reveal="tilt">
           <EnquiryForm idPrefix={idPrefix} defaultService={defaultService} />
         </div>
       </div>

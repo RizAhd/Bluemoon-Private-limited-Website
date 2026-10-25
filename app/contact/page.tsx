@@ -35,7 +35,7 @@ export default function ContactPage() {
 
       <section className="sec" aria-labelledby="h-contact">
         <div className="container contact">
-          <div className="contact__photo" data-reveal>
+          <div className="contact__photo" data-reveal="tilt">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={asset("/images/home/cta-tower.jpg")} alt="" loading="lazy" decoding="async" />
             <ul className="contact__list">

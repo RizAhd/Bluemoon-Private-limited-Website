@@ -1,5 +1,3 @@
-import Link from "next/link";
-import type { CSSProperties } from "react";
 import { asset } from "@/lib/asset";
 import { IntroScreen } from "@/components/home/IntroScreen";
 import { HomeHero } from "@/components/home/HomeHero";
@@ -7,8 +5,6 @@ import { ServiceSlider } from "@/components/home/ServiceSlider";
 import { ScrollRevealText } from "@/components/home/ScrollRevealText";
 import { ProjectStack } from "@/components/home/ProjectStack";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
-import { AreaMap } from "@/components/sections/AreaMap";
-import { RecordMarquee } from "@/components/sections/RecordMarquee";
 import { Odometer } from "@/components/sections/Odometer";
 import { Faq } from "@/components/sections/Faq";
 import { CtaForm } from "@/components/sections/CtaForm";
@@ -28,14 +24,6 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
-const rd = (ms: number) => ({ "--rd": `${ms}ms` }) as CSSProperties;
-
-const fromSite = [
-  { id: "ganapathi-learning-centre", img: "/images/projects/ganapathi-learning-centre-3.jpg", tag: "Education" },
-  { id: "helabogan-commercial", img: "/images/projects/helabogan-commercial-3.jpg", tag: "Commercial" },
-  { id: "al-murshid-renovation", img: "/images/projects/al-murshid-renovation-1.jpg", tag: "Renovation" },
-].map((x) => ({ ...x, project: featuredProjects.find((p) => p.id === x.id)! }));
-
 export default function HomePage() {
   return (
     <>
@@ -53,7 +41,7 @@ export default function HomePage() {
             </h2>
             <p>From schools and public buildings to roads, drainage and renovations, we plan, build and supervise to the last detail.</p>
           </div>
-          <div data-reveal style={rd(120)}>
+          <div data-reveal="tilt">
             <ServiceSlider items={services} />
           </div>
           <div className="center-cta">
@@ -77,7 +65,7 @@ export default function HomePage() {
             />
           </div>
           <div className="about__grid">
-            <div className="gcard" data-reveal>
+            <div className="gcard" data-reveal="tilt">
               <h3>
                 Trusted Local
                 <br /> Construction Experts
@@ -87,7 +75,7 @@ export default function HomePage() {
                 <Btn href="/about">More About Us</Btn>
               </div>
             </div>
-            <div className="about__photo" data-reveal style={rd(120)}>
+            <div className="about__photo pz" data-reveal="tilt">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset("/images/home/about-scaffold-bw.jpg")} alt="Construction crew working on scaffolding" loading="lazy" decoding="async" />
             </div>
@@ -106,7 +94,7 @@ export default function HomePage() {
             <p>A registered contractor, a record you can check, and site leadership that plans for hill-country conditions.</p>
           </div>
           <div className="bento">
-            <div className="bento__a" data-reveal>
+            <div className="bento__a" data-reveal="tilt">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset("/images/home/why-scaffold-crew.jpg")} alt="" loading="lazy" decoding="async" />
               <p className="bento__title">Trusted by public departments, schools and private clients</p>
@@ -123,7 +111,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="bento__b" data-reveal style={rd(80)}>
+            <div className="bento__b" data-reveal="tilt">
               <p className="bento__num">
                 <Odometer value={String(contractCount)} suffix="+" />
               </p>
@@ -139,7 +127,7 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
-            <div className="bento__c" data-reveal style={rd(160)}>
+            <div className="bento__c" data-reveal="tilt">
               <svg className="contours" viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <path d="M-20 160C40 120 90 170 150 140S260 60 330 90 430 60 430 60" />
                 <path d="M-20 185C50 150 100 196 160 168S270 92 340 118 430 92 430 92" />
@@ -153,13 +141,13 @@ export default function HomePage() {
                 Graded by CIDA and <em>accountable</em> on every contract
               </p>
             </div>
-            <div className="bento__d" data-reveal style={rd(120)}>
+            <div className="bento__d" data-reveal="tilt">
               <p className="bento__title">Fully registered</p>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset("/images/home/why-inspectors.jpg")} alt="" loading="lazy" decoding="async" />
               <p className="bento__small">CIDA Reg. {siteConfig.cidaReg} · {siteConfig.businessReg}</p>
             </div>
-            <div className="bento__e" data-reveal style={rd(200)}>
+            <div className="bento__e" data-reveal="tilt">
               <p className="bento__num">
                 <Odometer value={String(totalContractMillions)} prefix="Rs " suffix="M+" />
               </p>
@@ -200,72 +188,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Record of work */}
-      <section className="sec" aria-labelledby="h-record">
-        <div className="container">
-          <div className="head head--center" data-reveal>
-            <p className="eyebrow">Record of work</p>
-            <h2 id="h-record">Trusted by Departments and Private Clients</h2>
-            <p>
-              {contractCount} completed contracts worth Rs {totalContractMillions}M+, from school blocks and clinics to commercial builds.
-            </p>
-          </div>
-        </div>
-        <RecordMarquee />
-      </section>
-
-      {/* Areas */}
-      <section className="panel sec" aria-labelledby="h-areas">
-        <div className="container">
-          <div className="head head--center" data-reveal>
-            <p className="eyebrow">Areas we serve</p>
-            <h2 id="h-areas">Local Areas We Proudly Serve</h2>
-            <p>Based in Welimada and serving Badulla, Bandarawela, Nuwara Eliya and projects across Uva Province and Sri Lanka.</p>
-          </div>
-          <div className="amap-wrap" data-reveal>
-            <AreaMap />
-          </div>
-          <div className="center-cta">
-            <Btn href="/contact">Contact the Office</Btn>
-          </div>
-        </div>
-      </section>
-
-      {/* From the site */}
-      <section className="sec" aria-labelledby="h-site">
-        <div className="container">
-          <div className="head head--split" data-reveal>
-            <div>
-              <p className="eyebrow">From the site</p>
-              <h2 id="h-site">A Closer Look at Our Work</h2>
-              <p>Real photographs from our school, commercial and renovation projects across Uva Province.</p>
-            </div>
-            <Btn href="/gallery">View Gallery</Btn>
-          </div>
-          <div className="gpgrid">
-            {fromSite.map(({ id, img, tag, project }, i) => (
-              <Link key={id} href={`/projects/${id}`} className="gpcard" data-reveal style={rd(i * 110)}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={asset(img)} alt="" loading="lazy" decoding="async" />
-                <span className="gpcard__info">
-                  <span className="chip">{tag}</span>
-                  <span className="gpcard__title">{project.shortTitle}</span>
-                  <span className="meta">
-                    <span>
-                      <Icon name="map" />
-                      {project.location}
-                    </span>
-                    <span className="meta__dot" aria-hidden="true" />
-                    <span>{project.year}</span>
-                  </span>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Faq items={generalFaqs} />
+      <Faq items={generalFaqs.slice(0, 4)} />
 
       <CtaForm />
     </>

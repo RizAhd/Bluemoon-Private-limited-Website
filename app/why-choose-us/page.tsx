@@ -1,7 +1,7 @@
 import { asset } from "@/lib/asset";
 import { reasons } from "@/lib/reasons";
 import { processSteps } from "@/lib/process";
-import { headlineStats } from "@/lib/facts";
+import { contractCount, totalContractMillions } from "@/lib/currency";
 import { siteConfig } from "@/lib/site";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -10,7 +10,7 @@ import { Icon } from "@/components/Icon";
 import { Btn } from "@/components/ui/Btn";
 import { FeatureAccordion } from "@/components/sections/FeatureAccordion";
 import { StickyCards } from "@/components/sections/StickyCards";
-import { StatsRow } from "@/components/sections/Odometer";
+import { RecordMarquee } from "@/components/sections/RecordMarquee";
 import { CtaForm } from "@/components/sections/CtaForm";
 
 export const metadata = pageMetadata({
@@ -48,7 +48,7 @@ export default function WhyChooseUsPage() {
             <h2 id="h-compare">Where Most Builds Go Wrong, and How We Prevent It</h2>
             <p>Clear pricing, a real plan and one accountable team for the result.</p>
           </div>
-          <div className="compare" data-reveal>
+          <div className="compare" data-reveal="tilt">
             <div className="compare__col compare__col--labels" aria-hidden="true">
               <span />
               {compare.map((r) => (
@@ -105,10 +105,17 @@ export default function WhyChooseUsPage() {
         cta={{ label: "Start With a Call", href: `tel:${siteConfig.phoneHref}` }}
       />
 
-      <section className="sec sec--tight" aria-label="Bluemoon in numbers">
+      <section className="sec" aria-labelledby="h-record">
         <div className="container">
-          <StatsRow items={headlineStats} />
+          <div className="head head--center" data-reveal>
+            <p className="eyebrow">Record of work</p>
+            <h2 id="h-record">Trusted by Departments and Private Clients</h2>
+            <p>
+              {contractCount} completed contracts worth Rs {totalContractMillions}M+, from school blocks and clinics to commercial builds.
+            </p>
+          </div>
         </div>
+        <RecordMarquee />
       </section>
 
       <CtaForm idPrefix="why" />

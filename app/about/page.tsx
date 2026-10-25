@@ -59,7 +59,7 @@ export default function AboutPage() {
           </div>
           <div className="trio">
             {trio.map((t, i) => (
-              <div className="trio__item" key={t.src} data-reveal style={rd(i * 120)}>
+              <div className="trio__item pz" key={t.src} data-reveal="tilt" style={rd(i * 120)}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={asset(t.src)} alt={t.alt} loading="lazy" decoding="async" />
               </div>
@@ -81,7 +81,7 @@ export default function AboutPage() {
               </p>
               <Btn href="/services">Explore Our Services</Btn>
             </div>
-            <div className="drives__photo" data-reveal style={rd(120)}>
+            <div className="drives__photo pz" data-reveal="tilt">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset("/images/hero/page-contact-plans-review.jpg")} alt="Engineers reviewing construction drawings" loading="lazy" decoding="async" />
             </div>
@@ -90,14 +90,14 @@ export default function AboutPage() {
             <StatsRow items={headlineStats} />
           </div>
           <div className="mv">
-            <article className="mv__card" data-reveal>
+            <article className="mv__card" data-reveal="tilt">
               <span className="mv__icon">
                 <Icon name="structure" />
               </span>
               <h3>Our Mission</h3>
               <p>To remove uncertainty from construction through transparent process, sound method and finish discipline, for public and private clients in Uva Province.</p>
             </article>
-            <article className="mv__card" data-reveal style={rd(120)}>
+            <article className="mv__card" data-reveal="tilt">
               <span className="mv__icon">
                 <Icon name="spark" />
               </span>
@@ -117,7 +117,7 @@ export default function AboutPage() {
           </div>
           <div className="team">
             {credentialsCards.map((c, i) => (
-              <article className="team__card" key={c.name} data-reveal style={rd(i * 110)}>
+              <article className="team__card" key={c.name} data-reveal="tilt" style={rd(i * 110)}>
                 <div className="team__visual" aria-hidden="true">
                   <span className={i === 0 ? "team__mono" : "team__code mono"}>{c.visual}</span>
                 </div>
@@ -148,7 +148,7 @@ export default function AboutPage() {
           </div>
           <div className="grades">
             {cidaGrades.map((g, i) => (
-              <div className="grade" key={g.field} data-reveal style={rd(i * 80)}>
+              <div className="grade" key={g.field} data-reveal="tilt" style={rd(i * 80)}>
                 <span className="grade__code mono">{g.grade}</span>
                 <span className="grade__field">{g.field}</span>
               </div>

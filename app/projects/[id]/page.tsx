@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               <span className="pill">{p.status === "completed" ? "Completed" : "Ongoing"}</span>
             </div>
           </div>
-          <div className="ptop__media" data-hero style={{ "--d": "300ms" } as CSSProperties}>
+          <div className="ptop__media pz" data-hero style={{ "--d": "300ms" } as CSSProperties}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={p.cover} alt={p.alt} fetchPriority="high" decoding="async" />
           </div>
@@ -129,7 +129,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </div>
           <div className="pgrid">
             {others.map((o, i) => (
-              <div key={o.id} data-reveal style={{ "--rd": `${i * 120}ms` } as CSSProperties}>
+              <div key={o.id} data-reveal="tilt" style={{ "--rd": `${i * 120}ms` } as CSSProperties}>
                 <ProjectTile project={o} />
               </div>
             ))}

@@ -7,7 +7,7 @@ import type { Project } from "@/lib/types";
 export function ProjectTile({ project: p, wide = false }: { project: Project; wide?: boolean }) {
   return (
     <article className={`ptile${wide ? " ptile--wide" : ""}`}>
-      <Link href={`/projects/${p.id}`} className="ptile__media" tabIndex={-1} aria-hidden="true">
+      <Link href={`/projects/${p.id}`} className="ptile__media pz" tabIndex={-1} aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={p.cover} alt="" loading="lazy" decoding="async" />
         <span className="chip chip--dark">{p.category}</span>

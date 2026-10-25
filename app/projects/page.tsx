@@ -35,7 +35,7 @@ export default function ProjectsPage() {
           </div>
           <div className="pgrid">
             {projects.map((p, i) => (
-              <div key={p.id} className={i === 0 ? "ptile--wide" : undefined} data-reveal style={{ "--rd": `${(i % 2) * 120}ms` } as CSSProperties}>
+              <div key={p.id} className={i === 0 ? "ptile--wide" : undefined} data-reveal="tilt" style={{ "--rd": `${(i % 2) * 120}ms` } as CSSProperties}>
                 <ProjectTile project={p} wide={i === 0} />
               </div>
             ))}

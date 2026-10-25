@@ -48,7 +48,7 @@ export function ProjectStack({ projects }: { projects: Project[] }) {
     <div className="stack" ref={listRef}>
       {projects.map((p, i) => (
         <article className="stack-card" key={p.id} style={{ "--i": i } as React.CSSProperties}>
-          <div className="stack-card__media">
+          <div className="stack-card__media pz">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={p.cover} alt={p.alt} loading="lazy" decoding="async" />
             <span className="chip chip--dark">{p.category}</span>

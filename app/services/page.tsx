@@ -2,14 +2,11 @@ import type { CSSProperties } from "react";
 import { services } from "@/lib/services";
 import { sectors } from "@/lib/sectors";
 import { serviceFaqs } from "@/lib/faqs";
-import { siteConfig } from "@/lib/site";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Icon } from "@/components/Icon";
-import { Btn } from "@/components/ui/Btn";
 import { ServiceCard } from "@/components/sections/ServiceCard";
-import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { Faq } from "@/components/sections/Faq";
 import { CtaForm } from "@/components/sections/CtaForm";
 
@@ -43,7 +40,7 @@ export default function ServicesPage() {
           </div>
           <div className="sgrid">
             {services.map((s, i) => (
-              <div key={s.slug} data-reveal style={rd((i % 2) * 120)}>
+              <div key={s.slug} data-reveal="tilt" style={rd((i % 2) * 120)}>
                 <ServiceCard service={s} />
               </div>
             ))}
@@ -59,27 +56,12 @@ export default function ServicesPage() {
           </div>
           <ul className="sectors">
             {sectors.map((s, i) => (
-              <li key={s.label} data-reveal style={rd(i * 90)}>
+              <li key={s.label} data-reveal="tilt" style={rd(i * 90)}>
                 <Icon name={s.icon} />
                 {s.label}
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      <section className="sec sec--process" aria-labelledby="h-process">
-        <div className="container">
-          <div className="head head--center" data-reveal>
-            <p className="eyebrow">Our process</p>
-            <h2 id="h-process">A Simple, Proven Construction Process</h2>
-          </div>
-          <ProcessSteps />
-          <div className="center-cta">
-            <Btn href={`tel:${siteConfig.phoneHref}`} icon="phone">
-              {siteConfig.phoneDisplay}
-            </Btn>
-          </div>
         </div>
       </section>
 

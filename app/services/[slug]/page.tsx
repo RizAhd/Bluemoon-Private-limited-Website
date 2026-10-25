@@ -3,11 +3,9 @@ import { notFound } from "next/navigation";
 import { asset } from "@/lib/asset";
 import { services, getService } from "@/lib/services";
 import { projects } from "@/lib/projects";
-import { headlineStats } from "@/lib/facts";
 import { breadcrumbTrail, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Btn } from "@/components/ui/Btn";
-import { StatsRow } from "@/components/sections/Odometer";
 import { StickyCards } from "@/components/sections/StickyCards";
 import { ProjectTile } from "@/components/sections/ProjectTile";
 import { ServiceCard } from "@/components/sections/ServiceCard";
@@ -80,16 +78,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {s.excerpt}
             </p>
           </div>
-          <div className="dtop__media" data-hero style={{ "--d": "320ms" } as CSSProperties}>
+          <div className="dtop__media pz" data-hero style={{ "--d": "320ms" } as CSSProperties}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={asset(`/images/services/${s.slug}.jpg`)} alt="" fetchPriority="high" decoding="async" />
           </div>
-        </div>
-      </section>
-
-      <section className="sec sec--tight" aria-label="Bluemoon in numbers">
-        <div className="container">
-          <StatsRow items={headlineStats} />
         </div>
       </section>
 
@@ -112,7 +104,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
           <div className="pgrid">
             {related.map((p, i) => (
-              <div key={p.id} data-reveal style={{ "--rd": `${i * 120}ms` } as CSSProperties}>
+              <div key={p.id} data-reveal="tilt" style={{ "--rd": `${i * 120}ms` } as CSSProperties}>
                 <ProjectTile project={p} />
               </div>
             ))}
@@ -133,7 +125,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
           <div className="sgrid sgrid--3">
             {others.map((o, i) => (
-              <div key={o.slug} data-reveal style={{ "--rd": `${i * 110}ms` } as CSSProperties}>
+              <div key={o.slug} data-reveal="tilt" style={{ "--rd": `${i * 110}ms` } as CSSProperties}>
                 <ServiceCard service={o} />
               </div>
             ))}

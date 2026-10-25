@@ -33,7 +33,7 @@ export function FeatureAccordion({ items, image, alt = "" }: { items: Item[]; im
 
   return (
     <div className="facc" ref={ref}>
-      <div className="facc__media" data-reveal>
+      <div className="facc__media pz" data-reveal="tilt">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={asset(image)} alt={alt} loading="lazy" decoding="async" />
       </div>
