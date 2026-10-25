@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import { asset } from "@/lib/asset";
 
 const SEEN_KEY = "bm-intro-seen";
+const COLS = 7;
 let mountedBefore = false;
 
 // Runs before first paint: marks the page for entrance animations and skips the intro
 // when it was already shown this session or the visitor prefers reduced motion.
 const GATE_SCRIPT = `(function(){var d=document.documentElement;d.classList.add('js-anim');try{if(sessionStorage.getItem('${SEEN_KEY}')||matchMedia('(prefers-reduced-motion: reduce)').matches){d.dataset.introSeen='1';d.classList.add('intro-done')}}catch(e){d.classList.add('intro-done')}})();`;
 
-/** Short navy loading screen (about 1.2s, once per visit), then the hero animates in. */
+/** Short royal-blue loading screen (once per visit) that lifts away in steps, then the hero animates in. */
 export function IntroScreen() {
   const [phase, setPhase] = useState<"show" | "leave" | "gone">("show");
 
@@ -44,7 +45,7 @@ export function IntroScreen() {
         sessionStorage.setItem(SEEN_KEY, "1");
       } catch {}
     }, 1150);
-    const gone = window.setTimeout(() => setPhase("gone"), 1900);
+    const gone = window.setTimeout(() => setPhase("gone"), 2200);
     return () => {
       window.clearTimeout(leave);
       window.clearTimeout(gone);
@@ -56,6 +57,10 @@ export function IntroScreen() {
       <script dangerouslySetInnerHTML={{ __html: GATE_SCRIPT }} />
       {phase !== "gone" && (
         <div className={`intro${phase === "leave" ? " is-leaving" : ""}`} aria-hidden="true">
+          {/* columns lift away from the centre outwards, like a stepped curtain */}
+          {Array.from({ length: COLS }, (_, i) => (
+            <span key={i} className="intro__col" style={{ "--c": Math.abs(i - (COLS - 1) / 2), "--x": i } as React.CSSProperties} />
+          ))}
           <div className="intro__brand">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="intro__mark" src={asset("/logo-mark-white.png")} alt="" width={64} height={65} />
