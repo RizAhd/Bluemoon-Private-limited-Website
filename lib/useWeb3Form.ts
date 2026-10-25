@@ -6,7 +6,7 @@ const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const phonePattern = /^[0-9+\-()\s]{7,20}$/;
 const emailPattern = /^\S+@\S+\.\S+$/;
 
-type FormType = "contact" | "quote";
+type FormType = "contact" | "quote" | "enquiry";
 
 function validate(type: FormType, p: Record<string, string>): { field: string; message: string }[] {
   const errors: { field: string; message: string }[] = [];
@@ -23,6 +23,9 @@ function validate(type: FormType, p: Record<string, string>): { field: string; m
     if ((p.message ?? "").length < 20)
       errors.push({ field: "message", message: "Please enter at least 20 characters." });
   }
+
+  if (type === "enquiry" && (p.message ?? "").length < 20)
+    errors.push({ field: "message", message: "Please add a few details (20+ characters)." });
 
   if (type === "quote") {
     if (!p.projectType)
@@ -96,7 +99,7 @@ export function useWeb3Form(type: FormType) {
         form.reset();
         setFeedback({
           msg:
-            type === "contact"
+            type !== "quote"
               ? "Thank you. Your message has been sent. We'll be in touch shortly."
               : "Thank you. Your quote request has been sent. Our team will respond soon.",
           tone: "success",
