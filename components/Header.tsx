@@ -9,7 +9,7 @@ import { services } from "@/lib/services";
 import { asset } from "@/lib/asset";
 import { Icon } from "@/components/Icon";
 import { LogoMark } from "@/components/LogoMark";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { ThemeToggle, ThemeSegmented } from "@/components/ThemeToggle";
 import { Btn, Roll } from "@/components/ui/Btn";
 
 const DESKTOP_QUERY = "(min-width: 1081px)";
@@ -21,6 +21,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [stuck, setStuck] = useState(false);
   const burgerRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const [menuTop, setMenuTop] = useState(80);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const close = useCallback((returnFocus = false) => {
@@ -39,6 +41,10 @@ export function Header() {
       window.removeEventListener("resize", onScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (open && headerRef.current) setMenuTop(Math.round(headerRef.current.getBoundingClientRect().bottom));
+  }, [open, stuck]);
 
   useEffect(() => {
     document.body.classList.toggle("nav-open", open);
@@ -83,7 +89,8 @@ export function Header() {
   };
 
   return (
-    <header className={`hdr${stuck ? " is-stuck" : ""}${open ? " is-open" : ""}${overlay ? " is-overlay" : ""}`}>
+    <>
+    <header ref={headerRef} className={`hdr${stuck ? " is-stuck" : ""}${open ? " is-open" : ""}${overlay ? " is-overlay" : ""}`}>
       <div className="hdr__top">
         <a href={`tel:${siteConfig.phoneHref}`}>
           <Icon name="phone" />
@@ -175,8 +182,11 @@ export function Header() {
           <span />
         </button>
       </div>
+    </header>
 
-      <div className="mnav" id="mnav" ref={menuRef} aria-hidden={!open}>
+      {/* Outside the header: the stuck header uses a blur effect, which would
+          otherwise trap this full-screen menu inside the header bar. */}
+      <div className={`mnav${open ? " is-open" : ""}`} id="mnav" ref={menuRef} aria-hidden={!open} style={{ "--mnav-top": `${menuTop}px` } as React.CSSProperties}>
         <ul>
           {navigation.map((item, i) => (
             <li key={item.href} style={{ "--i": i } as React.CSSProperties}>
@@ -211,7 +221,11 @@ export function Header() {
               )}
             </li>
           ))}
-          <li className="mnav__cta" style={{ "--i": navigation.length } as React.CSSProperties}>
+          <li className="mnav__theme" style={{ "--i": navigation.length } as React.CSSProperties}>
+            <span>Theme</span>
+            <ThemeSegmented tabIndex={open ? 0 : -1} />
+          </li>
+          <li className="mnav__cta" style={{ "--i": navigation.length + 1 } as React.CSSProperties}>
             <Btn href="/quote" block size="lg">
               Request a Quote
             </Btn>
@@ -221,6 +235,6 @@ export function Header() {
           </li>
         </ul>
       </div>
-    </header>
+    </>
   );
 }
